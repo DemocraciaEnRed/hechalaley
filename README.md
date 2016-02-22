@@ -1,14 +1,7 @@
 Billtracker
 ===========
 
-## Running on development
-
-```
-npm i
-npm start
-```
-
-Open `http://localhost:3000`
+An open-source bill tracking utility for Congresses.
 
 ## License
 
