@@ -1,0 +1,4 @@
+{
+  "mongoUrl": "mongodb://localhost/billtracker",
+  "port": 3000
+}

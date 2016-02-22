@@ -4,7 +4,7 @@
   "description": "An open-source bill tracking utility for Congresses",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app.js",
     "lint": "semistandard",
     "test": "npm run lint"
   },
@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "debug": "^2.2.0",
+    "democracyos-config": "^0.1.1",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
     "mongoose": "^4.4.4",
