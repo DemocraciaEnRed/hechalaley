@@ -4,6 +4,7 @@
   "description": "An open-source bill tracking utility for Congresses",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,5 +20,8 @@
     "mongoose": "^4.4.4",
     "nodegit": "^0.11.2",
     "promisify-node": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.0"
   }
 }
