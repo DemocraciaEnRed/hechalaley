@@ -6,7 +6,8 @@
   "scripts": {
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app.js",
     "lint": "semistandard",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "build": "gulp assets"
   },
   "author": "",
   "license": "GPL-3.0",
@@ -25,7 +26,12 @@
     "promisify-node": "^0.3.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "mkdirp": "^0.5.1",
     "nodemon": "^1.9.0",
-    "semistandard": "^7.0.5"
+    "semistandard": "^7.0.5",
+    "through2-concurrent": "^1.1.0",
+    "yargs": "^4.1.0"
   }
 }
