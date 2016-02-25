@@ -7,7 +7,7 @@
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app.js",
     "lint": "semistandard",
     "test": "npm run lint",
-    "build": "gulp assets"
+    "build": "gulp build"
   },
   "author": "",
   "license": "GPL-3.0",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-pleeease": "^2.0.2",
     "gulp-util": "^3.0.7",
     "mkdirp": "^0.5.1",
     "nodemon": "^1.9.0",
