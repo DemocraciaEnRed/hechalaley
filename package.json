@@ -7,8 +7,8 @@
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
     "lint": "semistandard",
     "test": "npm run lint",
-    "build": "gulp build",
-    "watch": "gulp watch"
+    "build": "rm -rf build && gulp build",
+    "watch": "npm run build && gulp watch"
   },
   "author": "",
   "license": "GPL-3.0",
@@ -38,7 +38,7 @@
     "jadeify": "^4.6.0",
     "mkdirp": "^0.5.1",
     "nodemon": "^1.9.0",
-    "run-sequence": "^1.1.5",
+    "page": "^1.6.4",
     "semistandard": "^7.0.5",
     "through2-concurrent": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
