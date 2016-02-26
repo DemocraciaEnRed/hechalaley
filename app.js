@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(express.static('build'));
 
 app.get('*', function (req, res) {
-  res.status(404).text('Not found!').end();
+  res.status(404).send('Not found!');
 });
 
 var databaseURL = config.mongoUrl;
