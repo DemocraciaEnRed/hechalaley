@@ -4,10 +4,11 @@
   "description": "An open-source bill tracking utility for Congresses",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app.js",
+    "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
     "lint": "semistandard",
     "test": "npm run lint",
-    "build": "gulp build"
+    "build": "gulp build",
+    "watch": "gulp watch"
   },
   "author": "",
   "license": "GPL-3.0",
@@ -21,20 +22,25 @@
     "democracyos-config": "^0.1.1",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
+    "lodash": "^4.5.1",
     "mongoose": "^4.4.4",
     "nodegit": "^0.11.2",
     "promisify-node": "^0.3.0"
   },
   "devDependencies": {
     "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
     "gulp": "^3.9.1",
-    "gulp-browserify": "^0.5.1",
     "gulp-pleeease": "^2.0.2",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "mkdirp": "^0.5.1",
     "nodemon": "^1.9.0",
+    "run-sequence": "^1.1.5",
     "semistandard": "^7.0.5",
     "through2-concurrent": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
     "yargs": "^4.1.0"
   }
 }
