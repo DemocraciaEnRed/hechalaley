@@ -13,6 +13,13 @@ require('./lib/bill/billRoutes')(app);
 app.use(require('./lib/site'));
 app.use(require('./lib/admin'));
 
+app.use(express.static('public'));
+app.use(express.static('build'));
+
+app.get('*', function (req, res) {
+  res.status(404).text('Not found!').end();
+});
+
 var databaseURL = config.mongoUrl;
 mongoose.connect(databaseURL, function(err, res) {
 	if (err) {
