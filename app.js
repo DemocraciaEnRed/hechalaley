@@ -22,14 +22,14 @@ app.get('*', function (req, res) {
 });
 
 var databaseURL = config.mongoUrl;
-mongoose.connect(databaseURL, function(err, res) {
-	if (err) {
-		log('ERROR: connecting to Database. ' + err);
-	} else {
-		log('Connected to database ' + databaseURL);
-		var portNumber = config.port || 3000;
-		app.listen(portNumber, function() {
-			log('BillTracker server running on http://' + os.hostname() + ':' + portNumber);
-		});
-	}
+mongoose.connect(databaseURL, function (err, res) {
+  if (err) {
+    log('ERROR: connecting to Database. ' + err);
+  } else {
+    log('Connected to database ' + databaseURL);
+    var portNumber = config.port || 3000;
+    app.listen(portNumber, function () {
+      log('BillTracker server running on http://' + os.hostname() + ':' + portNumber);
+    });
+  }
 });
