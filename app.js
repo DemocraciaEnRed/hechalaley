@@ -9,7 +9,7 @@ var app = express();
 
 app.use(bodyParser.json());
 
-require('./lib/bill/billRoutes')(app);
+require('./lib/bill')(app);
 
 app.use(require('./lib/site'));
 app.use(require('./lib/admin'));
