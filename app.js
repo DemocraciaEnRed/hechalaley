@@ -5,16 +5,20 @@ var log = require('debug')('billtracker:root');
 var mongoose = require('mongoose');
 
 var app = express();
-var router = express.Router();
 
-router.get('/', function(req, res) {
-	res.send('Hello World!');
-});
-
-app.use(router);
 app.use(bodyParser.json());
 
-routes = require('./lib/bill/billRoutes')(app);
+require('./lib/bill/billRoutes')(app);
+
+app.use(require('./lib/site'));
+app.use(require('./lib/admin'));
+
+app.use(express.static('public'));
+app.use(express.static('build'));
+
+app.get('*', function (req, res) {
+  res.status(404).send('Not found!');
+});
 
 var databaseURL = config.mongoUrl;
 mongoose.connect(databaseURL, function(err, res) {
