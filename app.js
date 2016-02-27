@@ -3,6 +3,7 @@ var config = require('config');
 var express = require('express');
 var log = require('debug')('billtracker:root');
 var mongoose = require('mongoose');
+var os = require('os');
 
 var app = express();
 
@@ -28,7 +29,7 @@ mongoose.connect(databaseURL, function(err, res) {
 		log('Connected to database ' + databaseURL);
 		var portNumber = config.port || 3000;
 		app.listen(portNumber, function() {
-			log('BillTracker server running on http://localhost:' + portNumber);
+			log('BillTracker server running on http://' + os.hostname() + ':' + portNumber);
 		});
 	}
 });
