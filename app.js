@@ -9,6 +9,11 @@ var app = express();
 
 app.use(bodyParser.json());
 
+app.use(function (req, res, next) {
+  log(req.method + ' ' + req.path);
+  next();
+});
+
 require('./lib/bill')(app);
 
 app.use(require('./lib/site'));
