@@ -17,6 +17,7 @@
     "url": "https://github.com/DemocraciaEnRed/billtracker"
   },
   "dependencies": {
+    "async": "^1.5.2",
     "body-parser": "^1.15.0",
     "debug": "^2.2.0",
     "democracyos-config": "^0.1.1",
