@@ -4,7 +4,7 @@
   "description": "An open-source bill tracking utility for Congresses",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_PATH=. DEBUG='billtracker*' node app",
+    "start": "node app",
     "serve": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
     "lint": "semistandard",
     "test": "npm run lint",
