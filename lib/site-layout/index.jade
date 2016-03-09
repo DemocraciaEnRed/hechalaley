@@ -1,14 +1,14 @@
 doctype
-html
+html(lang='es')
   head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='Seguí el estado de los proyectos de Ley.')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
     title Bill Tracker
+
     link(href='/site.css', rel='stylesheet')
   body
-    header
-      a(href='/') Home
-      | &nbsp;
-      a(href='/bills') Bills
-      | &nbsp;
-      a(href='/admin') Admin
-    main(data-content)
+    div(data-content)
     script(src='/site.js')
