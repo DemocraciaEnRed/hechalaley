@@ -2,50 +2,50 @@
   "name": "billtracker",
   "version": "1.0.0",
   "description": "An open-source bill tracking utility for Congresses",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app",
-    "serve": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
-    "lint": "semistandard",
-    "test": "npm run lint",
-    "build": "rm -rf build && gulp build",
-    "watch": "npm run build && gulp watch"
-  },
-  "author": "",
   "license": "GPL-3.0",
+  "author": "",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/DemocraciaEnRed/billtracker"
   },
+  "scripts": {
+    "build": "rm -rf build && gulp build",
+    "lint": "semistandard",
+    "serve": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
+    "start": "npm run build && node app",
+    "test": "npm run lint",
+    "watch": "npm run build && gulp watch"
+  },
   "dependencies": {
     "async": "^1.5.2",
+    "babelify": "^7.2.0",
     "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
     "debug": "^2.2.0",
     "democracyos-config": "^0.1.1",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
-    "lodash": "^4.5.1",
-    "mongoose": "^4.4.4",
-    "nodegit": "^0.11.2",
-    "promisify-node": "^0.3.0",
-    "superagent": "^1.8.0-beta.2"
-  },
-  "devDependencies": {
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-pleeease": "^2.0.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "jade": "^1.11.0",
     "jadeify": "^4.6.0",
+    "lodash": "^4.5.1",
     "mkdirp": "^0.5.1",
+    "mongoose": "^4.4.4",
+    "nodegit": "^0.11.2",
     "nodemon": "^1.9.0",
     "page": "^1.6.4",
-    "semistandard": "^7.0.5",
+    "promisify-node": "^0.3.0",
+    "superagent": "^1.8.0-beta.2",
     "through2-concurrent": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
     "yargs": "^4.1.0"
+  },
+  "devDependencies": {
+    "semistandard": "^7.0.5"
   }
 }
