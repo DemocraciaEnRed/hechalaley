@@ -40,6 +40,7 @@
     "promisify-node": "^0.3.0",
     "superagent": "^1.8.0-beta.2",
     "through2-concurrent": "^1.1.0",
+    "uglifyify": "^3.0.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
     "yargs": "^4.1.0"
