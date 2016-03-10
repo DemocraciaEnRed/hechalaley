@@ -1,2 +1,37 @@
-.bills
-  p Bills Page
+.bills.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+  header.mdl-layout__header
+    h1 Servicios de Comunicación Audiovisual
+  .mdl-layout__drawer
+    span.mdl-layout-title
+      a.mdl-navigation__link(href='/') Bill Tracker
+    nav.mdl-navigation
+      a.mdl-navigation__link Etapa 1
+      a.mdl-navigation__link Etapa 2
+      a.mdl-navigation__link Etapa 3
+      a.mdl-navigation__link Etapa 4
+      a.mdl-navigation__link Etapa 5
+  .bills-author.mdl-layout__drawer
+    span.mdl-layout-title Author
+    .author
+      h1 Pirulo
+      i.material-icons.mdl-list__item-avatar person
+
+    .demo-list-action.mdl-list
+      .mdl-list__item
+        span.mdl-list__item-primary-content
+          i.material-icons.mdl-list__item-avatar person
+          Bryan Cranston
+        a.mdl-list__item-secondary-action(href='#'): i.material-icons star
+      .mdl-list__item
+        span.mdl-list__item-primary-content
+          i.material-icons.mdl-list__item-avatar person
+          Bryan Cranston
+        a.mdl-list__item-secondary-action(href='#'): i.material-icons star
+      .mdl-list__item
+        span.mdl-list__item-primary-content
+          i.material-icons.mdl-list__item-avatar person
+          Bryan Cranston
+        a.mdl-list__item-secondary-action(href='#'): i.material-icons star
+
+  main.mdl-layout__content
+    p Bills Page
