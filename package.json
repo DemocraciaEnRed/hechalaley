@@ -12,8 +12,7 @@
   "scripts": {
     "build": "rm -rf build && gulp build",
     "lint": "semistandard",
-    "serve": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
-    "start": "npm run build && node app",
+    "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
     "test": "npm run lint",
     "watch": "npm run build && gulp watch"
   },
