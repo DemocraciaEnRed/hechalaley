@@ -31,5 +31,7 @@
         a.mdl-list__item-secondary-action(href='#'): i.material-icons star
 
   main.mdl-layout__content
-    h3 This Bill has #{diffs.length} modifications. 
-    p #{diffs}
+    h3 This Bill has #{modificationCount} modifications. 
+    each diff in diffs
+      span(class = diff.isAddition ? 'addition': diff.isDeletion ? 'deletion' : '') #{diff.contents}
+      br
