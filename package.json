@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "rm -rf build && gulp build",
-    "lint": "semistandard",
+    "lint": "standard",
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon app",
     "test": "npm run lint",
     "watch": "npm run build && gulp watch"
@@ -46,6 +46,11 @@
     "yargs": "^4.1.0"
   },
   "devDependencies": {
-    "semistandard": "^7.0.5"
+    "standard": "^6.0.8"
+  },
+  "standard": {
+    "ignore": [
+      "material.js"
+    ]
   }
 }
