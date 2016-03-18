@@ -28,7 +28,6 @@
     "fs-extra": "^0.26.5",
     "gulp": "^3.9.1",
     "gulp-pleeease": "^2.0.2",
-    "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "jade": "^1.11.0",
     "jadeify": "^4.6.0",
