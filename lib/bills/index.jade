@@ -5,8 +5,8 @@
     span.mdl-layout-title
       a.mdl-navigation__link(href='/') Bill Tracker
     nav.mdl-navigation
-      each stage in bill.stages
-        a.mdl-navigation__link(stage-id='#{stage.stageID}', previous-stage-id='#{stage.previousStageID}', stage-link) #{stage.stageDate}
+      each stage in stages
+        a.mdl-navigation__link(stage-id='#{stage.stageID}', previous-stage-id='#{stage.previousStageID}', stage-link) <b>#{stage.title}</b> <br> #{stage.stageDate}
   .bills-author.mdl-layout__drawer
     span.mdl-layout-title Author
     .author

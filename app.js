@@ -15,6 +15,7 @@ app.use(function (req, res, next) {
 })
 
 require('./lib/bill')(app)
+require('./lib/stage')(app)
 require('./lib/politician')(app)
 
 app.use(require('./lib/site'))
