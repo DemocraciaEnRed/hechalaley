@@ -31,7 +31,7 @@
         a.mdl-list__item-secondary-action(href='#'): i.material-icons star
 
   main.mdl-layout__content
-    h3(stage-header) #{modificationCount} 
+    h3(stage-header) #{modificationCount}
     div(bill-contents)
       each diff in diffs
         span(class = diff.isAddition ? 'addition': diff.isDeletion ? 'deletion' : '') #{diff.contents}
