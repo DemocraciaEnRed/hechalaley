@@ -1,16 +1,23 @@
+mixin bill-card(bill)
+  .mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col
+    .mdl-card__title.mdl-card--expand
+      h2.mdl-card__title-text= bill.title
+    .mdl-card__supporting-text= bill.summary
+    .mdl-card__actions.mdl-card--border
+      a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
+        | View Updates
+
 .home.mdl-layout.mdl-js-layout
   main.mdl-layout__content
     .home-cover
     .home-bills.mdl-grid
-      each bill in bills
-        .mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col
-          .mdl-card__title.mdl-card--expand
-            h2.mdl-card__title-text #{bill.title}
-          .mdl-card__supporting-text
-            | #{bill.summary}
-          .mdl-card__actions.mdl-card--border
-            a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
-              | View Updates
+      +bill-card({title: 'Bill Gates', summary: 'La mama de las Bills, como doña Gates.'})
+      +bill-card({title: 'Bill Gates 2', summary: 'La mama de las Bills, como doña Gates.'})
+      +bill-card({title: 'Bill Gates 3', summary: 'La mama de las Bills, como doña Gates.'})
+
+      +bill-card({title: 'Bill Gates', summary: 'La mama de las Bills, como doña Gates.'})
+      +bill-card({title: 'Bill Gates 2', summary: 'La mama de las Bills, como doña Gates.'})
+      +bill-card({title: 'Bill Gates 3', summary: 'La mama de las Bills, como doña Gates.'})
     footer.mdl-mini-footer
       .mdl-mini-footer__left-section
         .mdl-logo Bill Tracker
