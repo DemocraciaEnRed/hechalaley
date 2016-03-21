@@ -1,1 +1,1 @@
-web: npm run build -- --minify && NODE_PATH=. node app
+web: NODE_PATH=. node app
