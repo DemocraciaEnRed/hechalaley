@@ -105,6 +105,15 @@
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -311,6 +320,15 @@
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -394,7 +412,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(43, 50, 69, 0.87);
   font-size: 1em;
   line-height: 1.4; }
 
@@ -735,6 +753,15 @@ main {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -842,7 +869,7 @@ h1, h2, h3, h4, h5, h6, p {
   * Styles for HTML elements
   */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1.35;
@@ -851,7 +878,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 0.6em; }
 
 h1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1.35;
@@ -860,7 +887,7 @@ h1 {
   margin-bottom: 24px; }
 
 h2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px;
@@ -868,7 +895,7 @@ h2 {
   margin-bottom: 24px; }
 
 h3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px;
@@ -876,7 +903,7 @@ h3 {
   margin-bottom: 24px; }
 
 h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -885,7 +912,7 @@ h4 {
   margin-bottom: 16px; }
 
 h5 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -894,7 +921,7 @@ h5 {
   margin-bottom: 16px; }
 
 h6 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -910,11 +937,11 @@ p {
   margin-bottom: 16px; }
 
 a {
-  color: #ff4081;
+  color: #fb416a;
   font-weight: 500; }
 
 blockquote {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   position: relative;
   font-size: 24px;
   font-weight: 300;
@@ -952,14 +979,14 @@ ul, ol {
  * Class Name Styles
  */
 .mdl-typography--display-4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em; }
 
 .mdl-typography--display-4-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
@@ -967,14 +994,14 @@ ul, ol {
   opacity: 0.54; }
 
 .mdl-typography--display-3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: -0.02em; }
 
 .mdl-typography--display-3-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1.35;
@@ -982,40 +1009,40 @@ ul, ol {
   opacity: 0.54; }
 
 .mdl-typography--display-2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px; }
 
 .mdl-typography--display-2-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px;
   opacity: 0.54; }
 
 .mdl-typography--display-1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px; }
 
 .mdl-typography--display-1-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px;
   opacity: 0.54; }
 
 .mdl-typography--headline {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
 .mdl-typography--headline-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -1023,14 +1050,14 @@ ul, ol {
   opacity: 0.87; }
 
 .mdl-typography--title {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em; }
 
 .mdl-typography--title-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -1038,14 +1065,14 @@ ul, ol {
   opacity: 0.87; }
 
 .mdl-typography--subhead {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .mdl-typography--subhead-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1079,14 +1106,14 @@ ul, ol {
   opacity: 0.87; }
 
 .mdl-typography--body-2-force-preferred-font {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0; }
 
 .mdl-typography--body-2-force-preferred-font-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -1094,14 +1121,14 @@ ul, ol {
   opacity: 0.87; }
 
 .mdl-typography--body-1-force-preferred-font {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0; }
 
 .mdl-typography--body-1-force-preferred-font-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
@@ -1115,7 +1142,7 @@ ul, ol {
   letter-spacing: 0; }
 
 .mdl-typography--caption-force-preferred-font {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -1129,7 +1156,7 @@ ul, ol {
   opacity: 0.54; }
 
 .mdl-typography--caption-force-preferred-font-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -1137,14 +1164,14 @@ ul, ol {
   opacity: 0.54; }
 
 .mdl-typography--menu {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0; }
 
 .mdl-typography--menu-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -1152,7 +1179,7 @@ ul, ol {
   opacity: 0.87; }
 
 .mdl-typography--button {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -1160,7 +1187,7 @@ ul, ol {
   letter-spacing: 0; }
 
 .mdl-typography--button-color-contrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -1322,6 +1349,15 @@ ul, ol {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3035,10 +3071,10 @@ ul, ol {
   background-color: #263238 !important; }
 
 .mdl-color--black {
-  background-color: black !important; }
+  background-color: #2b3245 !important; }
 
 .mdl-color-text--black {
-  color: black !important; }
+  color: #2b3245 !important; }
 
 .mdl-color--white {
   background-color: white !important; }
@@ -3056,7 +3092,7 @@ ul, ol {
   background-color: #303f9f !important; }
 
 .mdl-color--accent {
-  background-color: #ff4081 !important; }
+  background-color: #fb416a !important; }
 
 .mdl-color--accent-contrast {
   background-color: white !important; }
@@ -3071,7 +3107,7 @@ ul, ol {
   color: #303f9f !important; }
 
 .mdl-color-text--accent {
-  color: #ff4081 !important; }
+  color: #fb416a !important; }
 
 .mdl-color-text--accent-contrast {
   color: white !important; }
@@ -3174,6 +3210,15 @@ ul, ol {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3366,6 +3411,15 @@ ul, ol {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3550,6 +3604,15 @@ ul, ol {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3647,19 +3710,19 @@ ul, ol {
     position: absolute;
     top: -11px;
     right: -24px;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
     font-weight: 600;
     font-size: 12px;
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #ff4081;
+    background: #fb416a;
     color: white; }
     .mdl-button .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
-    color: #ff4081;
+    color: #fb416a;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
   .mdl-badge.mdl-badge--overlap {
@@ -3765,6 +3828,15 @@ ul, ol {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3861,15 +3933,15 @@ ul, ol {
 .mdl-button {
   background: transparent;
   border: none;
-  border-radius: 2px;
-  color: black;
+  border-radius: 10px;
+  color: #2b3245;
   position: relative;
-  height: 36px;
+  height: 38px;
   margin: 0;
-  min-width: 64px;
+  min-width: 145px;
   padding: 0 16px;
   display: inline-block;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -3882,20 +3954,20 @@ ul, ol {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  line-height: 36px;
+  line-height: 38px;
   vertical-align: middle; }
   .mdl-button::-moz-focus-inner {
     border: 0; }
   .mdl-button:hover {
-    background-color: rgba(158, 158, 158, 0.2); }
+    background-color: #fb416a; }
   .mdl-button:focus:not(:active) {
-    background-color: rgba(0, 0, 0, 0.12); }
+    background-color: rgba(43, 50, 69, 0.12); }
   .mdl-button:active {
-    background-color: rgba(158, 158, 158, 0.4); }
+    background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button.mdl-button--colored {
-    color: #3f51b5; }
+    color: #2b3245; }
     .mdl-button.mdl-button--colored:focus:not(:active) {
-      background-color: rgba(0, 0, 0, 0.12); }
+      background-color: rgba(43, 50, 69, 0.12); }
 
 input.mdl-button[type="submit"] {
   -webkit-appearance: none; }
@@ -3905,19 +3977,19 @@ input.mdl-button[type="submit"] {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
   .mdl-button--raised:active {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-    background-color: rgba(158, 158, 158, 0.4); }
+    background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button--raised:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(158, 158, 158, 0.4); }
+    background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button--raised.mdl-button--colored {
-    background: #3f51b5;
+    background: #2b3245;
     color: white; }
     .mdl-button--raised.mdl-button--colored:hover {
-      background-color: #3f51b5; }
+      background-color: rgba(43, 50, 69, 0.8); }
     .mdl-button--raised.mdl-button--colored:active {
-      background-color: #3f51b5; }
+      background-color: rgba(43, 50, 69, 0.8); }
     .mdl-button--raised.mdl-button--colored:focus:not(:active) {
-      background-color: #3f51b5; }
+      background-color: rgba(43, 50, 69, 0.8); }
     .mdl-button--raised.mdl-button--colored .mdl-ripple {
       background: white; }
 
@@ -3951,19 +4023,19 @@ input.mdl-button[type="submit"] {
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .mdl-button--fab:active {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-    background-color: rgba(158, 158, 158, 0.4); }
+    background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(158, 158, 158, 0.4); }
+    background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button--fab.mdl-button--colored {
-    background: #ff4081;
+    background: #fb416a;
     color: white; }
     .mdl-button--fab.mdl-button--colored:hover {
-      background-color: #ff4081; }
+      background-color: #fb416a; }
     .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-      background-color: #ff4081; }
+      background-color: #fb416a; }
     .mdl-button--fab.mdl-button--colored:active {
-      background-color: #ff4081; }
+      background-color: #fb416a; }
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: white; }
 
@@ -4012,37 +4084,37 @@ input.mdl-button[type="submit"] {
     background-color: transparent; }
 
 .mdl-button--primary.mdl-button--primary {
-  color: #3f51b5; }
+  color: #2b3245; }
   .mdl-button--primary.mdl-button--primary .mdl-ripple {
     background: white; }
   .mdl-button--primary.mdl-button--primary.mdl-button--raised, .mdl-button--primary.mdl-button--primary.mdl-button--fab {
     color: white;
-    background-color: #3f51b5; }
+    background-color: #2b3245; }
 
 .mdl-button--accent.mdl-button--accent {
-  color: #ff4081; }
+  color: #fb416a; }
   .mdl-button--accent.mdl-button--accent .mdl-ripple {
     background: white; }
   .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
     color: white;
-    background-color: #ff4081; }
+    background-color: #fb416a; }
 
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(43, 50, 69, 0.26);
   cursor: default;
   background-color: transparent; }
 
 .mdl-button--fab[disabled][disabled], .mdl-button--fab.mdl-button--disabled.mdl-button--disabled {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.26); }
+  background-color: rgba(43, 50, 69, 0.12);
+  color: rgba(43, 50, 69, 0.26); }
 
 .mdl-button--raised[disabled][disabled], .mdl-button--raised.mdl-button--disabled.mdl-button--disabled {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(43, 50, 69, 0.12);
+  color: rgba(43, 50, 69, 0.26);
   box-shadow: none; }
 
 .mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled {
-  color: rgba(0, 0, 0, 0.26); }
+  color: rgba(43, 50, 69, 0.26); }
 
 .mdl-button .material-icons {
   vertical-align: middle; }
@@ -4145,6 +4217,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4236,7 +4317,7 @@ input.mdl-button[type="submit"] {
   box-sizing: border-box; }
 
 .mdl-card__media {
-  background-color: #ff4081;
+  background-color: #fb416a;
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -4247,14 +4328,14 @@ input.mdl-button[type="submit"] {
 .mdl-card__title {
   -webkit-align-items: center;
           align-items: center;
-  color: black;
+  color: #2b3245;
   display: block;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: stretch;
           justify-content: stretch;
   line-height: normal;
-  padding: 16px 16px;
+  padding: 35px 35px;
   -webkit-perspective-origin: 165px 56px;
           perspective-origin: 165px 56px;
   -webkit-transform-origin: 165px 56px;
@@ -4270,8 +4351,8 @@ input.mdl-button[type="submit"] {
   display: block;
   display: -webkit-flex;
   display: flex;
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 27px;
+  font-weight: 700;
   line-height: normal;
   overflow: hidden;
   -webkit-transform-origin: 149px 48px;
@@ -4280,15 +4361,15 @@ input.mdl-button[type="submit"] {
 
 .mdl-card__subtitle-text {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(43, 50, 69, 0.54);
   margin: 0; }
 
 .mdl-card__supporting-text {
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 1rem;
+  color: rgba(43, 50, 69, 0.87);
+  font-size: 0.9rem;
   line-height: 18px;
   overflow: hidden;
-  padding: 16px 16px;
+  padding: 35px 35px;
   box-sizing: border-box; }
 
 .mdl-card__actions {
@@ -4408,6 +4489,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4540,14 +4630,14 @@ input.mdl-button[type="submit"] {
   margin: 0;
   cursor: pointer;
   overflow: hidden;
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 2px solid rgba(43, 50, 69, 0.54);
   border-radius: 2px;
   z-index: 2; }
   .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
     border: 2px solid #3f51b5; }
   fieldset[disabled] .mdl-checkbox .mdl-checkbox__box-outline,
   .mdl-checkbox.is-disabled .mdl-checkbox__box-outline {
-    border: 2px solid rgba(0, 0, 0, 0.26);
+    border: 2px solid rgba(43, 50, 69, 0.26);
     cursor: auto; }
 
 .mdl-checkbox__focus-helper {
@@ -4583,7 +4673,7 @@ input.mdl-button[type="submit"] {
     background: #3f51b5 url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K"); }
   fieldset[disabled] .mdl-checkbox.is-checked .mdl-checkbox__tick-outline,
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K"); }
+    background: rgba(43, 50, 69, 0.26) url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K"); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -4593,7 +4683,7 @@ input.mdl-button[type="submit"] {
   margin: 0; }
   fieldset[disabled] .mdl-checkbox .mdl-checkbox__label,
   .mdl-checkbox.is-disabled .mdl-checkbox__label {
-    color: rgba(0, 0, 0, 0.26);
+    color: rgba(43, 50, 69, 0.26);
     cursor: auto; }
 
 .mdl-checkbox__ripple-container {
@@ -4715,6 +4805,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4989,6 +5088,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5114,7 +5222,7 @@ input.mdl-button[type="submit"] {
         text-align: right; }
   .mdl-dialog__content {
     padding: 20px 24px 24px 24px;
-    color: rgba(0, 0, 0, 0.54); }
+    color: rgba(43, 50, 69, 0.87); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5214,6 +5322,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5633,6 +5750,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5865,6 +5991,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5985,11 +6120,11 @@ input.mdl-button[type="submit"] {
   .mdl-icon-toggle.is-checked .mdl-icon-toggle__label {
     color: #3f51b5; }
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__label {
-    color: rgba(0, 0, 0, 0.26);
+    color: rgba(43, 50, 69, 0.26);
     cursor: auto;
     transition: none; }
   .mdl-icon-toggle.is-focused .mdl-icon-toggle__label {
-    background-color: rgba(0, 0, 0, 0.12); }
+    background-color: rgba(43, 50, 69, 0.12); }
   .mdl-icon-toggle.is-focused.is-checked .mdl-icon-toggle__label {
     background-color: rgba(63, 81, 181, 0.26); }
 
@@ -6110,6 +6245,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6209,7 +6353,7 @@ input.mdl-button[type="submit"] {
   list-style: none; }
 
 .mdl-list__item {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -6227,7 +6371,7 @@ input.mdl-button[type="submit"] {
           align-items: center;
   padding: 16px;
   cursor: default;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(43, 50, 69, 0.87);
   overflow: hidden; }
   .mdl-list__item .mdl-list__item-primary-content {
     -webkit-order: 0;
@@ -6259,7 +6403,7 @@ input.mdl-button[type="submit"] {
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0;
-      color: rgba(0, 0, 0, 0.54); }
+      color: rgba(43, 50, 69, 0.54); }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header {
       padding: 0 0 0 16px; }
 
@@ -6300,7 +6444,7 @@ input.mdl-button[type="submit"] {
       line-height: 24px;
       letter-spacing: 0;
       line-height: 18px;
-      color: rgba(0, 0, 0, 0.54);
+      color: rgba(43, 50, 69, 0.54);
       display: block;
       padding: 0; }
 
@@ -6322,7 +6466,7 @@ input.mdl-button[type="submit"] {
     letter-spacing: 0;
     line-height: 18px;
     height: 52px;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(43, 50, 69, 0.54);
     display: block;
     padding: 0; }
 
@@ -6424,6 +6568,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6605,7 +6758,7 @@ input.mdl-button[type="submit"] {
 .mdl-menu__item {
   display: block;
   border: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(43, 50, 69, 0.87);
   background-color: transparent;
   text-align: left;
   margin: 0;
@@ -6633,7 +6786,7 @@ input.mdl-button[type="submit"] {
   .mdl-menu__item::-moz-focus-inner {
     border: 0; }
   .mdl-menu__item--full-bleed-divider {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+    border-bottom: 1px solid rgba(43, 50, 69, 0.12); }
   .mdl-menu__item[disabled], .mdl-menu__item[data-mdl-disabled] {
     color: #bdbdbd;
     background-color: transparent;
@@ -6760,6 +6913,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7046,6 +7208,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7185,7 +7356,7 @@ input.mdl-button[type="submit"] {
 .mdl-layout-title {
   display: block;
   position: relative;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -7622,7 +7793,7 @@ input.mdl-button[type="submit"] {
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #ff4081;
+    background: #fb416a;
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
             animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
     transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
@@ -7743,6 +7914,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7872,14 +8052,14 @@ input.mdl-button[type="submit"] {
   height: 16px;
   margin: 0;
   cursor: pointer;
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 2px solid rgba(43, 50, 69, 0.54);
   border-radius: 50%;
   z-index: 2; }
   .mdl-radio.is-checked .mdl-radio__outer-circle {
     border: 2px solid #3f51b5; }
   .mdl-radio__outer-circle fieldset[disabled] .mdl-radio,
   .mdl-radio.is-disabled .mdl-radio__outer-circle {
-    border: 2px solid rgba(0, 0, 0, 0.26);
+    border: 2px solid rgba(43, 50, 69, 0.26);
     cursor: auto; }
 
 .mdl-radio__inner-circle {
@@ -7906,7 +8086,7 @@ input.mdl-button[type="submit"] {
             transform: scale3d(1, 1, 1); }
   fieldset[disabled] .mdl-radio .mdl-radio__inner-circle,
   .mdl-radio.is-disabled .mdl-radio__inner-circle {
-    background: rgba(0, 0, 0, 0.26);
+    background: rgba(43, 50, 69, 0.26);
     cursor: auto; }
   .mdl-radio.is-focused .mdl-radio__inner-circle {
     box-shadow: 0 0 0px 10px rgba(0, 0, 0, 0.1); }
@@ -7915,7 +8095,7 @@ input.mdl-button[type="submit"] {
   cursor: pointer; }
   fieldset[disabled] .mdl-radio .mdl-radio__label,
   .mdl-radio.is-disabled .mdl-radio__label {
-    color: rgba(0, 0, 0, 0.26);
+    color: rgba(43, 50, 69, 0.26);
     cursor: auto; }
 
 .mdl-radio__ripple-container {
@@ -8037,6 +8217,15 @@ input.mdl-button[type="submit"] {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8160,7 +8349,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: linear-gradient(to right, transparent, transparent 16px, #3f51b5 16px, #3f51b5 0); }
     .mdl-slider.is-upgraded::-ms-fill-upper {
       padding: 0;
-      background: linear-gradient(to left, transparent, transparent 16px, rgba(0, 0, 0, 0.26) 16px, rgba(0, 0, 0, 0.26) 0); }
+      background: linear-gradient(to left, transparent, transparent 16px, rgba(43, 50, 69, 0.26) 16px, rgba(43, 50, 69, 0.26) 0); }
     .mdl-slider.is-upgraded::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 12px;
@@ -8211,38 +8400,38 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: #3f51b5;
       transform: scale(0.5625); }
     .mdl-slider.is-upgraded.is-lowest-value::-webkit-slider-thumb {
-      border: 2px solid rgba(0, 0, 0, 0.26);
+      border: 2px solid rgba(43, 50, 69, 0.26);
       background: transparent; }
     .mdl-slider.is-upgraded.is-lowest-value::-moz-range-thumb {
-      border: 2px solid rgba(0, 0, 0, 0.26);
+      border: 2px solid rgba(43, 50, 69, 0.26);
       background: transparent; }
     .mdl-slider.is-upgraded.is-lowest-value +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
-      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.12);
-      background: rgba(0, 0, 0, 0.12); }
+      box-shadow: 0 0 0 10px rgba(43, 50, 69, 0.12);
+      background: rgba(43, 50, 69, 0.12); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-moz-range-thumb {
-      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.12);
-      background: rgba(0, 0, 0, 0.12); }
+      box-shadow: 0 0 0 10px rgba(43, 50, 69, 0.12);
+      background: rgba(43, 50, 69, 0.12); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.6px solid rgba(0, 0, 0, 0.26);
+      border: 1.6px solid rgba(43, 50, 69, 0.26);
       -webkit-transform: scale(1.5);
               transform: scale(1.5); }
     .mdl-slider.is-upgraded.is-lowest-value:active +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 9px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-moz-range-thumb {
-      border: 1.5px solid rgba(0, 0, 0, 0.26);
+      border: 1.5px solid rgba(43, 50, 69, 0.26);
       transform: scale(1.5); }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-thumb {
-      background: radial-gradient(circle closest-side, transparent 0%, transparent 66.67%, rgba(0, 0, 0, 0.26) 66.67%, rgba(0, 0, 0, 0.26) 100%); }
+      background: radial-gradient(circle closest-side, transparent 0%, transparent 66.67%, rgba(43, 50, 69, 0.26) 66.67%, rgba(43, 50, 69, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-thumb {
-      background: radial-gradient(circle closest-side, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 25%, rgba(0, 0, 0, 0.26) 25%, rgba(0, 0, 0, 0.26) 37.5%, rgba(0, 0, 0, 0.12) 37.5%, rgba(0, 0, 0, 0.12) 100%);
+      background: radial-gradient(circle closest-side, rgba(43, 50, 69, 0.12) 0%, rgba(43, 50, 69, 0.12) 25%, rgba(43, 50, 69, 0.26) 25%, rgba(43, 50, 69, 0.26) 37.5%, rgba(43, 50, 69, 0.12) 37.5%, rgba(43, 50, 69, 0.12) 100%);
       transform: scale(1); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-thumb {
       transform: scale(0.5625);
-      background: radial-gradient(circle closest-side, transparent 0%, transparent 77.78%, rgba(0, 0, 0, 0.26) 77.78%, rgba(0, 0, 0, 0.26) 100%); }
+      background: radial-gradient(circle closest-side, transparent 0%, transparent 77.78%, rgba(43, 50, 69, 0.26) 77.78%, rgba(43, 50, 69, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-fill-lower {
       background: transparent; }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-fill-upper {
@@ -8252,24 +8441,24 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled::-webkit-slider-thumb {
       -webkit-transform: scale(0.667);
               transform: scale(0.667);
-      background: rgba(0, 0, 0, 0.26); }
+      background: rgba(43, 50, 69, 0.26); }
     .mdl-slider.is-upgraded:disabled:focus::-moz-range-thumb, .mdl-slider.is-upgraded:disabled:active::-moz-range-thumb, .mdl-slider.is-upgraded:disabled::-moz-range-thumb {
       transform: scale(0.667);
-      background: rgba(0, 0, 0, 0.26); }
+      background: rgba(43, 50, 69, 0.26); }
     .mdl-slider.is-upgraded:disabled +
 .mdl-slider__background-flex > .mdl-slider__background-lower {
-      background-color: rgba(0, 0, 0, 0.26);
+      background-color: rgba(43, 50, 69, 0.26);
       left: -6px; }
     .mdl-slider.is-upgraded:disabled +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-webkit-slider-thumb {
-      border: 3px solid rgba(0, 0, 0, 0.26);
+      border: 3px solid rgba(43, 50, 69, 0.26);
       background: transparent;
       -webkit-transform: scale(0.667);
               transform: scale(0.667); }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-moz-range-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-moz-range-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-moz-range-thumb {
-      border: 3px solid rgba(0, 0, 0, 0.26);
+      border: 3px solid rgba(43, 50, 69, 0.26);
       background: transparent;
       transform: scale(0.667); }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:active +
@@ -8277,13 +8466,13 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       left: 6px; }
     .mdl-slider.is-upgraded:disabled:focus::-ms-thumb, .mdl-slider.is-upgraded:disabled:active::-ms-thumb, .mdl-slider.is-upgraded:disabled::-ms-thumb {
       transform: scale(0.25);
-      background: rgba(0, 0, 0, 0.26); }
+      background: rgba(43, 50, 69, 0.26); }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-ms-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-ms-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-ms-thumb {
       transform: scale(0.25);
-      background: radial-gradient(circle closest-side, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.26) 50%, rgba(0, 0, 0, 0.26) 100%); }
+      background: radial-gradient(circle closest-side, transparent 0%, transparent 50%, rgba(43, 50, 69, 0.26) 50%, rgba(43, 50, 69, 0.26) 100%); }
     .mdl-slider.is-upgraded:disabled::-ms-fill-lower {
       margin-right: 6px;
-      background: linear-gradient(to right, transparent, transparent 25px, rgba(0, 0, 0, 0.26) 25px, rgba(0, 0, 0, 0.26) 0); }
+      background: linear-gradient(to right, transparent, transparent 25px, rgba(43, 50, 69, 0.26) 25px, rgba(43, 50, 69, 0.26) 0); }
     .mdl-slider.is-upgraded:disabled::-ms-fill-upper {
       margin-left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-ms-fill-upper {
@@ -8330,7 +8519,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   padding: 0; }
 
 .mdl-slider__background-upper {
-  background: rgba(0, 0, 0, 0.26);
+  background: rgba(43, 50, 69, 0.26);
   -webkit-flex: 0;
           flex: 0;
   position: relative;
@@ -8436,6 +8625,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8541,7 +8739,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   display: flex;
   -webkit-justify-content: space-between;
           justify-content: space-between;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   will-change: transform;
   -webkit-transform: translate(-50%, 80px);
           transform: translate(-50%, 80px);
@@ -8575,11 +8773,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-snackbar__action {
     background: transparent;
     border: none;
-    color: #ff4081;
+    color: #fb416a;
     float: right;
     text-transform: uppercase;
     padding: 14px 24px 14px 12px;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -8698,6 +8896,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9195,6 +9402,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9323,7 +9539,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     border: none; }
 
 .mdl-switch__track {
-  background: rgba(0, 0, 0, 0.26);
+  background: rgba(43, 50, 69, 0.26);
   position: absolute;
   left: 0;
   top: 5px;
@@ -9332,10 +9548,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   border-radius: 14px;
   cursor: pointer; }
   .mdl-switch.is-checked .mdl-switch__track {
-    background: rgba(63, 81, 181, 0.5); }
+    background: rgba(251, 65, 106, 0.26); }
   .mdl-switch__track fieldset[disabled] .mdl-switch,
   .mdl-switch.is-disabled .mdl-switch__track {
-    background: rgba(0, 0, 0, 0.12);
+    background: rgba(43, 50, 69, 0.12);
     cursor: auto; }
 
 .mdl-switch__thumb {
@@ -9352,7 +9568,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: left; }
   .mdl-switch.is-checked .mdl-switch__thumb {
-    background: #3f51b5;
+    background: #fb416a;
     left: 16px;
     box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
   .mdl-switch__thumb fieldset[disabled] .mdl-switch,
@@ -9376,8 +9592,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     box-shadow: 0 0 0px 20px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1); }
   .mdl-switch.is-focused.is-checked .mdl-switch__focus-helper {
-    box-shadow: 0 0 0px 20px rgba(63, 81, 181, 0.26);
-    background-color: rgba(63, 81, 181, 0.26); }
+    box-shadow: 0 0 0px 20px rgba(251, 65, 106, 0.26);
+    background-color: rgba(251, 65, 106, 0.26); }
 
 .mdl-switch__label {
   position: relative;
@@ -9407,7 +9623,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   transition-timing-function: step-end;
   transition-property: left; }
   .mdl-switch__ripple-container .mdl-ripple {
-    background: #3f51b5; }
+    background: #fb416a; }
   .mdl-switch__ripple-container fieldset[disabled] .mdl-switch,
   .mdl-switch.is-disabled .mdl-switch__ripple-container {
     cursor: auto; }
@@ -9515,6 +9731,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9623,10 +9848,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(43, 50, 69, 0.54);
   overflow: hidden; }
   .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
-    color: rgba(0, 0, 0, 0.87); }
+    color: rgba(43, 50, 69, 0.87); }
   .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
     height: 2px;
     width: 100%;
@@ -9772,6 +9997,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9891,7 +10125,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 
 .mdl-textfield__input {
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(43, 50, 69, 0.12);
   display: block;
   font-size: 16px;
   font-family: "Helvetica", "Arial", sans-serif;
@@ -9914,15 +10148,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   fieldset[disabled] .mdl-textfield .mdl-textfield__input,
   .mdl-textfield.is-disabled .mdl-textfield__input {
     background-color: transparent;
-    border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26); }
+    border-bottom: 1px dotted rgba(43, 50, 69, 0.12);
+    color: rgba(43, 50, 69, 0.26); }
 
 .mdl-textfield textarea.mdl-textfield__input {
   display: block; }
 
 .mdl-textfield__label {
   bottom: 0;
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(43, 50, 69, 0.26);
   font-size: 16px;
   left: 0;
   right: 0;
@@ -9944,7 +10178,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     transition: none; }
   fieldset[disabled] .mdl-textfield .mdl-textfield__label,
   .mdl-textfield.is-disabled.is-disabled .mdl-textfield__label {
-    color: rgba(0, 0, 0, 0.26); }
+    color: rgba(43, 50, 69, 0.26); }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label,
   .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
   .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
@@ -10098,6 +10332,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10328,6 +10571,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10599,6 +10851,15 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
