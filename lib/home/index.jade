@@ -11,13 +11,8 @@ mixin bill-card(bill)
   main.mdl-layout__content
     .home-cover
     .home-bills.mdl-grid
-      +bill-card({title: 'Bill Gates', summary: 'La mama de las Bills, como doña Gates.'})
-      +bill-card({title: 'Bill Gates 2', summary: 'La mama de las Bills, como doña Gates.'})
-      +bill-card({title: 'Bill Gates 3', summary: 'La mama de las Bills, como doña Gates.'})
-
-      +bill-card({title: 'Bill Gates', summary: 'La mama de las Bills, como doña Gates.'})
-      +bill-card({title: 'Bill Gates 2', summary: 'La mama de las Bills, como doña Gates.'})
-      +bill-card({title: 'Bill Gates 3', summary: 'La mama de las Bills, como doña Gates.'})
+      each bill in bills
+        +bill-card(bill)
     footer.mdl-mini-footer
       .mdl-mini-footer__left-section
         .mdl-logo Bill Tracker
