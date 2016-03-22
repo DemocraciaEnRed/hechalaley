@@ -1,0 +1,36 @@
+#! /bin/bash
+
+info () {
+  echo "$(tput setaf 6)  · $@$(tput sgr0)"
+}
+
+warn () {
+  echo "$(tput setaf 3)  · $@$(tput sgr0)"
+}
+
+err () {
+  echo "$(tput setaf 1)  · $@$(tput sgr0)"
+}
+
+DIRECTORY=$(node -p 'require("./config").billsGitPath')
+
+if [ -d "$DIRECTORY" ]; then
+  warn "Directory already exists: $DIRECTORY"
+else
+  info "Creating $DIRECTORY"
+  mkdir "$DIRECTORY" >/dev/null
+fi
+
+if [ -d "$DIRECTORY/.git" ]; then
+  warn "Git is already initialized."
+else
+  info "Initializing git dir"
+  $(cd "$DIRECTORY" && git init >/dev/null)
+fi
+
+if $(cd "$DIRECTORY" && git rev-parse --verify master >/dev/null 2>&1); then
+  warn "master branch is already initialized"
+else
+  info "Initializing master branch"
+  $(cd "$DIRECTORY" && git commit -am "initial commit" --allow-empty >/dev/null)
+fi
