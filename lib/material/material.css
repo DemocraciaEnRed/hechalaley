@@ -22,6 +22,15 @@
  * limitations under the License.
  */
 /* Material Design Lite */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -1181,16 +1190,16 @@ ul, ol {
 .mdl-typography--button {
   font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 100;
+  text-transform: none;
   line-height: 1;
   letter-spacing: 0; }
 
 .mdl-typography--button-color-contrast {
   font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 100;
+  text-transform: none;
   line-height: 1;
   letter-spacing: 0;
   opacity: 0.87; }
@@ -3745,6 +3754,15 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3932,9 +3950,9 @@ ul, ol {
 /* Dialog */
 .mdl-button {
   background: transparent;
-  border: none;
+  border: 2px solid #FB416A;
   border-radius: 10px;
-  color: #2b3245;
+  color: #fb416a;
   position: relative;
   height: 38px;
   margin: 0;
@@ -3943,8 +3961,8 @@ ul, ol {
   display: inline-block;
   font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 100;
+  text-transform: none;
   line-height: 1;
   letter-spacing: 0;
   overflow: hidden;
@@ -3959,7 +3977,8 @@ ul, ol {
   .mdl-button::-moz-focus-inner {
     border: 0; }
   .mdl-button:hover {
-    background-color: #fb416a; }
+    background-color: #fb416a;
+    color: white; }
   .mdl-button:focus:not(:active) {
     background-color: rgba(43, 50, 69, 0.12); }
   .mdl-button:active {
@@ -3983,7 +4002,8 @@ input.mdl-button[type="submit"] {
     background-color: rgba(251, 65, 106, 0.8); }
   .mdl-button--raised.mdl-button--colored {
     background: #2b3245;
-    color: white; }
+    color: white;
+    border: 2px solid #2b3245; }
     .mdl-button--raised.mdl-button--colored:hover {
       background-color: rgba(43, 50, 69, 0.8); }
     .mdl-button--raised.mdl-button--colored:active {
@@ -4101,6 +4121,7 @@ input.mdl-button[type="submit"] {
 
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
   color: rgba(43, 50, 69, 0.26);
+  border: 2px solid rgba(43, 50, 69, 0.12);
   cursor: default;
   background-color: transparent; }
 
@@ -4300,6 +4321,15 @@ input.mdl-button[type="submit"] {
 /* DIALOG */
 /* SNACKBAR */
 /* TOOLTIP */
+/* ==========  Color Palettes  ========== */
+/* ========== TIPOGRAFIA ========== */
+/* ========= COLORES ========== */
+/* ==========  Components  ========== */
+/* ========= BOTONES ========== */
+/* ==========  Status Style  ========== */
+/* ==========  Disabled Style  ========== */
+/* ========= CARDS ========== */
+/* ========= SWITCH ========== */
 .mdl-card {
   display: -webkit-flex;
   display: flex;
@@ -4313,8 +4343,11 @@ input.mdl-button[type="submit"] {
   z-index: 1;
   position: relative;
   background: white;
-  border-radius: 2px;
-  box-sizing: border-box; }
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1); }
+  .mdl-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .mdl-card__media {
   background-color: #fb416a;
@@ -4327,11 +4360,10 @@ input.mdl-button[type="submit"] {
 
 .mdl-card__title {
   -webkit-align-items: center;
+              -ms-grid-row-align: center;
           align-items: center;
   color: #2b3245;
   display: block;
-  display: -webkit-flex;
-  display: flex;
   -webkit-justify-content: stretch;
           justify-content: stretch;
   line-height: normal;
@@ -4340,24 +4372,22 @@ input.mdl-button[type="submit"] {
           perspective-origin: 165px 56px;
   -webkit-transform-origin: 165px 56px;
           transform-origin: 165px 56px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  text-align: center; }
   .mdl-card__title.mdl-card--border {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .mdl-card__title-text {
-  -webkit-align-self: flex-end;
-          align-self: flex-end;
-  color: inherit;
+  color: #2b3245;
   display: block;
-  display: -webkit-flex;
-  display: flex;
   font-size: 27px;
   font-weight: 700;
   line-height: normal;
   overflow: hidden;
   -webkit-transform-origin: 149px 48px;
           transform-origin: 149px 48px;
-  margin: 0; }
+  text-transform: uppercase;
+  margin: 0 auto; }
 
 .mdl-card__subtitle-text {
   font-size: 14px;
@@ -4366,19 +4396,22 @@ input.mdl-button[type="submit"] {
 
 .mdl-card__supporting-text {
   color: rgba(43, 50, 69, 0.87);
-  font-size: 0.9rem;
   line-height: 18px;
   overflow: hidden;
+  box-sizing: border-box;
+  background: #eef1f6;
+  border-top: 1px solid #E0E0E0;
   padding: 35px 35px;
-  box-sizing: border-box; }
+  font-size: 0.9rem; }
 
 .mdl-card__actions {
   font-size: 16px;
   line-height: normal;
   width: 100%;
-  background-color: transparent;
-  padding: 8px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #eef1f6;
+  padding: 0 35px 35px 35px;
+  text-align: center; }
   .mdl-card__actions.mdl-card--border {
     border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
@@ -8779,8 +8812,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     padding: 14px 24px 14px 12px;
     font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
+    font-weight: 100;
+    text-transform: none;
     line-height: 1;
     letter-spacing: 0;
     overflow: hidden;
