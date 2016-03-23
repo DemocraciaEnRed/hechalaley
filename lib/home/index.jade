@@ -1,16 +1,26 @@
 mixin bill-card(bill)
-  .mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col
+  .mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.cards-width
     .mdl-card__title.mdl-card--expand
-      h2.mdl-card__title-text= bill.title
-    .mdl-card__supporting-text= bill.summary
-    .mdl-card__actions.mdl-card--border
-      a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
-        | View Updates
+      h2.mdl-card__title-text
+        small.bill-leg LEG. 22.222
+        | #{bill.title}
+    .mdl-card__supporting-text
+      strong En camara de diputados
+      | #{bill.summary}
+    .mdl-card__actions
+      a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
+        | Ver proyecto
 
 .home.mdl-layout.mdl-js-layout
   main.mdl-layout__content
     .home-cover
-    .home-bills.mdl-grid
+      div
+        h1.title Bill Tracker
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+          a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='#bills') Ver proyectos
+      i.material-icons.md-24 keyboard_arrow_down
+
+    #bills.home-bills.mdl-grid
       each bill in bills
         +bill-card(bill)
     footer.mdl-mini-footer

@@ -7,7 +7,7 @@
 		url('fonts/AvenirNextLTPro-Bold.woff') format('woff'),
 		url('fonts/AvenirNextLTPro-Bold.ttf') format('truetype');
 	font-weight: 700;
-	font-style: normal;
+	font-style: bold;
 }
 
 @font-face {
