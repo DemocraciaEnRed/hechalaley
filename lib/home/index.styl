@@ -2,19 +2,54 @@
   height: 580px
   min-height: 80vh
   background-size: cover
-  background-position: center top
-  background-image: url('https://images.unsplash.com/photo-1433162653888-a571db5ccccf?crop=entropy&dpr=2&fit=fill&fm=jpg&h=825&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450')
+  text-align: center
 
-.bill-leg
+  h1.title
+    font-weight: bold
+    letter-spacing: 1px
+    font-size: 5rem
+    padding-top: 14%
+    padding-top: 25vh
+
+  p
+    font-size: 1.2rem
+    letter-spacing: 1px
+    line-height: 23px
+    max-width: 500px
+    width: 100%
+    margin: 0 auto
+
+  a.mdl-button
+    margin-top: 2%
+
+.home-bills
+  display: flex
+  justify-content: center
+
+  .bill-leg
     color: grey
     font-weight: 400
     display: block
     font-size: .8rem
-    padding-bottom: 6px;
+    padding-bottom: 6px
 
-.mdl-card__supporting-text strong
+  .mdl-card__supporting-text strong
     color: #fb416a
     font-weight: 700
     display: block
     font-size 1rem
     padding-bottom: 30px
+
+  .mdl-card__supporting-text
+    flex-grow: 1
+
+  .cards-width
+    width: 380px
+    margin: 1.6%
+
+  .mdl-card__title
+    flex-grow: 0
+
+@media screen and (max-width: 479px)
+  .mdl-card
+      margin: 3% !important
