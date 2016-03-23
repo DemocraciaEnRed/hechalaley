@@ -22,6 +22,22 @@
   a.mdl-button
     margin-top: 2%
 
+  i
+    color: #fb416a
+    margin-top: 7%
+    margin-top: 13vh
+    animation: bounce 2s infinite
+
+    @keyframes {bounce}
+      0%, 20%, 50%, 80%, 100%
+        transform: translateY(0);
+      40%
+        -webkit-transform: translateY(-30px)
+        transform: translateY(-30px)
+      60%
+        -webkit-transform: translateY(-15px)
+        transform: translateY(-15px)
+
 .home-bills
   display: flex
   justify-content: center
@@ -32,6 +48,12 @@
     display: block
     font-size: .8rem
     padding-bottom: 10px
+
+  .mdl-card
+    transition-delay: 0
+
+    &:hover
+      transition-delay: .15s
 
   .mdl-card__supporting-text strong
     color: #fb416a
