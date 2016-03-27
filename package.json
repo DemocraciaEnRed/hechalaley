@@ -40,6 +40,7 @@
     "nodegit": "^0.11.2",
     "nodemon": "^1.9.0",
     "page": "^1.6.4",
+    "promise": "^7.1.1",
     "promisify-node": "^0.3.0",
     "superagent": "^1.8.0-beta.2",
     "through2-concurrent": "^1.1.0",
