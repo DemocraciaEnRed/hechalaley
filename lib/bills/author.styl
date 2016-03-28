@@ -1,0 +1,94 @@
+[data-tip]:hover
+  &:after
+    width: auto
+    content: attr(data-tip)
+    position: absolute
+    top: 120%
+    left: 55%
+    padding: 8px
+    border-radius: 5px
+    transform: translateX(-55%)
+    font-size: 12px
+    background-color: #333
+    z-index: 999
+
+.bills-author
+  text-align: center
+  background #eef1f6
+  padding: 38px 20px
+  color: #2b3245
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  box-shadow: inset 1px 0 10px rgba(0,0,0, 0.15);
+
+  .mdl-list__item-avatar
+    background-color: #c4cbdf
+    cursor: pointer
+    margin: 0 auto
+
+  .avatar
+    background-size: cover
+    border: 1px solid #2b3245
+    border-radius: 50%
+    position: relative
+
+  // .author
+  //   margin-bottom: 63px
+
+  h1,
+  span
+    text-transform: uppercase
+
+  .mdl-layout-title
+    padding: 0 !important
+    font-size: 1.8rem
+    font-weight: 700
+    padding: 0
+
+  h1
+    font-size: 1.3rem
+    font-weight: 700
+    letter-spacing: .03rem
+    margin: 0
+    margin-top: 20px
+    margin-bottom: 2px
+
+  p
+    font-weight: 100
+    line-height: 1.25rem
+    font-size: .9rem
+
+  button
+    font-size: .9rem
+
+  .mdl-list__item-avatar
+    width: 91px
+    height: 91px
+    margin-top: 20px
+
+  .politics
+    margin-top: 45px
+
+    span
+      letter-spacing: .05rem
+      margin-bottom: 15px
+
+    .mdl-list__item
+      padding: 0
+
+    .mdl-list__item-avatar
+      width: 41px
+      height: 41px
+      margin: 0 2.2%
+      margin-bottom: 7px
+
+    .mdl-layout-title
+      font-size: 1.3rem
+
+    .politics-list
+      width: 199px
+      margin-top: 10px
+      display: flex
+      justify-content: left
+      flex-wrap: wrap
