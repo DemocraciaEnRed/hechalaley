@@ -1,12 +1,37 @@
 .bills.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
   header.mdl-layout__header
-    h1 #{bill.title}
+    .bill-title-container
+      .bill-nav
+        small
+          LEG 22.222 - Indice
+          button#demo-menu-lower-left.mdl-button.mdl-js-button.mdl-button--icon
+            i.material-icons.md-18 keyboard_arrow_down
+
+        small
+          button#demo-menu-lower-left.mdl-button.mdl-js-button.mdl-button--icon
+            i.material-icons.md-18 keyboard_arrow_down
+          i.material-icons.md-24 list
+
+      h1 Servicios de comunicación audiovisual
+
+      .switch-container.active
+        p.text
+          span.text-activate Activar compración
+          span.text-deactivate Desactivar compración
+
+        label.mdl-switch.mdl-js-switch.mdl-js-ripple-effect(for="switch-1")
+          input#switch-1.mdl-switch__input(type="checkbox")
+          span.mdl-switch__labelb
+
   .bills-stages-sidebar.mdl-layout__drawer(data-stages-sidebar)
     span.mdl-layout-title
-      a.mdl-navigation__link(href='/') Bill Tracker
+      a.mdl-navigation__link(href='/')
+        h1 Bill Tracker
     nav.mdl-navigation
       each stage, index in stages
-        a.mdl-navigation__link(stage-id='#{stage.stageID}', previous-stage-id='#{index > 0 ? stages[index-1].stageID : ""}', stage-link) <b>#{stage.title}</b> <br> #{moment(stage.stageDate).locale('es').format('LL')}
+        a.mdl-navigation__link(stage-id='#{stage.stageID}', previous-stage-id='#{index > 0 ? stages[index-1].stageID : ""}', stage-link)
+          p= moment(stage.stageDate).locale('es').format('LL')
+          h5= stage.title
   .bills-author.mdl-layout__drawer
     span.mdl-layout-title Author
     .author
@@ -31,8 +56,11 @@
         a.mdl-list__item-secondary-action(href='#'): i.material-icons star
 
   main.mdl-layout__content
-    h3(stage-header) #{modificationCount}
-    div(bill-contents)
-      each diff in diffs
-        span(class = diff.isAddition ? 'addition': diff.isDeletion ? 'deletion' : '') #{diff.contents}
-        br
+    .bill-body
+      h3 TÍTULO 1 . DISPOSICIONES GENERALES
+      h4 Capítulo 1 - Objeto
+      h5 Articulo 1º
+      div(bill-contents)
+        each diff in diffs
+          span(class = diff.isAddition ? 'addition': diff.isDeletion ? 'deletion' : '') #{diff.contents}
+          br
