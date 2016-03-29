@@ -25,6 +25,7 @@
     "browserify": "^13.0.0",
     "debug": "^2.2.0",
     "democracyos-config": "^0.1.1",
+    "dialog-polyfill": "^0.4.3",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
     "gulp": "^3.9.1",
