@@ -1,5 +1,6 @@
 /billtracker_git
 /build
 /node_modules
+*.sublime-workspace
 .DS_Store
 npm-debug.log
