@@ -1,0 +1,37 @@
+dialog.politician-modal.mdl-dialog
+  button.mdl-button--icon.mdl-button.close
+    i.material-icons.md-14 close
+
+  .politician-avatar
+    .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(https://scontent-gru2-1.xx.fbcdn.net/hphotos-xta1/t31.0-8/11931003_10153592980659100_870159434810610358_o.jpg)')
+      i.material-icons
+
+    h1 Juan Manuel Pernumian
+    p
+      | Some description about the author of this bill.
+
+    .politician-state
+      p Santiago del Estero
+      i.material-icons.md-7 fiber_manual_record
+      p.party Coalición Cívica
+
+    .contact
+      a(href="#" target="_blank")
+        img(src="../politician-modal/facebook.svg" alt="Facebook Logo" height="17")
+      a(href="#" target="_blank")
+        img(src="../politician-modal/twitter.svg" alt="Facebook Logo" height="17")
+      a(href="#" target="_blank")
+        img(src="../politician-modal/email.svg" alt="Facebook Logo" height="17")
+
+  .politician-work
+    .comisiones
+      h4 Comisiones
+      ul
+        li Asuntos Constitucionales
+        li Asuntos Constitucionales
+    .divider
+    .bill-project
+      h4 Proyectos
+      ul
+        each val in [1, 2]
+          li= val
