@@ -5,6 +5,9 @@
 
   nav.mdl-navigation
     .vertical-line
+      each stage, index in stages
+        - if (index === 0) continue
+        .color-line
     each stage, index in stages
       a.mdl-navigation__link.stage(stage-id='#{stage.stageID}', previous-stage-id='#{index > 0 ? stages[index-1].stageID : ""}', stage-link)
         .stage-circle
