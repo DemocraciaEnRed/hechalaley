@@ -1,3 +1,6 @@
+.mdl-navigation__link
+  opacity: 1
+
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover
   background: inherit
 
@@ -37,10 +40,32 @@
     height: 100%
     height: calc(100% - 12px)
     width: 2px
-    background-color: #eef1f6
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+    .color-line
+      position: relative
+      width: 2px
+      height: 100%
+      background-color: #eef1f6
+
+      &:after
+        content: ''
+        position: absolute
+        width: 100%
+        left: 0
+        bottom: 0
+        height: 0
+        background-color: #fb416a
+        transition: 1s ease-out
+
+      &:hover:after
+        height: 100%
 
   .stage
     position: relative
+    top: 6px
     padding: 0 20px !important
     margin-left: 25px !important
     cursor: pointer
@@ -52,6 +77,10 @@
     &:last-of-type .stage-circle
       bottom: 0
       top: auto
+
+    &.active
+      .stage-circle
+        background-color: #fb416a
 
   .stage-date,
   .stage-title,
