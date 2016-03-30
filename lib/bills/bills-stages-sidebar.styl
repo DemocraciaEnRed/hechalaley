@@ -1,0 +1,91 @@
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover
+  background: inherit
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover .stage-title,
+  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover .stage-overview
+  color: #fff
+
+.bills-stages-sidebar
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  background-color: #2b3245
+  padding-bottom: 48px
+
+  .mdl-layout-title
+    padding: 48px 20px 20px 20px
+
+  h1
+    margin: 0
+    padding: 0
+    color: #fff
+    font-weight: 700
+    font-size: 2.75rem
+
+  .mdl-navigation
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    flex-grow: 2
+    padding: 0
+
+  .vertical-line
+    position: absolute
+    left: 23px
+    top: calc(8px)
+    height: 100%
+    height: calc(100% - 12px)
+    width: 2px
+    background-color: #eef1f6
+
+  .stage
+    position: relative
+    padding: 0 20px !important
+    margin-left: 25px !important
+    cursor: pointer
+    color: #fff
+
+    &:first-of-type .stage-circle
+      top: 0
+
+    &:last-of-type .stage-circle
+      bottom: 0
+      top: auto
+
+  .stage-date,
+  .stage-title,
+  .stage-overview
+    color: #8a8e98
+
+  .stage-date
+    font-size: .8rem
+    margin: 0
+    line-height: 1
+    margin-bottom: 5px
+
+  .stage-title
+    font-size: 1.1rem
+    font-weight: 700
+    line-height: 1.4rem
+    margin: 0
+    margin-bottom: 8px
+
+  .current-stage
+     color: #fff
+
+  .stage-overview
+    font-weight: 100
+    font-size: .9rem
+    letter-spacing: .02rem
+    line-height: 1rem
+    margin-bottom: 0
+
+  .stage-circle
+    position: absolute
+    top: 35%
+    left: -6px
+    width: 10px
+    height: 10px
+    background-color: #eef1f6
+    border-radius: 50%

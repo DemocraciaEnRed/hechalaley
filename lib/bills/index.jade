@@ -15,15 +15,7 @@
           input#switch-1.mdl-switch__input(type="checkbox")
           span.mdl-switch__labelb
 
-  .bills-stages-sidebar.mdl-layout__drawer(data-stages-sidebar)
-    span.mdl-layout-title
-      a.mdl-navigation__link(href='/')
-        h1 Bill Tracker
-    nav.mdl-navigation
-      each stage, index in stages
-        a.mdl-navigation__link(stage-id='#{stage.stageID}', previous-stage-id='#{index > 0 ? stages[index-1].stageID : ""}', stage-link)
-          p= moment(stage.stageDate).locale('es').format('LL')
-          h5= stage.title
+  include ./bills-stages-sidebar
 
   include ./author
 

@@ -1,5 +1,6 @@
 @import 'author'
 @import 'bill-nav'
+@import 'bills-stages-sidebar'
 
 .bills
   .deletion
@@ -9,22 +10,6 @@
   .addition
     background-color: rgba(102, 235, 154, .50)
 
-  .bills-stages-sidebar
-    background-color: #2b3245
-
-    .mdl-layout-title
-      padding: 48px 20px 0px 20px
-
-    h1
-      margin: 0
-      padding: 0
-      color: #fff
-      font-weight: 700
-      font-size: 2.75rem
-
-    .mdl-navigation__link
-      color: #fff
-
   .mdl-layout__content,
   .mdl-layout__header,
   .bill-title-container,
@@ -32,6 +17,9 @@
     margin-left: auto !important
     margin-right: auto !important
     width: calc(100% - 480px) !important
+
+    [bill-contents]
+      font-size: .9rem
 
   .mdl-layout__header
     background-color: #eef1f6
