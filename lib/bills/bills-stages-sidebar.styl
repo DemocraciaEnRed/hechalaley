@@ -60,7 +60,7 @@
         background-color: #fb416a
         transition: 1s ease-out
 
-      &:hover:after
+      &.active:after
         height: 100%
 
   .stage
@@ -71,16 +71,24 @@
     cursor: pointer
     color: #fff
 
-    &:first-of-type .stage-circle
-      top: 0
-
     &:last-of-type .stage-circle
       bottom: 0
       top: auto
 
+    &:first-of-type .stage-circle
+      top: 0
+
     &.active
       .stage-circle
         background-color: #fb416a
+
+      .stage-overview
+        display: block
+        color: #fff
+
+      .stage-title
+        margin-bottom: 8px
+        color: #fff
 
   .stage-date,
   .stage-title,
@@ -98,7 +106,7 @@
     font-weight: 700
     line-height: 1.4rem
     margin: 0
-    margin-bottom: 8px
+    margin-bottom: -5px
 
   .current-stage
      color: #fff
@@ -109,6 +117,7 @@
     letter-spacing: .02rem
     line-height: 1rem
     margin-bottom: 0
+    display: none
 
   .stage-circle
     position: absolute
