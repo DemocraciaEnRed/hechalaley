@@ -3,6 +3,7 @@
 @import 'bills-stages-sidebar'
 
 .bills
+
   .deletion
     background-color: rgba(251, 65, 106, .50)
     text-decoration: line-through
@@ -20,6 +21,9 @@
 
     [bill-contents]
       font-size: .9rem
+
+  .mdl-layout__content
+    width: 100%
 
   .mdl-layout__header
     background-color: #eef1f6
@@ -107,3 +111,7 @@
     font-size: .9rem
     margin-bottom: 4px
     font-weight: 400
+
+@media screen and (max-width: 1024px)
+  .mdl-layout--fixed-header > .mdl-layout__header
+    width: 100%
