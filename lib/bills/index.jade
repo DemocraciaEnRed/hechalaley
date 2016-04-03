@@ -12,7 +12,7 @@
           span.text-deactivate Desactivar comparación
 
         label.mdl-switch.mdl-js-switch.mdl-js-ripple-effect(for="switch-1")
-          input#switch-1.mdl-switch__input(type="checkbox")
+          input#switch-1.mdl-switch__input(type="checkbox", diff-toggle)
           span.mdl-switch__labelb
 
   include ./bills-stages-sidebar
@@ -24,7 +24,4 @@
       h3 TÍTULO 1 . DISPOSICIONES GENERALES
       h4 Capítulo 1 - Objeto
       h5 Articulo 1º
-      div(bill-contents)
-        each diff in diffs
-          span(class = diff.isAddition ? 'addition': diff.isDeletion ? 'deletion' : '') #{diff.contents}
-          br
+      div(bill-contents) #{bill.contents}

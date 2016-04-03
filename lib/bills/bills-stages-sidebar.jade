@@ -9,7 +9,12 @@
         - if (index === 0) continue
         .color-line
     each stage, index in stages
-      a.mdl-navigation__link.stage(stage-id='#{stage.stageID}', previous-stage-id='#{index > 0 ? stages[index-1].stageID : ""}', stage-link)
+      a.mdl-navigation__link.stage(
+        stage-id='#{stage._id}',
+        stage-contents-id='#{stage.stageID}',
+        previous-stage-id='#{index > 0 ? stages[index-1]._id : ""}',
+        previous-stage-contents-id='#{index > 0 ? stages[index-1].stageID : ""}',
+        stage-link)
         .stage-circle
         p.stage-date= moment(stage.stageDate).locale('es').format('LL')
         h5.stage-title= stage.title
