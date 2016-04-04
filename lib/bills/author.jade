@@ -6,7 +6,7 @@
     h1 #{author.fullname}
     p
       | #{author.jurisdiction.name}
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(data-dialog) Ver perfil
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(data-dialog, onclick="window.open('#{author.profileURL}', '_blank');") Ver perfil
 
   .politics
     span.mdl-layout-title Co-Firmantes
