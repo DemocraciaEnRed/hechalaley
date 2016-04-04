@@ -1,1 +1,1 @@
-web: NODE_PATH=. node app
+web: NODE_PATH=. node app.js

@@ -2,7 +2,7 @@ mixin bill-card(bill)
   .mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.cards-width
     .mdl-card__title.mdl-card--expand
       h2.mdl-card__title-text
-        - var lastStage = bill.stages[bill.stages.length - 1] 
+        - var lastStage = bill.stages[bill.stages.length - 1]
         small.bill-leg #{lastStage.identification}
         | #{bill.title}
     .mdl-card__supporting-text
