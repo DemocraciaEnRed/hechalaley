@@ -1,18 +1,18 @@
 .bills-author.mdl-layout__drawer
   .author
     span.mdl-layout-title Firmante
-    .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(https://scontent-gru2-1.xx.fbcdn.net/hphotos-xta1/t31.0-8/11931003_10153592980659100_870159434810610358_o.jpg)')
+    .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(#{author.pictureURL})')
       i.material-icons
     h1 #{author.fullname}
     p
-      | Some description about the author of this bill.
+      | #{author.jurisdiction.name}
     button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(data-dialog) Ver perfil
 
   .politics
     span.mdl-layout-title Co-Firmantes
     .politics-list
       each signer in bill.coSigners
-        .mdl-list__item-avatar.avatar(data-dialog, data-tip='#{signer.fullname}', style='background-image: url(https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn2/v/t1.0-9/1966745_10152274689279427_915136045_n.jpg?oh=1f34e2b676628a1c64d0453850bee6ec&oe=57825A3E&__gda__=1468758099_b7a57324c7d435c1b7972aa15f1d14fc)')
+        .mdl-list__item-avatar.avatar(data-dialog, data-tip='#{signer.fullname}', style='background-image: url(#{signer.pictureURL})')
         i.material-icons
 
   .politics(style='display:none')
