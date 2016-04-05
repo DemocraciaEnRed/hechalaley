@@ -10,7 +10,7 @@
     "url": "https://github.com/DemocraciaEnRed/billtracker"
   },
   "scripts": {
-    "build": "rm -rf build && gulp build",
+    "build": "rimraf build && gulp build",
     "lint": "standard",
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon",
     "test": "npm run lint",
@@ -45,6 +45,7 @@
     "page": "^1.6.4",
     "promise": "^7.1.1",
     "promisify-node": "^0.3.0",
+    "rimraf": "^2.5.2",
     "superagent": "^1.8.0-beta.2",
     "through2-concurrent": "^1.1.0",
     "uglifyify": "^3.0.1",
