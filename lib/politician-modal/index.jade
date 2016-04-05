@@ -3,15 +3,14 @@ dialog.politician-modal.mdl-dialog
     i.material-icons.md-14 close
 
   .politician-avatar
-    .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(https://scontent-gru2-1.xx.fbcdn.net/hphotos-xta1/t31.0-8/11931003_10153592980659100_870159434810610358_o.jpg)')
+    .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(#{politician.pictureURL})')
       i.material-icons
 
-    h1 Juan Manuel Pernumian
-    p
-      | Some description about the author of this bill.
+    h1= politician.fullname
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus nulla non odio pellentesque porta. Nulla semper nisi nec neque aliquet sagittis.
 
     .politician-state
-      p Santiago del Estero
+      p= politician.jurisdiction.name
       i.material-icons.md-7 fiber_manual_record
       p.party Coalición Cívica
 
@@ -23,15 +22,16 @@ dialog.politician-modal.mdl-dialog
       a(href="#" target="_blank")
         img(src="../politician-modal/email.svg" alt="Facebook Logo" height="17")
 
-  .politician-work
-    .comisiones
-      h4 Comisiones
-      ul
-        li Asuntos Constitucionales
-        li Asuntos Constitucionales
-    .divider
-    .bill-project
-      h4 Proyectos
-      ul
-        each val in [1, 2]
-          li= val
+  //-
+    .politician-work
+      .comisiones
+        h4 Comisiones
+        ul
+          li Asuntos Constitucionales
+          li Asuntos Constitucionales
+      .divider
+      .bill-project
+        h4 Proyectos
+        ul
+          each val in [1, 2]
+            li= val
