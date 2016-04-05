@@ -3,12 +3,11 @@
 @import 'bills-stages-sidebar'
 
 .bills
-
-  .deletion
+  del
     background-color: rgba(251, 65, 106, .50)
     text-decoration: line-through
 
-  .addition
+  ins
     background-color: rgba(102, 235, 154, .50)
 
   .mdl-layout__content,
@@ -78,10 +77,11 @@
   left: auto
   transform: translateX(0)
 
-.addition
+ins
+  text-decoration: none
   background: lightgreen
 
-.deletion
+del
   background: red
 
 .bill-body
