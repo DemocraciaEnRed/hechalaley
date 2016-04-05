@@ -14,7 +14,7 @@
         stage-contents-id='#{stage.stageID}',
         previous-stage-id='#{index > 0 ? stages[index-1]._id : ""}',
         previous-stage-contents-id='#{index > 0 ? stages[index-1].stageID : ""}',
-        stage-link)
+        data-stage-link)
         .stage-circle
         p.stage-date= moment(stage.stageDate).locale('es').format('LL')
         h5.stage-title= stage.title
