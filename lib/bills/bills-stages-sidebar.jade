@@ -7,7 +7,7 @@
     .vertical-line
       each stage, index in stages
         - if (index === 0) continue
-        .color-line
+        .color-line(data-stage-line, stage-id='#{stage._id}')
     each stage, index in stages
       a.mdl-navigation__link.stage(
         stage-id='#{stage._id}',
