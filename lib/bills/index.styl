@@ -3,23 +3,13 @@
 @import 'bills-stages-sidebar'
 
 .bills
-  del
-    background-color: rgba(251, 65, 106, .50)
-    text-decoration: line-through
-
-  ins
-    background-color: rgba(102, 235, 154, .50)
-
   .mdl-layout__content,
   .mdl-layout__header,
   .bill-title-container,
   .bill-body
     margin-left: auto !important
     margin-right: auto !important
-    width: 455px
-
-    [bill-contents]
-      font-size: .9rem
+    width: 500px
 
   .mdl-layout__content
     width: 100%
@@ -77,40 +67,35 @@
   left: auto
   transform: translateX(0)
 
-ins
-  text-decoration: none
-  background: lightgreen
-
-del
-  background: red
-
 .bill-body
   margin-top: 65px
 
-  h3,
-  h4,
-  h5
-    text-transform: uppercase
+  del
+    text-decoration: line-through
+    background-color: rgba(251, 65, 106, .50)
+
+  ins
+    text-decoration: none
+    background-color: rgba(102, 235, 154, .50)
+
+  h1,
+  h2,
+  h3
     font-weight: 700
     margin: 0
     letter-spacing: .03rem
 
-  h3
+  h1
     font-size: 1.7rem
     margin-bottom: 10px
 
-  h4
+  h2
     font-size: 1.2rem
     margin-bottom: 25px
 
-  h5
+  h3
     font-size: .9rem
     margin-bottom: 8px
-
-  span
-    font-size: .9rem
-    margin-bottom: 4px
-    font-weight: 400
 
 @media screen and (max-width: 1024px)
   .mdl-layout--fixed-header > .mdl-layout__header
