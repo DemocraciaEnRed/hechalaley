@@ -6,13 +6,13 @@
 
       h1 #{bill.title}
 
-      .switch-container.active
+      .switch-container.active(data-diff-switch)
         p.text
           span.text-activate Activar comparación
           span.text-deactivate Desactivar comparación
 
-        label.mdl-switch.mdl-js-switch.mdl-js-ripple-effect(for="switch-1")
-          input#switch-1.mdl-switch__input(type="checkbox", data-diff-toggle)
+        label.mdl-switch.mdl-js-switch.mdl-js-ripple-effect(for='diff-switch')
+          input#diff-switch.mdl-switch__input(type='checkbox', data-diff-toggle)
           span.mdl-switch__labelb
 
   include ./bills-stages-sidebar
@@ -21,4 +21,4 @@
 
   main.mdl-layout__content
     .bill-body
-      div(bill-contents) !{bill.contents}
+      div(data-bill-contents) !{bill.contents}
