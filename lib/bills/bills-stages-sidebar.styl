@@ -71,12 +71,17 @@
     cursor: pointer
     color: #fff
 
-    &:last-of-type .stage-circle
-      bottom: 0
-      top: auto
+    &:last-of-type
+      .stage-overview
+        position: relative
 
-    &:first-of-type .stage-circle
-      top: 0
+      .stage-circle
+        bottom: 0
+        top: auto
+
+    &:first-of-type
+      .stage-circle
+        top: 0
 
     &.active
       .stage-circle
@@ -87,7 +92,6 @@
         color: #fff
 
       .stage-title
-        margin-bottom: 8px
         color: #fff
 
   .stage-date,
@@ -112,11 +116,13 @@
      color: #fff
 
   .stage-overview
+    position: absolute
+    top: 100%
     font-weight: 100
     font-size: .9rem
     letter-spacing: .02rem
     line-height: 1rem
-    margin-bottom: 0
+    margin: 10px 0 0
     display: none
 
   .stage-circle
