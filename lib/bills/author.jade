@@ -4,12 +4,13 @@
     .mdl-list__item-avatar.avatar(data-dialog, style='background-image: url(#{author.pictureURL})')
       i.material-icons
     h1= author.fullname
-    p= author.jurisdiction.name
+    if author.jurisdiction
+      p= author.jurisdiction.name
     a.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(
       data-politician-modal=author._id
     ) Ver perfil
 
-  - if (bill.coSigners.length)
+  if bill.coSigners.length
     .politics
       span.mdl-layout-title Co-Firmantes
       .politics-list
