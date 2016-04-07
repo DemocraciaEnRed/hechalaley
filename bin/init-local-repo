@@ -21,6 +21,16 @@ else
   mkdir "$DIRECTORY" >/dev/null
 fi
 
+if ! git config user.name > /dev/null; then
+  git config --global user.name 'Bill Tracker'
+  info "Configuring git user.name 'Bill Tracker'"
+fi
+
+if ! git config user.email > /dev/null; then
+  git config --global user.email 'billtracker@democraciaenred.com'
+  info "Configuring git user.email 'billtracker@democraciaenred.com'"
+fi
+
 if [ -d "$DIRECTORY/.git" ]; then
   warn "Git is already initialized."
 else
