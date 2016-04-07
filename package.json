@@ -15,7 +15,8 @@
     "start": "NODE_PATH=. DEBUG='billtracker*' nodemon",
     "test": "npm run lint",
     "watch": "npm run build && gulp watch",
-    "postinstall": "npm run build -- --minify"
+    "postinstall": "npm run build -- --minify",
+    "heroku-postbuild": "bin/init-local-repo"
   },
   "dependencies": {
     "async": "^1.5.2",
@@ -60,5 +61,9 @@
     "ignore": [
       "material.js"
     ]
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "billtracker_git"
+  ]
 }
