@@ -10,7 +10,7 @@
       data-politician-modal=author._id
     ) Ver perfil
 
-  if bill.coSigners.length
+  if bill.coSigners && bill.coSigners.length
     .politics
       span.mdl-layout-title Co-Firmantes
       .politics-list
