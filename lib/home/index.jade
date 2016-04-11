@@ -12,23 +12,23 @@ mixin bill-card(bill)
       a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
         | Ver proyecto
 
-.home.mdl-layout.mdl-js-layout
-  main.mdl-layout__content
-    .home-cover
-      div
-        h1.title Bill Tracker
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-          a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='#bills') Ver proyectos
-      i.material-icons.md-24 keyboard_arrow_down
+main.home
+  .home-cover
+    div
+      h1.title Bill Tracker
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='#bills') Ver proyectos
+    i.material-icons.md-24 keyboard_arrow_down
 
-    #bills.home-bills.mdl-grid
-      each bill in bills
-        +bill-card(bill)
-    footer.mdl-mini-footer
-      .mdl-mini-footer__left-section
-        .mdl-logo Bill Tracker
-        //-
-          ul.mdl-mini-footer__link-list
-            li: a(href='#') Help
-            li: a(href='#') Privacy &amp; Terms
+  #bills.home-bills.mdl-grid
+    each bill in bills
+      +bill-card(bill)
+
+  footer.mdl-mini-footer
+    .mdl-mini-footer__left-section
+      .mdl-logo Bill Tracker
+      //-
+        ul.mdl-mini-footer__link-list
+          li: a(href='#') Help
+          li: a(href='#') Privacy &amp; Terms
