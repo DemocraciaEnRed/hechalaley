@@ -14,7 +14,7 @@ mixin bill-card(bill)
 
 main.home
   .home-cover
-    img.logo(src='/home/logo.png', alt='Hecha la Ley')
+    img.logo(src='/assets/logo.png', alt='Hecha la Ley')
     p Una aplicación que permite realizar seguimiento a los proyectos de ley que se debaten en el Congreso. Examiná el trabajo legislativo de una manera clara y sencilla.
     a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='#bills')
       | Ver proyectos
@@ -25,7 +25,7 @@ main.home
     each bill in bills
       +bill-card(bill)
 
-  footer.mdl-mini-footerº
+  footer.mdl-mini-footer
     .mdl-mini-footer__left-section
       .mdl-logo Bill Tracker
       //-
