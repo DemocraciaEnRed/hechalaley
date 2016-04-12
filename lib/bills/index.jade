@@ -20,5 +20,4 @@
   include ./author
 
   main.mdl-layout__content
-    .bill-body
-      div(data-bill-contents) !{bill.contents}
+    .bill-body(data-bill-contents)!= bill.contents

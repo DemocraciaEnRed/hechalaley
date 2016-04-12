@@ -69,6 +69,12 @@
 
 .bill-body
   margin-top: 65px
+  opacity: 1
+  transition: opacity ease-out .5s
+
+  &.loading
+    transition-delay: .1s
+    opacity: 0
 
   del
     text-decoration: line-through
