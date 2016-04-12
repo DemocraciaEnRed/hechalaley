@@ -18,4 +18,5 @@
         .stage-circle
         p.stage-date= moment(stage.stageDate).locale('es').format('LL')
         h5.stage-title= stage.title
-        p.stage-overview Some bill change overview.
+        if stage.summary
+          p.stage-overview= stage.summary
