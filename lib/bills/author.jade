@@ -11,20 +11,9 @@
     ) Ver perfil
 
   if bill.coSigners && bill.coSigners.length
-    .politics
+    .politicians
       span.mdl-layout-title Co-Firmantes
-      .politics-list
-        each signer in bill.coSigners
-          .mdl-list__item-avatar.avatar(
-            data-politician-modal=signer._id,
-            data-tip=signer.fullname,
-            style='background-image: url(#{signer.pictureURL})'
-          )
-          i.material-icons
+      - var politicians = bill.coSigners
+      include ./politicians-list
 
-  .politics(style='display:none')
-    span.mdl-layout-title Modificaron el proyecto
-    .politics-list
-      each val in [1, 2, 3, 4, 5, 6, 7, 8]
-        .mdl-list__item-avatar.avatar(data-dialog, data-tip='Matias Lescano', style='background-image: url(https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn2/v/t1.0-9/1966745_10152274689279427_915136045_n.jpg?oh=1f34e2b676628a1c64d0453850bee6ec&oe=57825A3E&__gda__=1468758099_b7a57324c7d435c1b7972aa15f1d14fc)')
-        i.material-icons
+  .stage-authors(data-stage-authors)

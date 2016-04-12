@@ -1,0 +1,7 @@
+.politicians-list
+  each politician in politicians
+    .politicians-list-item.mdl-list__item-avatar.avatar(
+      data-politician-modal=politician._id,
+      data-tip=politician.fullname,
+      style='background-image: url(#{politician.pictureURL})'
+    )
