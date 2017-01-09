@@ -66,9 +66,5 @@
     "ignore": [
       "material.js"
     ]
-  },
-  "cacheDirectories": [
-    "node_modules",
-    "billtracker_git"
-  ]
+  }
 }
