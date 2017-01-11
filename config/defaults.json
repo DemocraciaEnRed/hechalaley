@@ -1,5 +1,5 @@
 {
   "mongoUrl": "mongodb://localhost/billtracker",
   "port": 3000,
-  "billsGitPath": "../billtracker_git"
+  "billsGitPath": "../billtracker-git"
 }

@@ -1,1 +1,0 @@
-web: NODE_PATH=. node app.js

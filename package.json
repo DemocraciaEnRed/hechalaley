@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An open-source bill tracking utility for Congresses",
   "license": "GPL-3.0",
-  "author": "",
+  "author": "Democracia En Red & Directorio Legislativo",
   "main": "app.js",
   "repository": {
     "type": "git",
@@ -11,12 +11,12 @@
   },
   "scripts": {
     "build": "rimraf build && gulp build",
+    "init": "bin/init-local-repo",
+    "dev": "NODE_PATH=. DEBUG='billtracker*' nodemon",
     "lint": "standard",
-    "start": "NODE_PATH=. DEBUG='billtracker*' nodemon",
+    "start": "NODE_PATH=. node app.js",
     "test": "npm run lint",
-    "watch": "npm run build && gulp watch",
-    "postinstall": "npm run build -- --minify",
-    "heroku-postbuild": "bin/init-local-repo"
+    "watch": "npm run build && gulp watch"
   },
   "dependencies": {
     "async": "~1.5.2",
@@ -42,9 +42,9 @@
     "marked": "~0.3.5",
     "mkdirp": "~0.5.1",
     "moment": "~2.12.0",
-    "mongoose": "~4.4.4",
+    "mongoose": "~4.7.6",
     "ng-admin": "~0.9.1",
-    "nodegit": "~0.11.2",
+    "nodegit": "0.16.0",
     "nodemon": "~1.9.0",
     "page": "~1.6.4",
     "promise": "~7.1.1",

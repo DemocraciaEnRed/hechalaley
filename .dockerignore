@@ -1,0 +1,12 @@
+.dockerignore
+.DS_Store
+.git
+.gitignore
+.stylintrc
+/upstart
+/billtracker-git
+config/*.json
+!config/defaults.json
+node_modules
+nodemon.json
+README.md

@@ -3,7 +3,7 @@
   "ignore": [
     "build/*",
     "bin/*",
-    "billtracker_git/*",
+    "billtracker-git/*",
     "tmp/*"
   ],
   "watch": [
