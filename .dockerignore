@@ -10,3 +10,4 @@ config/*.json
 node_modules
 nodemon.json
 README.md
+public

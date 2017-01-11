@@ -18,12 +18,14 @@ RUN npm install --production --quiet
 
 COPY [".", "/usr/src/"]
 
+VOLUME ["/billtracker-git"]
+
 ENV NODE_ENV=production \
     MONGO_URL=mongodb://mongo/billtracker \
     BILLS_GIT_PATH=/billtracker-git
 
-EXPOSE 3000
+RUN npm run build -- --minify
 
-VOLUME ["/billtracker-git"]
+EXPOSE 3000
 
 CMD ["/bin/bash", "-c", "npm run init && npm start"]
