@@ -19,6 +19,16 @@ Before starting, make sure you have [Node 4.x](https://nodejs.org/) installed an
 
 During development you can use `npm run dev` to run the server and auto-reload on any file-change; and `npm run watch` to watch changes on the frontend bundle.
 
+## Docker Usage
+
+1. Make sure to have [Docker](docker.com) installed.
+
+2. Copy `docker/development.docker-compose.yml.example` to `docker/development.docker-compose.yml`
+
+3. Run `docker-compose -f docker/development.docker-compose.yml up --build`
+
+4. Profit 🙌
+
 ## License
 
 [GPL v3]: http://www.gnu.org/licenses/gpl-3.0.html

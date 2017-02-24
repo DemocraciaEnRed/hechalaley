@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  billtracker:
+    container_name: billtracker-dev
+    build: ../
+    command: ["/bin/bash", "-c", "npm run init && npm run dev"]
+    environment:
+      - NODE_ENV=development
+      - DEBUG=billtracker*
+      - MONGO_URL=mongodb://mongo/development
+      - ORGANIZATION_NAME=Billtracker
+    links:
+      - mongo
+    ports:
+      - 3000:3000
+    volumes:
+      - ${PWD}/billtracker-git:/billtracker-git
+    tty: true
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ../tmp/db:/data/db
