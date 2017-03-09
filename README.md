@@ -21,7 +21,7 @@ During development you can use `npm run dev` to run the server and auto-reload o
 
 ## Docker Usage
 
-1. Make sure to have [Docker](docker.com) installed.
+1. Make sure to have [Docker](https://docker.com) installed.
 
 2. Copy `docker/development.docker-compose.yml.example` to `docker/development.docker-compose.yml`
 

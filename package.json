@@ -14,7 +14,7 @@
     "init": "bin/init-local-repo",
     "dev": "NODE_PATH=. DEBUG='billtracker*' nodemon",
     "lint": "standard",
-    "start": "NODE_PATH=. node app.js",
+    "start": "NODE_PATH=. node .",
     "test": "npm run lint",
     "watch": "npm run build && gulp watch"
   },
