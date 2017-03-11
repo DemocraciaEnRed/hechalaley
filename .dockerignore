@@ -3,7 +3,6 @@
 .git
 .gitignore
 .stylintrc
-/upstart
 /billtracker-git
 config/*.json
 !config/defaults.json

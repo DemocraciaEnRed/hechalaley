@@ -1,4 +1,4 @@
-FROM node:4-slim
+FROM node:7.6
 
 MAINTAINER Matías Lescano <matias@democraciaenred.org>
 
