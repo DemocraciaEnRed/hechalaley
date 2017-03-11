@@ -14,14 +14,15 @@ RUN npm install nodegit@0.16.0 --quiet
 
 COPY ["package.json", "/usr/src/"]
 
-RUN npm install --production --quiet
+ENV NODE_ENV=production
+
+RUN npm install --quiet
 
 COPY [".", "/usr/src/"]
 
 VOLUME ["/billtracker-git"]
 
-ENV NODE_ENV=production \
-    MONGO_URL=mongodb://mongo/billtracker \
+ENV MONGO_URL=mongodb://mongo/billtracker \
     BILLS_GIT_PATH=/billtracker-git
 
 RUN npm run build -- --minify

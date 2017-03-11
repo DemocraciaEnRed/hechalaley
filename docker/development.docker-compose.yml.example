@@ -4,7 +4,7 @@ services:
   billtracker:
     container_name: billtracker-dev
     build: ../
-    command: ["/bin/bash", "-c", "npm run init && npm run dev & npm run watch"]
+    command: ["/bin/bash", "-c", "npm i && npm run init && npm run dev & npm run watch"]
     environment:
       - NODE_ENV=development
       - DEBUG=billtracker*

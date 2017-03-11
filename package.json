@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "admin-on-rest": "~0.8.4",
+    "aor-language-spanish": "~1.0.0",
     "async": "~1.5.2",
     "babel-cli": "~6.23.0",
     "babel-plugin-syntax-class-properties": "~6.13.0",
