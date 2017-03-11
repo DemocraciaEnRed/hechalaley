@@ -3,7 +3,6 @@ html
   head
     title Admin | Hecha la Ley
     link(href='/admin.css', rel='stylesheet')
-  body(ng-app='admin')
-    main(data-content)
-    div(ui-view='')
-    script(src='/admin.js')
+  body
+    #root
+    script(src='/admin.js', async)

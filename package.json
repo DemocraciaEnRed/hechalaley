@@ -19,6 +19,7 @@
     "watch": "npm run build && gulp watch"
   },
   "dependencies": {
+    "admin-on-rest": "~0.8.4",
     "async": "~1.5.2",
     "babel-cli": "~6.23.0",
     "babel-plugin-syntax-class-properties": "~6.13.0",
@@ -53,6 +54,8 @@
     "page": "~1.6.4",
     "promise": "~7.1.1",
     "promisify-node": "~0.3.0",
+    "react": "~15.4.2",
+    "react-dom": "~15.4.2",
     "rimraf": "~2.5.2",
     "scroll-to-element": "~2.0.0",
     "string-similarity": "~1.0.0",
@@ -68,11 +71,7 @@
     "npm": "4.x.x"
   },
   "devDependencies": {
-    "standard": "~6.0.8"
-  },
-  "standard": {
-    "ignore": [
-      "material.js"
-    ]
+    "eslint": "~3.17.1",
+    "eslint-config-democracyos": "~1.0.0"
   }
 }

@@ -3,9 +3,10 @@
 .git
 .gitignore
 .stylintrc
-/billtracker-git
+billtracker-git
+build
 config/*.json
 !config/defaults.json
 node_modules
-nodemon.json
 README.md
+tmp
