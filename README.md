@@ -1,5 +1,4 @@
-Billtracker
-===========
+# Billtracker
 
 An open-source bill tracking utility for Congresses.
 

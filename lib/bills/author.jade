@@ -7,7 +7,7 @@
     if author.jurisdiction
       p= author.jurisdiction.name
     a.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(
-      data-politician-modal=author._id
+      data-politician-modal=author.id
     ) Ver perfil
 
   if bill.coSigners && bill.coSigners.length

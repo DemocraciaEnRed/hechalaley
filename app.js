@@ -30,6 +30,7 @@ app.get('*', function (req, res) {
 })
 
 var databaseURL = config.mongoUrl
+mongoose.Promise = global.Promise
 mongoose.connect(databaseURL, function (err, res) {
   if (err) {
     log('ERROR: connecting to Database. ' + err)

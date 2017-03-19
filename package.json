@@ -37,7 +37,7 @@
     "democracyos-config": "~0.1.1",
     "dialog-polyfill": "~0.4.3",
     "diff": "~2.2.2",
-    "express": "~4.13.4",
+    "express": "~4.15.2",
     "fs-extra": "~0.26.5",
     "gulp": "~3.9.1",
     "gulp-pleeease": "~2.0.2",

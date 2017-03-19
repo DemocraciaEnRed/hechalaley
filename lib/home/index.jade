@@ -9,7 +9,7 @@ mixin bill-card(bill)
       strong #{currentStage.title}
       | #{bill.summary}
     .mdl-card__actions
-      a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill._id}')
+      a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/bills/#{bill.id}')
         | Ver proyecto
 
 main.home
