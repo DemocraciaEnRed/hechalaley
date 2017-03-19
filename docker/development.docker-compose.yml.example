@@ -2,9 +2,9 @@ version: '2'
 
 services:
   billtracker:
-    container_name: billtracker-dev
+    container_name: billtracker
     build: ../
-    command: ["/bin/bash", "-c", "npm i && npm run init && npm run dev & npm run watch"]
+    command: ["/bin/bash", "-c", "npm i --quiet && npm run init && npm run dev & npm run watch"]
     environment:
       - NODE_ENV=development
       - DEBUG=billtracker*
@@ -16,9 +16,9 @@ services:
       - 3000:3000
     volumes:
       - ${PWD}/billtracker-git:/billtracker-git
+      - ${PWD}/lib:/usr/src/lib
       - ${PWD}/public:/usr/src/public
-      - ${PWD}:/usr/src
-      - /usr/src/node_modules
+      - ${PWD}/config:/usr/src/config
     tty: true
 
   mongo:
