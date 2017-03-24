@@ -11,7 +11,6 @@
   },
   "scripts": {
     "build": "rimraf build && gulp build",
-    "init": "bin/init-local-repo",
     "dev": "NODE_PATH=. DEBUG='billtracker*' nodemon",
     "lint": "standard",
     "start": "NODE_PATH=. node .",
@@ -21,7 +20,6 @@
   "dependencies": {
     "admin-on-rest": "~0.8.4",
     "aor-language-spanish": "~1.0.0",
-    "async": "~1.5.2",
     "babel-cli": "~6.23.0",
     "babel-plugin-syntax-class-properties": "~6.13.0",
     "babel-plugin-transform-class-properties": "~6.23.0",
@@ -38,7 +36,6 @@
     "dialog-polyfill": "~0.4.3",
     "diff": "~2.2.2",
     "express": "~4.15.2",
-    "fs-extra": "~0.26.5",
     "gulp": "~3.9.1",
     "gulp-pleeease": "~2.0.2",
     "gulp-util": "~3.0.7",
@@ -49,8 +46,6 @@
     "mkdirp": "~0.5.1",
     "moment": "~2.12.0",
     "mongoose": "~4.7.6",
-    "ng-admin": "~0.9.1",
-    "nodegit": "0.16.0",
     "nodemon": "~1.9.0",
     "page": "~1.6.4",
     "promise": "~7.1.1",
@@ -70,7 +65,7 @@
   },
   "engines": {
     "node": "7.6.x",
-    "npm": "4.x.x"
+    "npm": ">=3.0.0 <5.0.0"
   },
   "devDependencies": {
     "eslint": "~3.17.1",
