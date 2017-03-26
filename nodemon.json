@@ -3,11 +3,10 @@
   "ignore": [
     "build/*",
     "bin/*",
-    "billtracker-git/*",
     "tmp/*"
   ],
   "watch": [
-    "app.js",
+    "index.js",
     "lib/**/*",
     "config/*"
   ]

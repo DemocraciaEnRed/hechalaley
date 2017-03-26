@@ -14,7 +14,7 @@
     "dev": "DEBUG='billtracker*' nodemon",
     "start": "node .",
     "test": "npm run lint",
-    "watch": "npm run build && gulp watch"
+    "watch": "gulp watch"
   },
   "dependencies": {
     "admin-on-rest": "~0.8.4",
