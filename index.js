@@ -10,8 +10,8 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.use(function (req, res, next) {
-  log(req.method + ' ' + req.path)
+app.all('*', function apiLog (req, res, next) {
+  log(`${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`)
   next()
 })
 
@@ -27,10 +27,15 @@ app.get('*', function (req, res) {
   res.status(404).send('Not found.')
 })
 
+app.use(function apiError (err, req, res, next) {
+  log(`Error: ${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`, err)
+  next(err)
+})
+
 api.ready()
   .then(() => {
     app.listen(config.port, function () {
-      log('Server running on http://' + os.hostname() + ':' + config.port)
+      log(`Server running on http://${os.hostname()}:${config.port}`)
     })
   })
   .catch((err) => {
