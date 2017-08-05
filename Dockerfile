@@ -18,4 +18,4 @@ RUN npm run build -- --minify
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "."]
