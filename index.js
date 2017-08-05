@@ -15,26 +15,23 @@ const app = next({
   dir: path.join(__dirname, 'src', 'site')
 })
 
-const handle = app.getRequestHandler()
-
-app.prepare().then(() => {
+Promise.all([
+  api.ready(),
+  app.prepare()
+]).then(() => {
   const server = express()
+
+  const handle = app.getRequestHandler()
 
   server.use('/api', api)
 
   server.get('*', (req, res) => handle(req, res))
 
-  return start(server)
+  server.listen(config.port, function (err) {
+    if (err) throw err
+    log(`Server running on http://${os.hostname()}:${config.port}`)
+  })
 }).catch((err) => {
   log(err)
   throw err
 })
-
-function start (server) {
-  return api.ready().then(() => {
-    server.listen(config.port, function (err) {
-      if (err) throw err
-      log(`Server running on http://${os.hostname()}:${config.port}`)
-    })
-  })
-}

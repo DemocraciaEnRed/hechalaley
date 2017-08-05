@@ -8,6 +8,8 @@ const log = debug('hechalaley:api')
 
 const app = module.exports = express()
 
+app.ready = models.ready
+
 app.use(bodyParser.json())
 app.use(parseJsonQuery('sort', 'range', 'filter'))
 
@@ -29,5 +31,3 @@ app.use(function apiError (err, req, res, next) {
   log(`Error: ${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`, err)
   next(err)
 })
-
-module.exports.ready = models.ready
