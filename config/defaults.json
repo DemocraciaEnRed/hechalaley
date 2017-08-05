@@ -1,4 +1,4 @@
 {
-  "mongoUrl": "mongodb://localhost/billtracker",
+  "mongoUrl": "mongodb://localhost/hechalaley",
   "port": 3000
 }

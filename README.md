@@ -25,7 +25,7 @@ During development you can use `npm run dev` to run the server and auto-reload o
 2. Copy `docker/development.docker-compose.yml.example` to `docker/development.docker-compose.yml`
 
 3. Run `docker-compose -f docker/development.docker-compose.yml up --build`
-  * If you want to install a dependency o restart, use: `docker exec -it billtracker-dev bash` to connect to the runnning container.
+  * If you want to install a dependency o restart, use: `docker exec -it hechalaley-dev bash` to connect to the runnning container.
 
 4. Profit 🙌
 

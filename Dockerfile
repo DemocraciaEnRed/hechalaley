@@ -12,7 +12,7 @@ RUN npm install --quiet
 
 COPY [".", "/usr/src/"]
 
-ENV MONGO_URL=mongodb://mongo/billtracker
+ENV MONGO_URL=mongodb://mongo/hechalaley
 
 RUN npm run build -- --minify
 

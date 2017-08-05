@@ -1,13 +1,11 @@
 {
   "verbose": true,
   "ignore": [
-    "build/*",
-    "bin/*",
-    "tmp/*"
+    ".next/*"
   ],
   "watch": [
     "index.js",
-    "lib/**/*",
+    "src/api/**/*",
     "config/*"
   ]
 }

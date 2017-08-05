@@ -1,44 +1,40 @@
 const os = require('os')
+const path = require('path')
 const express = require('express')
-const bodyParser = require('body-parser')
 const debug = require('debug')
 const config = require('dos-config')
-const api = require('./lib/api')
+const next = require('next')
+const api = require('./src/api')
 
-const log = debug('billtracker:root')
-const app = express()
+config.env = process.env.NODE_ENV
 
-app.use(bodyParser.json())
+const log = debug('hechalaley:root')
 
-app.all('*', function apiLog (req, res, next) {
-  log(`${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`)
-  next()
+const app = next({
+  dev: config.env !== 'production',
+  dir: path.join(__dirname, 'src', 'site')
 })
 
-app.use(api)
+const handle = app.getRequestHandler()
 
-app.use(require('./lib/admin'))
-app.use(require('./lib/site'))
+app.prepare().then(() => {
+  const server = express()
 
-app.use(express.static('public'))
-app.use(express.static('build'))
+  server.use('/api', api)
 
-app.get('*', function (req, res) {
-  res.status(404).send('Not found.')
+  server.get('*', (req, res) => handle(req, res))
+
+  return start(server)
+}).catch((err) => {
+  log(err)
+  throw err
 })
 
-app.use(function apiError (err, req, res, next) {
-  log(`Error: ${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`, err)
-  next(err)
-})
-
-api.ready()
-  .then(() => {
-    app.listen(config.port, function () {
+function start (server) {
+  return api.ready().then(() => {
+    server.listen(config.port, function (err) {
+      if (err) throw err
       log(`Server running on http://${os.hostname()}:${config.port}`)
     })
   })
-  .catch((err) => {
-    log(err)
-    process.exit(1)
-  })
+}
