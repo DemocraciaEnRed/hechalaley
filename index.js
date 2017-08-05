@@ -1,10 +1,11 @@
 const os = require('os')
 const express = require('express')
 const bodyParser = require('body-parser')
-const log = require('debug')('billtracker:root')
-const config = require('./lib/config')
+const debug = require('debug')
+const config = require('dos-config')
 const api = require('./lib/api')
 
+const log = debug('billtracker:root')
 const app = express()
 
 app.use(bodyParser.json())
