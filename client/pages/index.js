@@ -1,3 +1,8 @@
+import Layout from '../site/components/layout'
+import Cover from '../site/components/home/cover'
+
 export default () => (
-  <p>Home!</p>
+  <Layout>
+    <Cover />
+  </Layout>
 )
