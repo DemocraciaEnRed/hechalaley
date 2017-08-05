@@ -1,5 +1,3 @@
-import React from 'react'
-import { render } from 'react-dom'
 import { simpleRestClient, Admin, Resource } from 'admin-on-rest'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import * as jurisdictions from './components/jurisdictions'
@@ -16,6 +14,11 @@ const App = () => (
     title='Admin - Hecha la Ley'
     restClient={simpleRestClient('/api')}
     theme={getMuiTheme(theme)}>
+    <style global jsx>{`
+      .Select-input > input {
+        padding: 6px 0;
+      }
+    `}</style>
     <Resource name='jurisdictions' {...jurisdictions} />
     <Resource name='politicians' {...politicians} />
     <Resource name='bills' {...bills} />
@@ -23,4 +26,4 @@ const App = () => (
   </Admin>
 )
 
-render(<App />, document.getElementById('root'))
+export default App

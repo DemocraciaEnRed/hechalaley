@@ -13,5 +13,5 @@ const html = `<!DOCTYPE html>
 
 module.exports = function renderLayout (req, res, next) {
   res.set('Content-Type', 'text/html')
-  res.send(new Buffer(html))
+  res.send(Buffer.from(html))
 }

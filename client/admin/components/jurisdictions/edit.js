@@ -1,10 +1,9 @@
-import React from 'react'
-import { Create, SimpleForm, TextInput } from 'admin-on-rest/lib/mui'
+import { Edit, SimpleForm, TextInput } from 'admin-on-rest/lib/mui'
 
 export default (props) => (
-  <Create {...props}>
+  <Edit actions={null} {...props}>
     <SimpleForm>
       <TextInput source='name' validation={{ required: true }} />
     </SimpleForm>
-  </Create>
+  </Edit>
 )

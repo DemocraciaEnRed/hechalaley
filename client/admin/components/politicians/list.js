@@ -1,4 +1,3 @@
-import React from 'react'
 import { List, Datagrid, TextField, EditButton } from 'admin-on-rest/lib/mui'
 import ListTitle from '../list-title'
 

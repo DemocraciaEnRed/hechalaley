@@ -1,4 +1,3 @@
-import React from 'react'
 import { translate } from 'admin-on-rest'
 
 export default translate(({ translate, resource }) => {

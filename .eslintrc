@@ -1,13 +1,7 @@
 {
   "extends": ["democracyos"],
 
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "."
-        ]
-      }
-    }
+  "rules": {
+    "react/react-in-jsx-scope": 0
   }
 }

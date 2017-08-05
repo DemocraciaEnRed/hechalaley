@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Select from 'react-select'
 import { Labeled } from 'admin-on-rest/lib/mui'
 
