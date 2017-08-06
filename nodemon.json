@@ -1,6 +1,8 @@
 {
   "watch": [
     "api/**/*",
+    "client/index.js",
+    "client/routes/**/*",
     "config/*",
     "index.js"
   ]

@@ -17,6 +17,7 @@
     "admin-on-rest": "1.2.2",
     "aor-language-spanish": "1.0.2",
     "body-parser": "1.17.2",
+    "classnames": "~2.2.5",
     "debug": "2.6.8",
     "dialog-polyfill": "0.4.8",
     "diff": "3.3.0",

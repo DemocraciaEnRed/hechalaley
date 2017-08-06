@@ -27,12 +27,14 @@ export default () => (
 
       .arrow {
         display: block;
-        margin-top: 20vh;
-        font-size: 3em;
-        color: #fb416a;
+        margin: 20vh auto 0;
+        width: 40px;
+        height: 30px;
         font-family: 'Georgia', 'Apple Symbols';
-        animation: bounce 2s infinite
-
+        animation: bounce 2s infinite;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('/static/icons/down-arrow.svg');
       }
 
       @keyframes bounce {
@@ -55,6 +57,6 @@ export default () => (
     <p>
       Una aplicación para realizar seguimiento a los<br />proyectos de ley que se debaten en el Congreso. Examiná el trabajo legislativo de una manera clara y sencilla.
     </p>
-    <span className='arrow'>ˇ</span>
+    <span className='arrow' />
   </div>
 )

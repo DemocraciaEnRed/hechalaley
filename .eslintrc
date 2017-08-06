@@ -1,6 +1,10 @@
 {
   "extends": ["democracyos"],
 
+  "globals": {
+    "fetch": true
+  },
+
   "rules": {
     "react/react-in-jsx-scope": 0
   }

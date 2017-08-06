@@ -4,6 +4,7 @@ exports.list = function list (query) {
   return Bill
     .find(query)
     .where({ trashedAt: null })
+    .populate('stages', 'title summary identification')
     .exec()
 }
 
