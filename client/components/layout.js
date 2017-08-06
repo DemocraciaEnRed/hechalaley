@@ -1,8 +1,9 @@
+import classNames from 'classnames'
 import Head from 'next/head'
 import Title from './title'
 
-export default (props) => (
-  <div>
+export default ({ className, children }) => (
+  <div className={classNames(className)}>
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
@@ -43,6 +44,6 @@ export default (props) => (
         background-color: #f6fafd;
       }
     `}</style>
-    { props.children }
+    { children }
   </div>
 )

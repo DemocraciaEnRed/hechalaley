@@ -13,6 +13,7 @@ app.ready = () => client.prepare()
 
 app.get('*', (req, res, next) => {
   req.locals = {}
+  req.client = client
   req.handle = client.getRequestHandler()
   next()
 })
