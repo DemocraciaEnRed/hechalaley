@@ -16,12 +16,13 @@ app.get('/', (req, res, next) => {
 app.get('/bills/:id',
   validate.mongoId((req) => req.params.id),
   (req, res, next) => {
-    bills.findById(req.params.id, {
+    const id = req.params.id
+    bills.findById(id, {
       published: true,
       populate: 'coSigners'
     }).then((result) => {
       req.locals.bill = result.toJSON()
-      req.client.render(req, res, '/bills')
+      req.client.render(req, res, '/bills', { id })
     }).catch(next)
   }
 )

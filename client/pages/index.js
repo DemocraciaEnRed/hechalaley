@@ -1,14 +1,14 @@
 import Layout from '../components/layout'
 import Cover from '../components/home/cover'
 import BillCard from '../components/home/bill-card'
-import { CardsList } from '../components/card'
+import BillCardsList from '../components/home/bill-cards-list'
 
 const Page = ({ bills }) => (
   <Layout>
     <Cover />
-    <CardsList>
+    <BillCardsList>
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}
-    </CardsList>
+    </BillCardsList>
   </Layout>
 )
 

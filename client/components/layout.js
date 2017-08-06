@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Head from 'next/head'
 import Title from './title'
 
-export default ({ className, children }) => (
+const Layout = ({ className, children }) => (
   <div className={classNames(className)}>
     <Head>
       <meta charSet='utf-8' />
@@ -47,3 +47,5 @@ export default ({ className, children }) => (
     { children }
   </div>
 )
+
+export default Layout

@@ -1,14 +1,10 @@
 import { PureComponent } from 'react'
-import pathMatch from 'path-match'
 import Layout from '../components/layout'
-
-const route = pathMatch('/bills/:id')
+import Sidebar from '../components/bills/sidebar'
 
 export default class Page extends PureComponent {
-  static async getInitialProps ({ req, pathname }) {
+  static async getInitialProps ({ req, pathname, query: { id } }) {
     if (req) return req.locals
-
-    const { id } = route(pathname) || {}
 
     const res = await fetch(`/api/bills/${id}?populate.coSigners=1&published=true`)
     const bill = await res.json()
@@ -42,21 +38,23 @@ export default class Page extends PureComponent {
           :global(.bills-page) {
             display: grid;
             grid-template-columns: 240px 1fr;
-            grid-template-areas: 'left-sidebar main-content';
+            grid-template-areas: 'sidebar content';
             grid-template-rows: 100vh;
           }
 
           .sidebar {
-            grid-area: left-sidebar;
+            grid-area: sidebar;
             background-color: #2b3245;
           }
 
-          .main-content {
-            grid-area: main-content;
+          .content {
+            grid-area: content;
           }
         `}</style>
-        <div className='sidebar'>Hecha la Ley</div>
-        <main className='main-content'>{bill.id}</main>
+        <div className='sidebar'>
+          <Sidebar stages={bill.stages} />
+        </div>
+        <main className='content'>{bill.id}</main>
       </Layout>
     )
   }
