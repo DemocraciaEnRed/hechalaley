@@ -2,10 +2,10 @@
 .DS_Store
 .git
 .gitignore
-.stylintrc
-build
-config/*.json
-!config/defaults.json
-node_modules
+.next
+/!config/defaults.json
+/config/*.json
+/lib-old
+/node_modules
+/tmp
 README.md
-tmp

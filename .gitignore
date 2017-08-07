@@ -2,6 +2,5 @@
 /node_modules
 /tmp
 .next
-*.sublime-workspace
 .DS_Store
 npm-debug.log
