@@ -1,6 +1,8 @@
 import { PureComponent } from 'react'
 import Layout from '../components/layout'
 import Sidebar from '../components/bills/sidebar'
+import Header from '../components/bills/header'
+import Text from '../components/bills/text'
 
 export default class Page extends PureComponent {
   static async getInitialProps ({ req, pathname, query: { id } }) {
@@ -15,7 +17,8 @@ export default class Page extends PureComponent {
   static getStateFromProps ({ bill: { stages = [] } = {} }) {
     const state = {
       current: null,
-      comparing: null
+      comparing: null,
+      text: null
     }
 
     if (stages.length === 0) return state
@@ -37,6 +40,22 @@ export default class Page extends PureComponent {
     this.setState(Page.getStateFromProps(props))
   }
 
+  componentDidMount () {
+    this.fetchStageText()
+  }
+
+  fetchStageText = async () => { // eslint-disable-line no-undef
+    const { bill: { id } } = this.props
+    const { current } = this.state
+
+    if (!current) return
+
+    const res = await fetch(`/api/bills/${id}/stages/${current}/text`)
+    const text = await res.text()
+
+    this.setState({ text })
+  }
+
   handleStageSelect = (newId) => { // eslint-disable-line no-undef
     const { bill: { stages = [] } = {} } = this.props
 
@@ -55,12 +74,13 @@ export default class Page extends PureComponent {
       if (id === newId) current = id
     }
 
-    this.setState({ current, comparing })
+    this.setState({ current, comparing }, this.fetchStageText)
   }
 
   render () {
-    const { bill: { id, stages } } = this.props
-    const { current, comparing } = this.state
+    const { bill } = this.props
+    const { stages } = bill
+    const { current, comparing, text } = this.state
 
     return (
       <Layout className='bills-page'>
@@ -70,6 +90,14 @@ export default class Page extends PureComponent {
             grid-template-columns: 240px 1fr;
             grid-template-areas: 'sidebar content';
             grid-template-rows: 100vh;
+          }
+
+          :global(.bills-content) {
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 15px;
+            padding-left: 15px;
+            max-width: 700px;
           }
 
           .sidebar {
@@ -88,7 +116,12 @@ export default class Page extends PureComponent {
             comparing={comparing}
             current={current} />
         </div>
-        <main className='content'>{id}</main>
+        <main className='content'>
+          <Header {...bill} />
+          {text && (
+            <Text text={text} />
+          )}
+        </main>
       </Layout>
     )
   }

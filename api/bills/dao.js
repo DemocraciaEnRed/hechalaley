@@ -1,8 +1,11 @@
 const Bill = require('../models').Bill
 
-const stagesPopulation = {
+const populate = {}
+
+populate.stages = {
   path: 'stages',
   select: '-text',
+  match: { trashedAt: null, published: true },
   options: { sort: { stageDate: -1 } }
 }
 
@@ -10,7 +13,7 @@ exports.list = function list (query) {
   return Bill
     .find(query)
     .where({ trashedAt: null })
-    .populate(stagesPopulation)
+    .populate(populate.stages)
     .exec()
 }
 
@@ -23,7 +26,7 @@ exports.findById = function findById (id, opts) {
 
   return query
     .where({ trashedAt: null })
-    .populate(stagesPopulation)
+    .populate(populate.stages)
     .exec()
 }
 

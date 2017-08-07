@@ -1,5 +1,6 @@
 const express = require('express')
 const validate = require('../middlewares/validate')
+const stagesDao = require('../stages/dao')
 const dao = require('./dao')
 
 const app = module.exports = express.Router()
@@ -66,6 +67,21 @@ app.delete('/bills/:id',
   function trashBill (req, res, next) {
     dao.trash(req.params.id).then((result) => {
       res.send(result)
+    }).catch(next)
+  }
+)
+
+app.get('/bills/:id/stages/:stage/text',
+  validate.mongoId((req) => req.params.id),
+  validate.mongoId((req) => req.params.stage),
+  function getStageText (req, res, next) {
+    const opts = {
+      where: { bill: req.params.id },
+      populate: {}
+    }
+
+    stagesDao.getTextHtml(req.params.stage, opts).then((text) => {
+      res.send(text)
     }).catch(next)
   }
 )
