@@ -5,7 +5,7 @@ const BillCard = ({
   title,
   summary,
   url,
-  currentStage = {}
+  stages
 }) => (
   <BillLink id={id}>
     <a className='bill-card'>
@@ -77,9 +77,9 @@ const BillCard = ({
       `}</style>
       <div className='title'>
         <h1>
-          {currentStage.identification && (
-            <span>{currentStage.identification}</span>
-          )}
+          {withNewestStage(stages, (stage) => (
+            <span>{stage.identification}</span>
+          ))}
           {title}
         </h1>
       </div>
@@ -91,3 +91,5 @@ const BillCard = ({
 )
 
 export default BillCard
+
+const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))

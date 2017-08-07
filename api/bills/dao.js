@@ -3,7 +3,7 @@ const Bill = require('../models').Bill
 const stagesPopulation = {
   path: 'stages',
   select: '-text',
-  options: { sort: { stageDate: 1 } }
+  options: { sort: { stageDate: -1 } }
 }
 
 exports.list = function list (query) {

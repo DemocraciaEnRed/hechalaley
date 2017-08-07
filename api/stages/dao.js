@@ -4,7 +4,7 @@ exports.list = function list (query) {
   return Stage
     .find(query)
     .where({ trashedAt: null })
-    .sort('stageDate')
+    .sort('-stageDate')
     .exec()
 }
 

@@ -26,10 +26,4 @@ schema.virtual('stages', {
   justOne: false
 })
 
-schema.virtual('currentStage').get(function () {
-  if (!this.stages) return undefined
-  if (this.stages.length === 0) return {}
-  return this.stages[this.stages.length - 1]
-})
-
 module.exports = schema

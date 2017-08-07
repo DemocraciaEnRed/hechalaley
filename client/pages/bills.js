@@ -12,25 +12,55 @@ export default class Page extends PureComponent {
     return { bill }
   }
 
-  constructor () {
-    super()
-
-    this.state = {
-      comparing: []
+  static getStateFromProps ({ bill: { stages = [] } = {} }) {
+    const state = {
+      current: null,
+      comparing: null
     }
+
+    if (stages.length === 0) return state
+
+    state.current = stages[0].id
+
+    // Compare 2 newest stages by default
+    if (stages.length >= 2) state.comparing = stages[1].id
+
+    return state
   }
 
-  componentWillReceiveProps ({ bill: { stages } = {} }) {
-    if (!stages || stages.length < 2) return
+  constructor (props) {
+    super(props)
+    this.state = Page.getStateFromProps(props)
+  }
 
-    // Compare 2 newest stages
-    const comparing = stages.slice(-2).map((stage) => stage.id)
+  componentWillReceiveProps (props) {
+    this.setState(Page.getStateFromProps(props))
+  }
 
-    this.setState({ comparing })
+  handleStageSelect = (newId) => { // eslint-disable-line no-undef
+    const { bill: { stages = [] } = {} } = this.props
+
+    const count = stages.length
+    let current
+    let comparing
+
+    for (let i = 0; i < count; i++) {
+      const id = stages[i].id
+
+      if (current) {
+        comparing = id
+        break
+      }
+
+      if (id === newId) current = id
+    }
+
+    this.setState({ current, comparing })
   }
 
   render () {
-    const { bill } = this.props
+    const { bill: { id, stages } } = this.props
+    const { current, comparing } = this.state
 
     return (
       <Layout className='bills-page'>
@@ -52,9 +82,13 @@ export default class Page extends PureComponent {
           }
         `}</style>
         <div className='sidebar'>
-          <Sidebar stages={bill.stages} />
+          <Sidebar
+            onStageSelect={this.handleStageSelect}
+            stages={stages}
+            comparing={comparing}
+            current={current} />
         </div>
-        <main className='content'>{bill.id}</main>
+        <main className='content'>{id}</main>
       </Layout>
     )
   }
