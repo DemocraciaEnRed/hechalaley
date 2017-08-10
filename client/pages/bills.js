@@ -1,8 +1,5 @@
 import { PureComponent } from 'react'
-import Layout from '../components/layout'
-import Sidebar from '../components/bills/sidebar'
-import Header from '../components/bills/header'
-import Text from '../components/bills/text'
+import Bill from '../components/bills/bill'
 
 export default class Page extends PureComponent {
   static async getInitialProps ({ req, pathname, query: { id } }) {
@@ -79,50 +76,12 @@ export default class Page extends PureComponent {
 
   render () {
     const { bill } = this.props
-    const { stages } = bill
-    const { current, comparing, text } = this.state
 
     return (
-      <Layout className='bills-page'>
-        <style jsx>{`
-          :global(.bills-page) {
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            grid-template-areas: 'sidebar content';
-            grid-template-rows: 100vh;
-          }
-
-          :global(.bills-content) {
-            margin-right: auto;
-            margin-left: auto;
-            padding-right: 15px;
-            padding-left: 15px;
-            max-width: 700px;
-          }
-
-          .sidebar {
-            grid-area: sidebar;
-            background-color: #2b3245;
-          }
-
-          .content {
-            grid-area: content;
-          }
-        `}</style>
-        <div className='sidebar'>
-          <Sidebar
-            onStageSelect={this.handleStageSelect}
-            stages={stages}
-            comparing={comparing}
-            current={current} />
-        </div>
-        <main className='content'>
-          <Header {...bill} />
-          {text && (
-            <Text text={text} />
-          )}
-        </main>
-      </Layout>
+      <Bill
+        onStageSelect={this.handleStageSelect}
+        bill={bill}
+        {...this.state} />
     )
   }
 }
