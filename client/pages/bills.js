@@ -43,11 +43,15 @@ export default class Page extends PureComponent {
 
   fetchStageText = async () => { // eslint-disable-line no-undef
     const { bill: { id } } = this.props
-    const { current } = this.state
+    const { current, comparing } = this.state
 
     if (!current) return
 
-    const res = await fetch(`/api/bills/${id}/stages/${current}/text`)
+    const url = comparing
+      ? `/api/bills/${id}/diff/${current}/${comparing}?published=true`
+      : `/api/bills/${id}/stages/${current}/text?published=true`
+
+    const res = await fetch(url)
     const text = await res.text()
 
     this.setState({ text })
@@ -71,7 +75,11 @@ export default class Page extends PureComponent {
       if (id === newId) current = id
     }
 
-    this.setState({ current, comparing }, this.fetchStageText)
+    this.setState({
+      current,
+      comparing,
+      text: null
+    }, this.fetchStageText)
   }
 
   render () {

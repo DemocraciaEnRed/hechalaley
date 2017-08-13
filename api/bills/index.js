@@ -75,12 +75,34 @@ app.get('/bills/:id/stages/:stage/text',
   validate.mongoId((req) => req.params.id),
   validate.mongoId((req) => req.params.stage),
   function getStageText (req, res, next) {
-    const opts = {
-      where: { bill: req.params.id },
-      populate: {}
+    const query = {
+      bill: req.params.id
     }
 
-    stagesDao.getTextHtml(req.params.stage, opts).then((text) => {
+    if (req.query.hasOwnProperty('published')) query.published = true
+
+    stagesDao.getTextHtml(req.params.stage, query).then((text) => {
+      res.send(text)
+    }).catch(next)
+  }
+)
+
+app.get('/bills/:id/diff/:fromStage/:toStage',
+  validate.mongoId((req) => req.params.id),
+  validate.mongoId((req) => req.params.fromStage),
+  validate.mongoId((req) => req.params.toStage),
+  function getStagesDiff (req, res, next) {
+    const query = {
+      bill: req.params.id
+    }
+
+    if (req.query.hasOwnProperty('published')) query.published = true
+
+    stagesDao.getDiffHtml(
+      req.params.fromStage,
+      req.params.toStage,
+      query
+    ).then((text) => {
       res.send(text)
     }).catch(next)
   }
