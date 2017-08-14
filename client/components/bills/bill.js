@@ -5,8 +5,7 @@ import Text from './text'
 
 const Bill = ({
   bill,
-  current,
-  comparing,
+  selected,
   text,
   onStageSelect
 }) => (
@@ -39,9 +38,8 @@ const Bill = ({
     <div className='sidebar'>
       <Sidebar
         onStageSelect={onStageSelect}
-        stages={bill.stages}
-        comparing={comparing}
-        current={current} />
+        bill={bill}
+        selected={selected} />
     </div>
     <main className='content'>
       <Header {...bill} />

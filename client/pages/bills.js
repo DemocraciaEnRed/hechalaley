@@ -12,20 +12,10 @@ export default class Page extends PureComponent {
   }
 
   static getStateFromProps ({ bill: { stages = [] } = {} }) {
-    const state = {
-      current: null,
-      comparing: null,
+    return {
+      selected: stages.length === 0 ? null : [stages[0].id],
       text: null
     }
-
-    if (stages.length === 0) return state
-
-    state.current = stages[0].id
-
-    // Compare 2 newest stages by default
-    if (stages.length >= 2) state.comparing = stages[1].id
-
-    return state
   }
 
   constructor (props) {
@@ -43,13 +33,15 @@ export default class Page extends PureComponent {
 
   fetchStageText = async () => { // eslint-disable-line no-undef
     const { bill: { id } } = this.props
-    const { current, comparing } = this.state
+    const { selected } = this.state
 
-    if (!current) return
+    if (!selected) return
 
-    const url = comparing
-      ? `/api/bills/${id}/diff/${current}/${comparing}?published=true`
-      : `/api/bills/${id}/stages/${current}/text?published=true`
+    const [fromStage, toStage] = selected
+
+    const url = toStage
+      ? `/api/bills/${id}/diff/${fromStage}/${toStage}?published=true`
+      : `/api/bills/${id}/stages/${fromStage}/text?published=true`
 
     const res = await fetch(url)
     const text = await res.text()
@@ -57,27 +49,9 @@ export default class Page extends PureComponent {
     this.setState({ text })
   }
 
-  handleStageSelect = (newId) => { // eslint-disable-line no-undef
-    const { bill: { stages = [] } = {} } = this.props
-
-    const count = stages.length
-    let current
-    let comparing
-
-    for (let i = 0; i < count; i++) {
-      const id = stages[i].id
-
-      if (current) {
-        comparing = id
-        break
-      }
-
-      if (id === newId) current = id
-    }
-
+  handleStageSelect = ([fromStage, toStage]) => { // eslint-disable-line no-undef
     this.setState({
-      current,
-      comparing,
+      selected: toStage ? [fromStage, toStage] : [fromStage],
       text: null
     }, this.fetchStageText)
   }
