@@ -1,7 +1,11 @@
 import { Component } from 'react'
 import RichTextEditor from 'react-rte'
+import { Tabs, Tab } from 'material-ui/Tabs'
 
 const toolbarConfig = {
+  extraProps: {
+    sarasa: 'true'
+  },
   display: [
     'HISTORY_BUTTONS',
     'BLOCK_TYPE_DROPDOWN',
@@ -35,21 +39,54 @@ export default class TextEditor extends Component {
     super(props)
 
     this.state = {
-      value: RichTextEditor.createValueFromString(props.input.value, 'markdown')
+      value: RichTextEditor.createValueFromString(props.input.value, 'markdown'),
+      text: props.input.value
     }
   }
 
   handleChange = (value) => {
-    this.setState({ value })
-    this.props.input.onChange(value.toString('markdown'))
+    this.setState({
+      value,
+      text: value.toString('markdown')
+    }, () => this.props.input.onChange(this.state.text))
+  }
+
+  handleTextChange = (text) => {
+    this.setState({
+      value: RichTextEditor.createValueFromString(text, 'markdown'),
+      text
+    }, () => this.props.input.onChange(this.state.text))
   }
 
   render () {
     return (
-      <RichTextEditor
-        value={this.state.value}
-        toolbarConfig={toolbarConfig}
-        onChange={this.handleChange} />
+      <Tabs style={{ marginTop: '20px', marginBottom: '20px' }}>
+        <Tab label='Texto' style={{ textTransform: 'none' }}>
+          <RichTextEditor
+            value={this.state.value}
+            toolbarConfig={toolbarConfig}
+            customControls={[custom]}
+            onChange={this.handleChange} />
+        </Tab>
+        <Tab label='Markdown' style={{ textTransform: 'none' }}>
+          <p><small><strong>Markdown</strong> es el formato base que se utiliza para guardar el texto en la base de datos. Aquí puedes editarlo directamente, o copiar y pegarlo desde otras fuentes sin arruinar los estilos.</small></p>
+          <textarea
+            style={{
+              display: 'block',
+              width: '100%',
+              fontFamily: 'monospace',
+              fontSize: '14px',
+              resize: 'vertical'
+            }}
+            value={this.state.text}
+            onChange={this.handleTextChange} />
+        </Tab>
+      </Tabs>
     )
   }
+}
+
+const custom = (...args) => {
+  console.log(args)
+  return <span>A</span>
 }

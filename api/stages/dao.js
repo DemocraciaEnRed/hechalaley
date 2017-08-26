@@ -1,6 +1,5 @@
-const marky = require('marky-markdown')
-const diff = require('rich-text-diff')
-const Stage = require('../models').Stage
+const text = require('../text')
+const { Stage } = require('../models')
 
 exports.list = function list (query = {}) {
   return Stage
@@ -47,7 +46,7 @@ exports.getTextHtml = function getTextHtml (id, query = {}) {
       if (!text) throw new Error('Stage not found')
       return text
     })
-    .then(markdownTohtml)
+    .then(text.markdownToHtml)
 }
 
 exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
@@ -59,11 +58,6 @@ exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
     .exec()
     .then(([from, to]) => {
       if (!from || !to) throw new Error('Stages not found')
-      return diff(to.text, from.text)
+      return text.diffsInHtml(from.text, to.text)
     })
-    .then(markdownTohtml)
-}
-
-function markdownTohtml (text) {
-  return marky(text, { sanitize: false })
 }
