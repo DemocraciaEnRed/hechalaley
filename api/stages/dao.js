@@ -56,8 +56,16 @@ exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
     .where({ _id: { $in: [fromStage, toStage] } })
     .select('text')
     .exec()
-    .then(([from, to]) => {
-      if (!from || !to) throw new Error('Stages not found')
-      return text.diffsInHtml(from.text, to.text)
+    .then((stages) => {
+      if (stages.length !== 2) throw new Error('Stages not found')
+
+      const from = findById(stages, fromStage)
+      const to = findById(stages, toStage)
+
+      return text.diffsInHtml(to.text, from.text)
     })
+}
+
+function findById (docs, id) {
+  return docs.find((doc) => doc._id.toString() === id)
 }

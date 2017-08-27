@@ -18,4 +18,12 @@ const schema = new Schema({
 schema.plugin(base)
 schema.plugin(trashable)
 
+schema.pre('save', function (next) {
+  if (this.text) {
+    this.text = this.text.replace(/\n+/g, '\n\n')
+  }
+
+  next()
+})
+
 module.exports = schema

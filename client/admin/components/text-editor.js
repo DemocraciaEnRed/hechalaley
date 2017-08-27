@@ -1,11 +1,9 @@
 import { Component } from 'react'
 import RichTextEditor from 'react-rte'
 import { Tabs, Tab } from 'material-ui/Tabs'
+import Textarea from './autogrow-textarea'
 
 const toolbarConfig = {
-  extraProps: {
-    sarasa: 'true'
-  },
   display: [
     'HISTORY_BUTTONS',
     'BLOCK_TYPE_DROPDOWN',
@@ -39,23 +37,32 @@ export default class TextEditor extends Component {
     super(props)
 
     this.state = {
-      value: RichTextEditor.createValueFromString(props.input.value, 'markdown'),
-      text: props.input.value
+      richtext: RichTextEditor.createValueFromString(props.input.value, 'markdown'),
+      value: props.input.value
     }
   }
 
-  handleChange = (value) => {
+  handleChange = (richtext) => {
+    const value = richtext.toString('markdown')
+
     this.setState({
-      value,
-      text: value.toString('markdown')
-    }, () => this.props.input.onChange(this.state.text))
+      richtext,
+      value
+    }, () => this.props.input.onChange(value))
   }
 
-  handleTextChange = (text) => {
+  handleTextChange = (evt) => {
+    const { value } = evt.target
+    this.setMarkdown(value)
+  }
+
+  setMarkdown = (value) => {
+    const richtext = RichTextEditor.createValueFromString(value, 'markdown')
+
     this.setState({
-      value: RichTextEditor.createValueFromString(text, 'markdown'),
-      text
-    }, () => this.props.input.onChange(this.state.text))
+      richtext,
+      value
+    }, () => this.props.input.onChange(value))
   }
 
   render () {
@@ -63,14 +70,13 @@ export default class TextEditor extends Component {
       <Tabs style={{ marginTop: '20px', marginBottom: '20px' }}>
         <Tab label='Texto' style={{ textTransform: 'none' }}>
           <RichTextEditor
-            value={this.state.value}
+            value={this.state.richtext}
             toolbarConfig={toolbarConfig}
-            customControls={[custom]}
             onChange={this.handleChange} />
         </Tab>
         <Tab label='Markdown' style={{ textTransform: 'none' }}>
           <p><small><strong>Markdown</strong> es el formato base que se utiliza para guardar el texto en la base de datos. Aquí puedes editarlo directamente, o copiar y pegarlo desde otras fuentes sin arruinar los estilos.</small></p>
-          <textarea
+          <Textarea
             style={{
               display: 'block',
               width: '100%',
@@ -78,15 +84,10 @@ export default class TextEditor extends Component {
               fontSize: '14px',
               resize: 'vertical'
             }}
-            value={this.state.text}
+            value={this.state.value}
             onChange={this.handleTextChange} />
         </Tab>
       </Tabs>
     )
   }
-}
-
-const custom = (...args) => {
-  console.log(args)
-  return <span>A</span>
 }
