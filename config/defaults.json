@@ -1,5 +1,5 @@
 {
   "env": "development",
-  "mongoUrl": "mongodb://localhost/hechalaley",
+  "mongodbUri": "mongodb://localhost/hechalaley",
   "port": 3000
 }

@@ -4,7 +4,7 @@ const config = require('dos-config')
 
 mongoose.Promise = global.Promise
 
-mongoose.connect(config.mongoUrl, {
+mongoose.connect(config.mongodbUri, {
   useMongoClient: true,
   keepAlive: 1,
   connectTimeoutMS: 30000
