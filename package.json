@@ -12,7 +12,8 @@
   "scripts": {
     "test": "ava",
     "dev": "DEBUG='hechalaley*' nodemon",
-    "start": "node ."
+    "start": "node .",
+    "heroku-postbuild": "next build client"
   },
   "dependencies": {
     "admin-on-rest": "1.2.2",
