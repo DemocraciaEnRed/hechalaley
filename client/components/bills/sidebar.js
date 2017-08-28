@@ -2,40 +2,34 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { flatten } from 'lodash'
 
-const Sidebar = ({
-  bill: { stages = [] },
-  onStageSelect,
-  selected = []
-}) => {
-  return (
-    <div className='sidebar'>
-      <style jsx>{`
-        .sidebar {
-          position: relative;
-        }
+const Sidebar = ({ stages, onStageSelect, selected }) => (
+  <div className='sidebar'>
+    <style jsx>{`
+      .sidebar {
+        position: relative;
+      }
 
-        .logo {
-          padding: 48px 20px 20px;
-          width: 100%;
-        }
-      `}</style>
-      <Link href='/'>
-        <a>
-          <img
-            src='/static/logo-white.png'
-            alt='Hecha la Ley'
-            className='logo' />
-        </a>
-      </Link>
-      {stages.length > 0 && (
-        <Stages
-          selected={selected}
-          stages={stages}
-          onStageSelect={onStageSelect} />
-      )}
-    </div>
-  )
-}
+      .logo {
+        padding: 48px 20px 20px;
+        width: 100%;
+      }
+    `}</style>
+    <Link href='/'>
+      <a>
+        <img
+          src='/static/logo-white.png'
+          alt='Hecha la Ley'
+          className='logo' />
+      </a>
+    </Link>
+    {stages && stages.length > 0 && (
+      <Stages
+        selected={selected}
+        stages={stages}
+        onStageSelect={onStageSelect} />
+    )}
+  </div>
+)
 
 export default Sidebar
 
@@ -52,7 +46,7 @@ const Stages = ({ stages, selected, onStageSelect }) => (
           onStageSelect={onStageSelect}
           selected={fromSelected}
           comparing={fromComparing}
-          {...fromStage} />
+          stage={fromStage} />
       ]
 
       if (!isLastStage) {
@@ -76,14 +70,9 @@ const Stages = ({ stages, selected, onStageSelect }) => (
   </div>
 )
 
-const StageLink = ({
-  id,
-  title,
-  summary,
-  selected,
-  comparing,
-  onStageSelect
-}) => {
+const StageLink = ({ stage, onStageSelect, comparing, selected }) => {
+  const { id, title, summary } = stage
+
   const handleClick = () => onStageSelect([id])
 
   return (
@@ -108,18 +97,20 @@ const StageLink = ({
         .selected.comparing {
           color: #fff;
         }
+
+        .summary {
+          opacity: .8;
+          font-size: .8em;
+        }
       `}</style>
       <h2>{title}</h2>
       {/* selected && !comparing && <p>{summary}</p> */}
+      <p className='summary'>{summary}</p>
     </div>
   )
 }
 
-const StagesCompareLink = ({
-  stages,
-  selected,
-  onStageSelect
-}) => {
+const StagesCompareLink = ({ stages, selected, onStageSelect }) => {
   const handleClick = () => onStageSelect(stages.map((stage) => stage.id))
 
   return (

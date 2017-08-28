@@ -11,10 +11,14 @@ export default class Page extends PureComponent {
     return { bill }
   }
 
-  static getStateFromProps ({ bill: { stages = [] } = {} }) {
+  static getStateFromProps ({
+    selected = null,
+    text = null,
+    bill: { stages = [] } = {}
+  }) {
     return {
-      selected: stages.length === 0 ? null : [stages[0].id],
-      text: null
+      selected: selected || (stages.length === 0 ? null : [stages[0].id]),
+      text
     }
   }
 
@@ -28,7 +32,7 @@ export default class Page extends PureComponent {
   }
 
   componentDidMount () {
-    this.fetchStageText()
+    if (!this.state.text) this.fetchStageText()
   }
 
   fetchStageText = async () => { // eslint-disable-line no-undef

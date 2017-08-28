@@ -38,7 +38,7 @@ const Bill = ({
     <div className='sidebar'>
       <Sidebar
         onStageSelect={onStageSelect}
-        bill={bill}
+        stages={bill.stages}
         selected={selected} />
     </div>
     <main className='content'>
