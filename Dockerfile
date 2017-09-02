@@ -15,7 +15,7 @@ COPY [".", "/usr/src/"]
 
 ENV MONGO_URL=mongodb://mongo/hechalaley
 
-# RUN npm run build -- --minify
+RUN npm run build
 
 EXPOSE 3000
 

@@ -13,7 +13,8 @@
     "test": "ava",
     "dev": "DEBUG='hechalaley*' nodemon",
     "start": "node .",
-    "heroku-postbuild": "next build client"
+    "build": "next build client",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "admin-on-rest": "1.2.2",
