@@ -16,6 +16,7 @@ module.exports = {
   Politician: mongoose.model('Politician', require('./politician')),
   Bill: mongoose.model('Bill', require('./bill')),
   Stage: mongoose.model('Stage', require('./stage')),
+  User: mongoose.model('User', require('./user')),
   all: () => mongoose.modelNames().map((name) => mongoose.model(name)),
   ready: () => connReady(mongoose.connection)
 }

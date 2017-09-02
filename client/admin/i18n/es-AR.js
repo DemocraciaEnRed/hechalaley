@@ -47,6 +47,12 @@ export default Object.assign({}, es, {
         authors: 'Co-firmantes',
         text: 'Contenido'
       }
+    },
+    users: {
+      name: 'Administrador |||| Administradores',
+      fields: {
+        email: 'Email'
+      }
     }
   }
 })

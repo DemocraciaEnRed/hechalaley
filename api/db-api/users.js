@@ -3,6 +3,7 @@ const User = require('../models').User
 exports.list = function list () {
   return User
     .find()
+    .where({ trashed: false })
     .limit(1000)
     .sort('email')
     .exec()
@@ -23,4 +24,10 @@ exports.update = function update (id, attrs) {
       return doc.save()
     })
     .catch((err) => { throw err })
+}
+
+exports.trash = function trash (id) {
+  return exports.findById(id).then((doc) => {
+    return doc.trash()
+  }).catch((err) => { throw err })
 }

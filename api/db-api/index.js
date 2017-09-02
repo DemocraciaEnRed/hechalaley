@@ -2,5 +2,6 @@ module.exports = {
   bills: require('./bills'),
   jurisdictions: require('./jurisdictions'),
   politicians: require('./politicians'),
-  stages: require('./stages')
+  stages: require('./stages'),
+  users: require('./users')
 }

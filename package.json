@@ -37,14 +37,13 @@
     "nodemon": "1.11.0",
     "nprogress": "0.2.0",
     "promise": "8.0.1",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
     "react-rte": "0.14.1",
     "react-select": "1.0.0-rc.5",
     "rich-text-diff": "0.2.3",
     "scroll-to-element": "2.0.0",
-    "string-similarity": "~1.2.0",
-    "verigy": "~2.0.1"
+    "string-similarity": "~1.2.0"
   },
   "engines": {
     "node": "8",

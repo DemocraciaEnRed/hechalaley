@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const debug = require('debug')
+const packageJson = require('../package.json')
 const parseJsonQuery = require('./middlewares/parse-json-query')
 const checkNodeVersion = require('./check-node-version')
 const models = require('./models')
@@ -19,15 +20,9 @@ app.all('*', function apiLog (req, res, next) {
   next()
 })
 
-app.get('/', (req, res) => {
-  res.json(require('../../package.json'))
-})
+app.get('/', (req, res) => res.json(packageJson))
 
-app.use(require('./users'))
-app.use(require('./jurisdictions'))
-app.use(require('./politicians'))
-app.use(require('./bills'))
-app.use(require('./stages'))
+app.use(require('./routes'))
 
 app.use(function apiError (err, req, res, next) {
   log(`Error: ${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`, err)

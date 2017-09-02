@@ -45,3 +45,12 @@ app.put('/users/:id',
     }).catch(next)
   }
 )
+
+app.delete('/users/:id',
+  validate.mongoId((req) => req.params.id),
+  function trashUser (req, res, next) {
+    dbApi.users.trash(req.params.id).then((result) => {
+      res.send(result)
+    }).catch(next)
+  }
+)

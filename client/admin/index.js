@@ -4,6 +4,7 @@ import * as jurisdictions from './components/jurisdictions'
 import * as politicians from './components/politicians'
 import * as bills from './components/bills'
 import * as stages from './components/stages'
+import * as users from './components/users'
 import i18n from './i18n'
 import theme from './theme'
 
@@ -23,6 +24,7 @@ const App = () => (
     <Resource name='politicians' {...politicians} />
     <Resource name='bills' {...bills} />
     <Resource name='stages' {...stages} />
+    <Resource name='users' {...users} />
   </Admin>
 )
 
