@@ -14,7 +14,7 @@
     "dev": "DEBUG='hechalaley*' nodemon",
     "start": "node .",
     "build": "next build client",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "chmod -R +x node_modules/next/dist/bin/next-* && npm run build"
   },
   "dependencies": {
     "admin-on-rest": "1.2.2",
