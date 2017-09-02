@@ -20,7 +20,7 @@ const toolbarConfig = {
     { label: 'Párrafo', style: 'unstyled' },
     { label: 'Título', style: 'header-one' },
     { label: 'Subtítulo', style: 'header-two' },
-    { label: 'Sección', style: 'header-three' }
+    { label: 'Artículo', style: 'header-three' }
   ],
   BLOCK_TYPE_BUTTONS: [
     { label: 'UL', style: 'unordered-list-item' },

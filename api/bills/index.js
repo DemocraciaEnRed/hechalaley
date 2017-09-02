@@ -1,7 +1,6 @@
 const express = require('express')
 const validate = require('../middlewares/validate')
-const stagesDao = require('../stages/dao')
-const dao = require('./dao')
+const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
 
@@ -10,7 +9,7 @@ app.get('/bills', function getBills (req, res, next) {
 
   if (req.query.hasOwnProperty('published')) query.published = true
 
-  dao.list(query).then((results) => {
+  dbApi.bills.list(query).then((results) => {
     const total = results.length
     res.set('Content-Range', `posts 0-${total}/${total}`)
 
@@ -29,14 +28,14 @@ app.get('/bills/:id',
 
     if (req.query.hasOwnProperty('published')) opts.where.published = true
 
-    dao.findById(req.params.id, opts).then((result) => {
+    dbApi.bills.findById(req.params.id, opts).then((result) => {
       res.send(result)
     }).catch(next)
   }
 )
 
 app.post('/bills', function createBill (req, res, next) {
-  dao.create({
+  dbApi.bills.create({
     title: req.body.title,
     summary: req.body.summary,
     published: req.body.published,
@@ -50,7 +49,7 @@ app.post('/bills', function createBill (req, res, next) {
 app.put('/bills/:id',
   validate.mongoId((req) => req.params.id),
   function updateBill (req, res, next) {
-    dao.update(req.params.id, {
+    dbApi.bills.update(req.params.id, {
       title: req.body.title,
       summary: req.body.summary,
       published: req.body.published,
@@ -65,7 +64,7 @@ app.put('/bills/:id',
 app.delete('/bills/:id',
   validate.mongoId((req) => req.params.id),
   function trashBill (req, res, next) {
-    dao.trash(req.params.id).then((result) => {
+    dbApi.bills.trash(req.params.id).then((result) => {
       res.send(result)
     }).catch(next)
   }
@@ -81,7 +80,7 @@ app.get('/bills/:id/stages/:stage/text',
 
     if (req.query.hasOwnProperty('published')) query.published = true
 
-    stagesDao.getTextHtml(req.params.stage, query).then((text) => {
+    dbApi.stages.getTextHtml(req.params.stage, query).then((text) => {
       res.send(text)
     }).catch(next)
   }
@@ -98,7 +97,7 @@ app.get('/bills/:id/diff/:fromStage/:toStage',
 
     if (req.query.hasOwnProperty('published')) query.published = true
 
-    stagesDao.getDiffHtml(
+    dbApi.stages.getDiffHtml(
       req.params.fromStage,
       req.params.toStage,
       query

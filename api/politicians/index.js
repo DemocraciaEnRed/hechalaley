@@ -2,7 +2,7 @@ const express = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
 const parseRouteIds = require('../middlewares/parse-route-ids')
-const dao = require('./dao')
+const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
 
@@ -16,7 +16,7 @@ const pickAttrs = pick([
 ])
 
 app.get('/politicians', function getPoliticians (req, res, next) {
-  dao.list().then((results) => {
+  dbApi.politicians.list().then((results) => {
     const total = results.length
     res.set('Content-Range', `posts 0-${total}/${total}`)
 
@@ -27,7 +27,7 @@ app.get('/politicians', function getPoliticians (req, res, next) {
 app.get('/politicians/:ids',
   parseRouteIds('ids'),
   function getPoliticiansByIds (req, res, next) {
-    dao.findByIds(req.params.ids).then((results) => {
+    dbApi.politicians.findByIds(req.params.ids).then((results) => {
       const total = results.length
       res.set('Content-Range', `posts 0-${total}/${total}`)
 
@@ -45,7 +45,7 @@ app.get('/politicians/:id',
       opts.populate = 'jurisdiction'
     }
 
-    dao.findById(req.params.id, opts).then((result) => {
+    dbApi.politicians.findById(req.params.id, opts).then((result) => {
       res.send(result)
     }).catch(next)
   }
@@ -54,7 +54,7 @@ app.get('/politicians/:id',
 app.post('/politicians', function createBill (req, res, next) {
   const attrs = pickAttrs(req.body)
 
-  dao.create(attrs).then((result) => {
+  dbApi.politicians.create(attrs).then((result) => {
     res.send(result)
   }).catch(next)
 })
@@ -64,7 +64,7 @@ app.put('/politicians/:id',
   function updateJurisdiction (req, res, next) {
     const attrs = pickAttrs(req.body)
 
-    dao.update(req.params.id, attrs).then((result) => {
+    dbApi.politicians.update(req.params.id, attrs).then((result) => {
       res.send(result)
     }).catch(next)
   }

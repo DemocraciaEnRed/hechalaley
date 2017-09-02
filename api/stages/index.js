@@ -1,7 +1,7 @@
 const express = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
-const dao = require('./dao')
+const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
 
@@ -25,7 +25,7 @@ app.get('/stages', function getStages (req, res, next) {
     query.bill = req.query.filter.bill
   }
 
-  dao.list(query).then((results) => {
+  dbApi.stages.list(query).then((results) => {
     const total = results.length
     res.set('Content-Range', `posts 0-${total}/${total}`)
 
@@ -44,7 +44,7 @@ app.get('/stages/:id',
 
     if (req.query.hasOwnProperty('published')) opts.where.published = true
 
-    dao.findById(req.params.id, opts).then((result) => {
+    dbApi.stages.findById(req.params.id, opts).then((result) => {
       res.send(result)
     }).catch(next)
   }
@@ -53,7 +53,7 @@ app.get('/stages/:id',
 app.post('/stages', function createStage (req, res, next) {
   const attrs = pickAttrs(req.body)
 
-  dao.create(attrs).then((result) => {
+  dbApi.stages.create(attrs).then((result) => {
     res.send(result)
   }).catch(next)
 })
@@ -63,7 +63,7 @@ app.put('/stages/:id',
   function updateStage (req, res, next) {
     const attrs = pickAttrs(req.body)
 
-    dao.update(req.params.id, attrs).then((result) => {
+    dbApi.stages.update(req.params.id, attrs).then((result) => {
       res.send(result)
     }).catch(next)
   }
@@ -72,7 +72,7 @@ app.put('/stages/:id',
 app.delete('/stages/:id',
   validate.mongoId((req) => req.params.id),
   function trashStage (req, res, next) {
-    dao.trash(req.params.id).then((result) => {
+    dbApi.stages.trash(req.params.id).then((result) => {
       res.send(result)
     }).catch(next)
   }

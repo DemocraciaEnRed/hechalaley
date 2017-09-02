@@ -1,12 +1,11 @@
 const { Router } = require('express')
-const bills = require('../../api/bills/dao')
-const stages = require('../../api/stages/dao')
+const dbApi = require('../../api/db-api')
 const validate = require('../../api/middlewares/validate')
 
 const app = module.exports = new Router()
 
 app.get('/', (req, res, next) => {
-  bills.list({
+  dbApi.bills.list({
     published: true
   }).then((results) => {
     req.locals.bills = results.map((result) => result.toJSON())
@@ -19,7 +18,7 @@ app.get('/bills/:id',
   (req, res, next) => {
     const id = req.params.id
 
-    bills.findById(id, {
+    dbApi.bills.findById(id, {
       published: true,
       populate: 'coSigners'
     }).then((result) => {
@@ -32,7 +31,7 @@ app.get('/bills/:id',
 
         req.locals.selected = [stageId]
 
-        return stages.getTextHtml(stageId).then((text) => {
+        return dbApi.stages.getTextHtml(stageId).then((text) => {
           req.locals.text = text
         })
       }
