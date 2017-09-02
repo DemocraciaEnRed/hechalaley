@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const debug = require('debug')
+const models = require('../api/models')
+
+const log = debug('hechalaley:bin:ensure-indexes')
+
+models.ready()
+  .then(() => {
+    return Promise.all(models.all().map((Model) => Model.ensureIndexes()))
+  })
+  .then(() => {
+    log('All models indexed correctly')
+    process.exit(0)
+  })
+  .catch((err) => {
+    log(err)
+    process.exit(1)
+  })

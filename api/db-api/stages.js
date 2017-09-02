@@ -4,7 +4,7 @@ const { Stage } = require('../models')
 exports.list = function list (query = {}) {
   return Stage
     .find(query)
-    .where({ trashedAt: null })
+    .where({ trashed: false })
     .sort('-stageDate')
     .exec()
 }
@@ -15,7 +15,7 @@ exports.findById = function findById (id, opts = { where: {}, populate: {} }) {
   if (opts.populate.authors) query.populate('authors')
   if (opts.where) query.where(opts.where)
 
-  return query.where({ trashedAt: null }).exec()
+  return query.where({ trashed: false }).exec()
 }
 
 exports.create = function create (attrs = {}) {
@@ -39,7 +39,7 @@ exports.getTextHtml = function getTextHtml (id, query = {}) {
   return Stage
     .findOne({ _id: id })
     .where(query)
-    .where({ trashedAt: null })
+    .where({ trashed: false })
     .select('text')
     .exec()
     .then(({ text } = {}) => {
@@ -52,7 +52,7 @@ exports.getTextHtml = function getTextHtml (id, query = {}) {
 exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
   return Stage
     .find(query)
-    .where({ trashedAt: null })
+    .where({ trashed: false })
     .where({ _id: { $in: [fromStage, toStage] } })
     .select('text')
     .exec()

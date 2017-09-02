@@ -5,14 +5,14 @@ const populate = {}
 populate.stages = {
   path: 'stages',
   select: '-text',
-  match: { trashedAt: null, published: true },
+  match: { trashed: false, published: true },
   options: { sort: { stageDate: -1 } }
 }
 
-exports.list = function list (query) {
+exports.list = function list (query = {}) {
   return Bill
     .find(query)
-    .where({ trashedAt: null })
+    .where({ trashed: false })
     .populate(populate.stages)
     .exec()
 }
@@ -25,7 +25,7 @@ exports.findById = function findById (id, opts) {
   if (opts.where) query.where(opts.where)
 
   return query
-    .where({ trashedAt: null })
+    .where({ trashed: false })
     .populate(populate.stages)
     .exec()
 }
