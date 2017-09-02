@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
   res.json(require('../../package.json'))
 })
 
+app.use(require('./users'))
 app.use(require('./jurisdictions'))
 app.use(require('./politicians'))
 app.use(require('./bills'))
