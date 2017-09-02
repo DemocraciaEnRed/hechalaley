@@ -6,10 +6,6 @@ const client = require('./client')
 
 const log = debug('hechalaley:root')
 
-if (process.env.NODE_ENV) {
-  config.env = process.env.NODE_ENV
-}
-
 const server = express()
 
 server.use('/api', api)

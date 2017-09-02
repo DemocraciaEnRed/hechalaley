@@ -5,7 +5,7 @@ const config = require('dos-config')
 const app = module.exports = express()
 
 const client = next({
-  dev: config.env !== 'production',
+  dev: config.nodeEnv !== 'production',
   dir: __dirname
 })
 
