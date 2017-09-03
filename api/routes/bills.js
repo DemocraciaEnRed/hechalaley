@@ -1,21 +1,25 @@
 const express = require('express')
 const validate = require('../middlewares/validate')
+const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
 
-app.get('/bills', function getBills (req, res, next) {
-  const query = {}
+app.get('/bills',
+  requireAuth.if((req) => !req.query.hasOwnProperty('published')),
+  function getBills (req, res, next) {
+    const query = {}
 
-  if (req.query.hasOwnProperty('published')) query.published = true
+    if (req.query.hasOwnProperty('published')) query.published = true
 
-  dbApi.bills.list(query).then((results) => {
-    const total = results.length
-    res.set('Content-Range', `posts 0-${total}/${total}`)
+    dbApi.bills.list(query).then((results) => {
+      const total = results.length
+      res.set('Content-Range', `posts 0-${total}/${total}`)
 
-    res.send(results)
-  }).catch(next)
-})
+      res.send(results)
+    }).catch(next)
+  }
+)
 
 app.get('/bills/:id',
   validate.mongoId((req) => req.params.id),
@@ -34,7 +38,7 @@ app.get('/bills/:id',
   }
 )
 
-app.post('/bills', function createBill (req, res, next) {
+app.post('/bills', requireAuth, function createBill (req, res, next) {
   dbApi.bills.create({
     title: req.body.title,
     summary: req.body.summary,
@@ -48,6 +52,7 @@ app.post('/bills', function createBill (req, res, next) {
 
 app.put('/bills/:id',
   validate.mongoId((req) => req.params.id),
+  requireAuth,
   function updateBill (req, res, next) {
     dbApi.bills.update(req.params.id, {
       title: req.body.title,
@@ -63,6 +68,7 @@ app.put('/bills/:id',
 
 app.delete('/bills/:id',
   validate.mongoId((req) => req.params.id),
+  requireAuth,
   function trashBill (req, res, next) {
     dbApi.bills.trash(req.params.id).then((result) => {
       res.send(result)

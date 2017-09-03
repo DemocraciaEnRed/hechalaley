@@ -1,6 +1,7 @@
 const express = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
+const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
@@ -16,22 +17,25 @@ const pickAttrs = pick([
   'text'
 ])
 
-app.get('/stages', function getStages (req, res, next) {
-  const query = {}
+app.get('/stages',
+  requireAuth.if((req) => !req.query.hasOwnProperty('published')),
+  function getStages (req, res, next) {
+    const query = {}
 
-  if (req.query.hasOwnProperty('published')) query.published = true
+    if (req.query.hasOwnProperty('published')) query.published = true
 
-  if (req.query.filter && req.query.filter.bill) {
-    query.bill = req.query.filter.bill
+    if (req.query.filter && req.query.filter.bill) {
+      query.bill = req.query.filter.bill
+    }
+
+    dbApi.stages.list(query).then((results) => {
+      const total = results.length
+      res.set('Content-Range', `posts 0-${total}/${total}`)
+
+      res.send(results)
+    }).catch(next)
   }
-
-  dbApi.stages.list(query).then((results) => {
-    const total = results.length
-    res.set('Content-Range', `posts 0-${total}/${total}`)
-
-    res.send(results)
-  }).catch(next)
-})
+)
 
 app.get('/stages/:id',
   validate.mongoId((req) => req.params.id),
@@ -50,7 +54,7 @@ app.get('/stages/:id',
   }
 )
 
-app.post('/stages', function createStage (req, res, next) {
+app.post('/stages', requireAuth, function createStage (req, res, next) {
   const attrs = pickAttrs(req.body)
 
   dbApi.stages.create(attrs).then((result) => {
@@ -60,6 +64,7 @@ app.post('/stages', function createStage (req, res, next) {
 
 app.put('/stages/:id',
   validate.mongoId((req) => req.params.id),
+  requireAuth,
   function updateStage (req, res, next) {
     const attrs = pickAttrs(req.body)
 
@@ -71,6 +76,7 @@ app.put('/stages/:id',
 
 app.delete('/stages/:id',
   validate.mongoId((req) => req.params.id),
+  requireAuth,
   function trashStage (req, res, next) {
     dbApi.stages.trash(req.params.id).then((result) => {
       res.send(result)

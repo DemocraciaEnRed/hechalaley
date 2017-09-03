@@ -1,5 +1,12 @@
 {
   "nodeEnv": "development",
   "mongodbUri": "mongodb://localhost/hechalaley",
-  "port": 3000
+  "protocol": "http",
+  "host": "localhost",
+  "port": 3000,
+  "publicPort": 3000,
+  "jwtToken": "",
+  "notifier": {
+    "email": {}
+  }
 }

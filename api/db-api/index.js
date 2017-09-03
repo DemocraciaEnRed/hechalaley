@@ -3,5 +3,6 @@ module.exports = {
   jurisdictions: require('./jurisdictions'),
   politicians: require('./politicians'),
   stages: require('./stages'),
-  users: require('./users')
+  users: require('./users'),
+  tokens: require('./tokens')
 }

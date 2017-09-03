@@ -1,4 +1,4 @@
-const Politician = require('../models').Politician
+const { Politician } = require('../models')
 
 exports.list = function list () {
   return Politician

@@ -1,4 +1,4 @@
-const Jurisdiction = require('../models').Jurisdiction
+const { Jurisdiction } = require('../models')
 
 exports.list = function list () {
   return Jurisdiction

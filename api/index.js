@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const debug = require('debug')
 const packageJson = require('../package.json')
 const parseJsonQuery = require('./middlewares/parse-json-query')
@@ -13,6 +14,7 @@ const app = module.exports = express()
 app.ready = () => checkNodeVersion().then(models.ready)
 
 app.use(bodyParser.json())
+app.use(cookieParser())
 app.use(parseJsonQuery('sort', 'range', 'filter'))
 
 app.all('*', function apiLog (req, res, next) {

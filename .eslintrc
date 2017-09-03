@@ -7,6 +7,7 @@
 
   "rules": {
     "react/react-in-jsx-scope": 0,
-    "node/shebang": 0
+    "node/shebang": 0,
+    "promise/no-nesting": 0
   }
 }

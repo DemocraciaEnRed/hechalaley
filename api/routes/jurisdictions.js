@@ -1,6 +1,7 @@
 const express = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
+const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
@@ -8,6 +9,8 @@ const app = module.exports = express.Router()
 const pickAttrs = pick([
   'name'
 ])
+
+app.use(['/jurisdictions', '/jurisdictions/*'], requireAuth)
 
 app.get('/jurisdictions', function getJurisdictions (req, res, next) {
   dbApi.jurisdictions.list().then((results) => {

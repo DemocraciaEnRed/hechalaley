@@ -1,4 +1,4 @@
-const Bill = require('../models').Bill
+const { Bill } = require('../models')
 
 const populate = {}
 

@@ -2,6 +2,7 @@ const express = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
 const parseRouteIds = require('../middlewares/parse-route-ids')
+const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
 const app = module.exports = express.Router()
@@ -14,6 +15,8 @@ const pickAttrs = pick([
   'party',
   'jurisdiction'
 ])
+
+app.use(['/politicians', '/politicians/*'], requireAuth)
 
 app.get('/politicians', function getPoliticians (req, res, next) {
   dbApi.politicians.list().then((results) => {

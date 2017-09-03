@@ -1,4 +1,4 @@
-const User = require('../models').User
+const { User } = require('../models')
 
 exports.list = function list () {
   return User
@@ -7,6 +7,10 @@ exports.list = function list () {
     .limit(1000)
     .sort('email')
     .exec()
+}
+
+exports.findByEmail = function findByEmail (email) {
+  return User.findOne({ email }).exec()
 }
 
 exports.findById = function findById (id) {
