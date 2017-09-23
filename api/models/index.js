@@ -17,7 +17,6 @@ module.exports = {
   Bill: mongoose.model('Bill', require('./bill')),
   Stage: mongoose.model('Stage', require('./stage')),
   User: mongoose.model('User', require('./user')),
-  Token: mongoose.model('Token', require('./token')),
   all: () => mongoose.modelNames().map((name) => mongoose.model(name)),
   ready: () => connReady(mongoose.connection)
 }
