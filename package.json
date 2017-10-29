@@ -24,7 +24,6 @@
     "classnames": "2.2.5",
     "cookie-parser": "~1.4.3",
     "debug": "3.0.1",
-    "dialog-polyfill": "0.4.9",
     "dos-config": "3.0.2",
     "express": "4.15.4",
     "jsonwebtoken": "~7.4.3",
