@@ -7,6 +7,9 @@
   "publicPort": 3000,
   "jwtToken": "",
   "notifier": {
-    "email": {}
+    "useNotificationCatcher": true,
+    "channels": {
+      "email": {}
+    }
   }
 }

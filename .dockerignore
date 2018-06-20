@@ -5,7 +5,6 @@
 .next
 /!config/defaults.json
 /config/*.json
-/lib-old
 /node_modules
 /tmp
 README.md

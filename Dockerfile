@@ -1,19 +1,19 @@
-FROM node:8-slim
+FROM node:8.11.3-alpine
 
 MAINTAINER Matías Lescano <matias@democraciaenred.org>
 
+RUN npm install -g npm@6.1.0
+
 WORKDIR /usr/src
 
-COPY ["package.json", "/usr/src/"]
-COPY ["package-lock.json", "/usr/src/"]
+COPY ["package.json", "package-lock.json", "/usr/src/"]
 
-ENV NODE_ENV=production
+ARG NODE_ENV=production
+ENV NODE_ENV=$NODE_ENV
 
-RUN npm install --loglevel warn
+RUN BLUEBIRD_WARNINGS=0 npm ci
 
 COPY [".", "/usr/src/"]
-
-ENV MONGO_URL=mongodb://mongo/hechalaley
 
 RUN npm run build
 

@@ -1,12 +1,16 @@
 const NotifmeSdk = require('notifme-sdk').default
 const config = require('dos-config')
 
-function createNotifier () {
-  return new NotifmeSdk({
-    channels: {
-      email: config.notifier.email
-    }
-  })
-}
+const notifier = new NotifmeSdk(config.notifier)
 
-module.exports = createNotifier()
+exports.send = (...args) => notifier.send(...args)
+
+exports.sendEmail = ({ to, subject, html }) => notifier.send({
+  email: {
+    to,
+    subject,
+    from: 'Hecha la Ley <no-reply@hechalaley.org>',
+    html: html.replace(/\s{2,}/g, ' ').trim()
+  }
+})
+

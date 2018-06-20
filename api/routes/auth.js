@@ -1,40 +1,28 @@
-const express = require('express')
+const { Router } = require('express')
 const ms = require('ms')
 const dbApi = require('../db-api')
 const jwt = require('../jwt')
-const notifier = require('../notifier')
+const { sendEmail } = require('../notifier')
 const createUrl = require('../create-url')
 
-const app = express.Router()
+const app = Router()
 
 module.exports = app
 
 const SESSION_DURATION = ms('20d')
-const LOGIN_TIMEOUT = ms('15m')
-
-class TokensStack extends Array {
-  push (...val) {
-    if (this.length === 1) this.pop()
-    super.push(...val)
-  }
-}
-
-const usedTokens = new TokensStack()
+const LOGIN_TIMEOUT = ms('12hrs')
 
 function sendTokenEmail (email, token) {
   const uri = createUrl(`/api/auth/${token}`)
 
-  return notifier.send({
-    email: {
-      from: 'Hecha la Ley <no-reply@hechalaley.org>',
-      to: email,
-      subject: 'Login a Hecha la Ley',
-      html: `
-        <p>Para entrar haz click en el link:</p>
-        <p><a href="${uri}">${uri}</a></p>
-        <p><sub>Fecha de creación: ${(new Date()).toString()}</sub></p>
-      `.replace(/\s{2,}/g, ' ')
-    }
+  return sendEmail({
+    to: email,
+    subject: 'Login a Hecha la Ley',
+    html: `
+      <p>Para entrar haz click en el link:</p>
+      <p><a href="${uri}">${uri}</a></p>
+      <p><sub>Fecha de creación: ${(new Date()).toString()}</sub></p>
+    `
   })
 }
 
@@ -59,18 +47,30 @@ function setToken (res, email) {
   })
 }
 
-app.post('/auth/login', (req, res) => {
+app.post('/auth/login', async (req, res) => {
   const { email } = req.body
 
   if (!email) return res.sendStatus(400)
 
-  dbApi.users.findByEmail(email)
-    .then((user) => {
-      if (!user) throw new Error('email not found.')
-    })
-    .then(() => sendToken(email))
-    .then(() => res.status(200).json({ code: 'TOKEN_SENDED' }))
-    .catch(() => res.sendStatus(403))
+  try {
+    const user = await dbApi.users.findByEmail(email)
+
+    if (!user) {
+      const isEmpty = await dbApi.users.isEmptyCached()
+
+      if (isEmpty) {
+        await dbApi.users.create({ email })
+      } else {
+        throw new Error('email not found.')
+      }
+    }
+
+    await sendToken(email)
+
+    res.status(200).json({ code: 'TOKEN_SENDED' })
+  } catch (err) {
+    res.sendStatus(403)
+  }
 })
 
 app.get('/auth/logout', (req, res) => {
@@ -81,13 +81,8 @@ app.get('/auth/logout', (req, res) => {
 app.get('/auth/:token', (req, res) => {
   const { token } = req.params
 
-  if (usedTokens.includes(token)) {
-    res.status(403).json({ code: 'TOKEN_ALREADY_USED' })
-  }
-
   jwt.verify(token)
     .then(({ email }) => setToken(res, email))
-    .then(() => usedTokens.push(token))
     .then(() => res.redirect('/admin'))
     .catch(() => res.sendStatus(403))
 })

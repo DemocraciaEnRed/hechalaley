@@ -1,6 +1,9 @@
+*.override.*
+*.pad.*
+.DS_Store
+.next
 /build
 /node_modules
 /tmp
-.next
-.DS_Store
+node_modules
 npm-debug.log

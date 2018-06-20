@@ -1,5 +1,5 @@
 const diff = require('rich-text-diff')
-const marky = require('marky-markdown')
+const marked = require('marked')
 const myers = require('myers-diff').default
 const stringSimilarity = require('string-similarity')
 
@@ -24,7 +24,7 @@ function areSimilar (a, b) {
 }
 
 text.markdownToHtml = function markdownToHtml (str) {
-  return Promise.resolve(marky(str, { sanitize: false }))
+  return Promise.resolve(marked(str))
 }
 
 text.diffs = function diffs (from, to) {

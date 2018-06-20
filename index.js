@@ -15,7 +15,7 @@ Promise.all([
   api.ready(),
   client.ready()
 ]).then(() => {
-  server.listen(config.port, function (err) {
+  server.listen(config.port, (err) => {
     if (err) throw err
     log(`Hecha la Ley started on port ${config.port}`)
   })

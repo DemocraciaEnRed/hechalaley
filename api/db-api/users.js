@@ -1,5 +1,12 @@
 const { User } = require('../models')
 
+let isEmptyCached = null
+exports.isEmptyCached = async () => {
+  if (isEmptyCached === false) return false
+  isEmptyCached = await User.count({}) === 0
+  return isEmptyCached
+}
+
 exports.list = function list () {
   return User
     .find()
@@ -31,7 +38,7 @@ exports.update = function update (id, attrs) {
 }
 
 exports.trash = function trash (id) {
-  return exports.findById(id).then((doc) => {
-    return doc.trash()
-  }).catch((err) => { throw err })
+  return exports.findById(id)
+    .then((doc) => doc.trash())
+    .catch((err) => { throw err })
 }

@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  app:
+    build:
+      args:
+        NODE_ENV: development
+      context: .
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo/hechalaley
+      - NOTIFME_CATCHER_OPTIONS=smtp://notifier:1025?ignoreTLS=true
+    command: ["npm", "run", "dev"]
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api:/usr/src/api
+      - ./bin:/usr/src/bin
+      - ./client:/usr/src/client
+      - ./config:/usr/src/config
+      - ./test:/usr/src/test
+      - ./index.js:/usr/src/index.js
+      - ./package-lock.json:/usr/src/package-lock.json
+      - ./package.json:/usr/src/package.json
+      - /usr/src/node_modules
+    depends_on:
+      - mongo
+      - notifier
+
+  notifier:
+    image: node:8.11.3-alpine
+    command: ["npx", "notification-catcher"]
+    ports:
+      - 1080:1080
+
+  mongo:
+    image: mongo:3.6
+    command: mongod --quiet --logpath=/tmp/mongodb.log
+    ports:
+      - 27017:27017
+    volumes:
+      - ./tmp/db:/data/db
