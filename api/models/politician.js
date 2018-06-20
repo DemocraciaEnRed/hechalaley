@@ -16,7 +16,7 @@ const schema = new Schema({
 
 schema.plugin(base)
 
-schema.virtual('fullname').get(function () {
+schema.virtual('fullname').get(function getFullName () {
   const fullname = []
   if (this.firstName) fullname.push(this.firstName)
   if (this.lastName) fullname.push(this.lastName)

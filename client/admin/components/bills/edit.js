@@ -14,7 +14,8 @@ const Actions = ({ basePath, data }) => (
     zIndex: 2,
     display: 'inline-block',
     float: 'right'
-  }}>
+  }}
+  >
     <DeleteButton basePath={basePath} record={data} />
   </CardActions>
 )
@@ -31,7 +32,8 @@ export default (props) => (
       <ReferenceInput source='coSigners' reference='politicians' allowEmpty>
         <SearchableSelectInput
           optionText='fullname'
-          options={{ multi: true }} />
+          options={{ multi: true }}
+        />
       </ReferenceInput>
     </SimpleForm>
   </Edit>

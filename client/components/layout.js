@@ -14,38 +14,40 @@ const Layout = ({ className, children }) => (
     </Head>
     <Title />
     <PageLoader />
-    <style jsx global>{`
-      * {
-        box-sizing: border-box;
-      }
+    <style jsx global>
+      {`
+        * {
+          box-sizing: border-box;
+        }
 
-      html,
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      button {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-weight: normal;
-      }
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        button {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-weight: normal;
+        }
 
-      img {
-        max-width: 100%;
-      }
+        img {
+          max-width: 100%;
+        }
 
-      body {
-        font-size: 16px;
-        text-rendering: geometricPrecision;
-        font-family: Avenir Next, Helvetica, Arial, sans-serif;
-        background-color: #f6fafd;
-      }
-    `}</style>
+        body {
+          font-size: 16px;
+          text-rendering: geometricPrecision;
+          font-family: Avenir Next, Helvetica, Arial, sans-serif;
+          background-color: #f6fafd;
+        }
+      `}
+    </style>
     { children }
   </div>
 )

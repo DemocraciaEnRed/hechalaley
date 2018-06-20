@@ -24,7 +24,8 @@ export default (props) => (
     {...props}
     title={<ListTitle resource='stages' />}
     filters={<StagesFilter />}
-    pagination={null}>
+    pagination={null}
+  >
     <Datagrid>
       <BooleanField source='published' />
       <TextField source='title' />

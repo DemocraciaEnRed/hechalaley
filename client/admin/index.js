@@ -19,17 +19,20 @@ const App = () => (
     restClient={restClient}
     theme={getMuiTheme(theme)}
     authClient={authClient}
-    loginPage={Login}>
+    loginPage={Login}
+  >
     <Resource name='jurisdictions' {...jurisdictions} />
     <Resource name='politicians' {...politicians} />
     <Resource name='bills' {...bills} />
     <Resource name='stages' {...stages} />
     <Resource name='users' {...users} />
-    <style global jsx>{`
-      .Select-input > input {
-        padding: 6px 0;
-      }
-    `}</style>
+    <style global jsx>
+      {`
+        .Select-input > input {
+          padding: 6px 0;
+        }
+      `}
+    </style>
   </Admin>
 )
 

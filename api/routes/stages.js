@@ -1,10 +1,10 @@
-const express = require('express')
+const { Router } = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
 const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
-const app = module.exports = express.Router()
+const app = Router()
 
 const pickAttrs = pick([
   'bill',
@@ -17,9 +17,10 @@ const pickAttrs = pick([
   'text'
 ])
 
-app.get('/stages',
+app.get(
+  '/stages',
   requireAuth.if((req) => !req.query.hasOwnProperty('published')),
-  function getStages (req, res, next) {
+  (req, res, next) => {
     const query = {}
 
     if (req.query.hasOwnProperty('published')) query.published = true
@@ -37,9 +38,10 @@ app.get('/stages',
   }
 )
 
-app.get('/stages/:id',
+app.get(
+  '/stages/:id',
   validate.mongoId((req) => req.params.id),
-  function getStage (req, res, next) {
+  (req, res, next) => {
     const opts = { where: {}, populate: {} }
 
     if (req.query.populate === '[\'authors\']') {
@@ -54,7 +56,7 @@ app.get('/stages/:id',
   }
 )
 
-app.post('/stages', requireAuth, function createStage (req, res, next) {
+app.post('/stages', requireAuth, (req, res, next) => {
   const attrs = pickAttrs(req.body)
 
   dbApi.stages.create(attrs).then((result) => {
@@ -62,10 +64,11 @@ app.post('/stages', requireAuth, function createStage (req, res, next) {
   }).catch(next)
 })
 
-app.put('/stages/:id',
+app.put(
+  '/stages/:id',
   validate.mongoId((req) => req.params.id),
   requireAuth,
-  function updateStage (req, res, next) {
+  (req, res, next) => {
     const attrs = pickAttrs(req.body)
 
     dbApi.stages.update(req.params.id, attrs).then((result) => {
@@ -74,12 +77,15 @@ app.put('/stages/:id',
   }
 )
 
-app.delete('/stages/:id',
+app.delete(
+  '/stages/:id',
   validate.mongoId((req) => req.params.id),
   requireAuth,
-  function trashStage (req, res, next) {
+  (req, res, next) => {
     dbApi.stages.trash(req.params.id).then((result) => {
       res.send(result)
     }).catch(next)
   }
 )
+
+module.exports = app

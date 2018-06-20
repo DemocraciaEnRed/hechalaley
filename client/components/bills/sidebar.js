@@ -4,29 +4,33 @@ import { flatten } from 'lodash'
 
 const Sidebar = ({ stages, onStageSelect, selected }) => (
   <div className='sidebar'>
-    <style jsx>{`
-      .sidebar {
-        position: relative;
-      }
+    <style jsx>
+      {`
+        .sidebar {
+          position: relative;
+        }
 
-      .logo {
-        padding: 48px 20px 20px;
-        width: 100%;
-      }
-    `}</style>
+        .logo {
+          padding: 48px 20px 20px;
+          width: 100%;
+        }
+      `}
+    </style>
     <Link href='/'>
       <a>
         <img
           src='/static/logo-white.png'
           alt='Hecha la Ley'
-          className='logo' />
+          className='logo'
+        />
       </a>
     </Link>
     {stages && stages.length > 0 && (
       <Stages
         selected={selected}
         stages={stages}
-        onStageSelect={onStageSelect} />
+        onStageSelect={onStageSelect}
+      />
     )}
   </div>
 )
@@ -46,7 +50,8 @@ const Stages = ({ stages, selected, onStageSelect }) => (
           onStageSelect={onStageSelect}
           selected={fromSelected}
           comparing={fromComparing}
-          stage={fromStage} />
+          stage={fromStage}
+        />
       ]
 
       if (!isLastStage) {
@@ -56,13 +61,14 @@ const Stages = ({ stages, selected, onStageSelect }) => (
           fromComparing &&
           selected.includes(toStage.id)
 
-        views.push(
+        views.push((
           <StagesCompareLink
             key={`${fromStage.id}-${toStage.id}`}
             stages={[fromStage, toStage]}
             selected={comparingBoth}
-            onStageSelect={onStageSelect} />
-        )
+            onStageSelect={onStageSelect}
+          />
+        ))
       }
 
       return views
@@ -78,31 +84,34 @@ const StageLink = ({ stage, onStageSelect, comparing, selected }) => {
   return (
     <div
       onClick={handleClick}
-      className={classNames('link', { selected, comparing })}>
-      <style jsx>{`
-        .link {
-          padding: 15px 20px;
-          cursor: pointer;
-          color: #fff;
-        }
+      className={classNames('link', { selected, comparing })}
+    >
+      <style jsx>
+        {`
+          .link {
+            padding: 15px 20px;
+            cursor: pointer;
+            color: #fff;
+          }
 
-        .link:hover {
-          background-color: rgba(255, 255, 255, .1);
-        }
+          .link:hover {
+            background-color: rgba(255, 255, 255, .1);
+          }
 
-        .selected {
-          color: #FD5177;
-        }
+          .selected {
+            color: #FD5177;
+          }
 
-        .selected.comparing {
-          color: #fff;
-        }
+          .selected.comparing {
+            color: #fff;
+          }
 
-        .summary {
-          opacity: .8;
-          font-size: .8em;
-        }
-      `}</style>
+          .summary {
+            opacity: .8;
+            font-size: .8em;
+          }
+        `}
+      </style>
       <h2>{title}</h2>
       {/* selected && !comparing && <p>{summary}</p> */}
       <p className='summary'>{summary}</p>
@@ -116,24 +125,27 @@ const StagesCompareLink = ({ stages, selected, onStageSelect }) => {
   return (
     <div
       onClick={handleClick}
-      className={classNames('link', { selected })}>
-      <style jsx>{`
-        .link {
-          margin-top: 10px;
-          margin-bottom: 10px;
-          padding: 10px 20px;
-          cursor: pointer;
-          color: #fff;
-        }
+      className={classNames('link', { selected })}
+    >
+      <style jsx>
+        {`
+          .link {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #fff;
+          }
 
-        .link:hover {
-          background-color: rgba(255, 255, 255, .1);
-        }
+          .link:hover {
+            background-color: rgba(255, 255, 255, .1);
+          }
 
-        .selected {
-          color: #FD5177;
-        }
-      `}</style>
+          .selected {
+            color: #FD5177;
+          }
+        `}
+      </style>
       <p>↕ comparar cambios</p>
     </div>
   )

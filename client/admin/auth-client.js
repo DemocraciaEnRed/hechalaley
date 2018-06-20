@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
@@ -26,26 +27,22 @@ const reducers = {
       })
       .then(({ code }) => {
         if (code === 'TOKEN_SENDED') {
-
+          return null
         }
       })
   },
 
-  [AUTH_LOGOUT]: () => {
-    return fetch('/api/auth/logout', { credentials: 'same-origin' })
-  },
+  [AUTH_LOGOUT]: () =>
+    fetch('/api/auth/logout', { credentials: 'same-origin' }),
 
-  [AUTH_ERROR]: ({ status }) => {
-    return Promise.reject(new Error('No te encuentras autorizado.'))
-  },
+  [AUTH_ERROR]: () =>
+    Promise.reject(new Error('No te encuentras autorizado.')),
 
-  [AUTH_CHECK]: (params) => {
-    return Promise.resolve()
-  }
+  [AUTH_CHECK]: () => Promise.resolve()
 }
 
-export default (type, params) => {
-  return reducers[type]
+export default (type, params) => (
+  reducers[type]
     ? reducers[type](params)
     : Promise.reject(new Error('Unknown method'))
-}
+)

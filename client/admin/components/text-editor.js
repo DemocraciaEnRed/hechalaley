@@ -72,10 +72,18 @@ export default class TextEditor extends Component {
           <RichTextEditor
             value={this.state.richtext}
             toolbarConfig={toolbarConfig}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+          />
         </Tab>
         <Tab label='Markdown' style={{ textTransform: 'none' }}>
-          <p><small><strong>Markdown</strong> es el formato base que se utiliza para guardar el texto en la base de datos. Aquí puedes editarlo directamente, o copiar y pegarlo desde otras fuentes sin arruinar los estilos.</small></p>
+          <p>
+            <small>
+              <strong>Markdown</strong> es el formato base que se utiliza
+              para guardar el texto en la base de datos. Aquí puedes editarlo
+              directamente, o copiar y pegarlo desde otras fuentes sin
+              arruinar los estilos.
+            </small>
+          </p>
           <Textarea
             style={{
               boxSizing: 'border-box',
@@ -89,7 +97,8 @@ export default class TextEditor extends Component {
               border: 0
             }}
             value={this.state.value}
-            onChange={this.handleTextChange} />
+            onChange={this.handleTextChange}
+          />
         </Tab>
       </Tabs>
     )

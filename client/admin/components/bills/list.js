@@ -11,7 +11,8 @@ export default (props) => (
   <List
     {...props}
     title={<ListTitle resource='bills' />}
-    pagination={null}>
+    pagination={null}
+  >
     <Datagrid>
       <BooleanField source='published' />
       <TextField source='title' />

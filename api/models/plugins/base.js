@@ -1,6 +1,7 @@
-module.exports = function base (schema, options) {
-  schema.options.toJSON =
-  schema.options.toObject = {
+/* eslint-disable no-param-reassign */
+
+module.exports = function base (schema) {
+  const opts = {
     getters: true,
     versionKey: false,
     transform: (doc, ret) => {
@@ -9,5 +10,8 @@ module.exports = function base (schema, options) {
     }
   }
 
-  schema.virtual('id').get(function () { return this._id })
+  schema.options.toJSON = opts
+  schema.options.toObject = opts
+
+  schema.virtual('id').get(function getId () { return this._id })
 }

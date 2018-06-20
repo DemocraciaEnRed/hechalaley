@@ -3,13 +3,13 @@ import { simpleRestClient, fetchUtils } from 'admin-on-rest'
 const { Headers } = window
 
 const httpClient = (url, options = {}) => {
-  if (!options.headers) {
-    options.headers = new Headers({ Accept: 'application/json' })
+  const opts = {
+    headers: new Headers({ Accept: 'application/json' }),
+    ...options,
+    credentials: 'same-origin'
   }
 
-  options.credentials = 'same-origin'
-
-  return fetchUtils.fetchJson(url, options)
+  return fetchUtils.fetchJson(url, opts)
 }
 
 export default simpleRestClient('/api', httpClient)

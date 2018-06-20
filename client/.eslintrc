@@ -1,7 +1,16 @@
 {
   "extends": ["mural/react"],
 
+  "env": {
+    "browser": true
+  },
+
   "rules": {
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/no-danger": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/sort-comp": 0,
+    "react/prop-types": 0,
     "node/no-unsupported-features": 0,
     "react/jsx-filename-extension": 0,
     "jsx-a11y/anchor-is-valid": 0

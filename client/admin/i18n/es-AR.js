@@ -1,6 +1,7 @@
 import es from 'aor-language-spanish'
 
-export default Object.assign({}, es, {
+export default {
+  ...es,
   hechalaley: {
     stageAttributes: 'Atributos',
     stageText: 'Contenido'
@@ -55,4 +56,4 @@ export default Object.assign({}, es, {
       }
     }
   }
-})
+}

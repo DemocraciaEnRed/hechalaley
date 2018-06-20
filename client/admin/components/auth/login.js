@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies, react/forbid-prop-types */
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { propTypes, reduxForm, Field } from 'redux-form'
@@ -58,15 +60,15 @@ function getColorsFromTheme (theme) {
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({ meta: { touched, error } = {}, input: { ...inputProps }, ...props }) =>
-  <TextField
+  (<TextField
     errorText={touched && error}
     {...inputProps}
     {...props}
-    fullWidth />
+    fullWidth
+  />)
 
 class Login extends Component {
   login = (auth) => {
-    // this.props.userLogin(auth, this.props.location.state ? this.props.location.state.nextPathname : '/')
     const req = new Request('/api/auth/login', {
       credentials: 'same-origin',
       method: 'POST',
@@ -121,7 +123,8 @@ class Login extends Component {
                     name='email'
                     component={renderInput}
                     floatingLabelText='Email'
-                    disabled={isLoading} />
+                    disabled={isLoading}
+                  />
                 </div>
               </div>
               <CardActions>
@@ -131,7 +134,8 @@ class Login extends Component {
                   disabled={isLoading}
                   icon={isLoading && <CircularProgress size={25} thickness={2} />}
                   label={translate('aor.auth.sign_in')}
-                  fullWidth />
+                  fullWidth
+                />
               </CardActions>
               <Notification />
             </form>
@@ -144,9 +148,9 @@ class Login extends Component {
 
 Login.propTypes = {
   ...propTypes,
-  authClient: PropTypes.func,
-  previousRoute: PropTypes.string,
-  theme: PropTypes.object.isRequired,
+  authClient: PropTypes.func.isRequired,
+  previousRoute: PropTypes.string.isRequired,
+  theme: PropTypes.any.isRequired,
   translate: PropTypes.func.isRequired,
   userLogin: PropTypes.func.isRequired
 }

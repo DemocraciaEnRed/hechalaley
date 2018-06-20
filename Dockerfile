@@ -11,7 +11,7 @@ COPY ["package.json", "package-lock.json", "/usr/src/"]
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 
-RUN BLUEBIRD_WARNINGS=0 npm ci
+RUN BLUEBIRD_WARNINGS=0 npm ci --loglevel=error
 
 COPY [".", "/usr/src/"]
 

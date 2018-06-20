@@ -9,19 +9,20 @@ export default class AutoGrowTextarea extends Component {
     this.recomputeSize()
   }
 
-  handleChange = () => {
-    this.recomputeSize()
-  }
-
   recomputeSize = () => {
-    const node = this.refs.textarea
-    node.style.minHeight = 'auto'
-    node.style.minHeight = `${node.scrollHeight}px`
+    const { el } = this
+    if (!el) return
+    el.style.minHeight = 'auto'
+    el.style.minHeight = `${el.scrollHeight}px`
   }
 
   render () {
     return (
-      <textarea onChange={this.handleChange} {...this.props} ref='textarea' />
+      <textarea
+        ref={(el) => { this.el = el }}
+        onChange={this.recomputeSize}
+        {...this.props}
+      />
     )
   }
 }

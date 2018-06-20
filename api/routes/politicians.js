@@ -1,11 +1,11 @@
-const express = require('express')
+const { Router } = require('express')
 const { pick } = require('lodash/fp')
 const validate = require('../middlewares/validate')
 const parseRouteIds = require('../middlewares/parse-route-ids')
 const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
-const app = module.exports = express.Router()
+const app = Router()
 
 const pickAttrs = pick([
   'firstName',
@@ -18,7 +18,7 @@ const pickAttrs = pick([
 
 app.use(['/politicians', '/politicians/*'], requireAuth)
 
-app.get('/politicians', function getPoliticians (req, res, next) {
+app.get('/politicians', (req, res, next) => {
   dbApi.politicians.list().then((results) => {
     const total = results.length
     res.set('Content-Range', `posts 0-${total}/${total}`)
@@ -27,9 +27,10 @@ app.get('/politicians', function getPoliticians (req, res, next) {
   }).catch(next)
 })
 
-app.get('/politicians/:ids',
+app.get(
+  '/politicians/:ids',
   parseRouteIds('ids'),
-  function getPoliticiansByIds (req, res, next) {
+  (req, res, next) => {
     dbApi.politicians.findByIds(req.params.ids).then((results) => {
       const total = results.length
       res.set('Content-Range', `posts 0-${total}/${total}`)
@@ -39,9 +40,10 @@ app.get('/politicians/:ids',
   }
 )
 
-app.get('/politicians/:id',
+app.get(
+  '/politicians/:id',
   validate.mongoId((req) => req.params.id),
-  function getBill (req, res, next) {
+  (req, res, next) => {
     const opts = { where: {}, populate: {} }
 
     if (req.query.populate === '[\'jurisdiction\']') {
@@ -54,7 +56,7 @@ app.get('/politicians/:id',
   }
 )
 
-app.post('/politicians', function createBill (req, res, next) {
+app.post('/politicians', (req, res, next) => {
   const attrs = pickAttrs(req.body)
 
   dbApi.politicians.create(attrs).then((result) => {
@@ -62,9 +64,10 @@ app.post('/politicians', function createBill (req, res, next) {
   }).catch(next)
 })
 
-app.put('/politicians/:id',
+app.put(
+  '/politicians/:id',
   validate.mongoId((req) => req.params.id),
-  function updateJurisdiction (req, res, next) {
+  (req, res, next) => {
     const attrs = pickAttrs(req.body)
 
     dbApi.politicians.update(req.params.id, attrs).then((result) => {
@@ -72,3 +75,5 @@ app.put('/politicians/:id',
     }).catch(next)
   }
 )
+
+module.exports = app

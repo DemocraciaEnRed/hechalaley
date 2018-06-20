@@ -5,7 +5,8 @@ export default (props) => (
   <List
     {...props}
     title={<ListTitle resource='politicians' />}
-    pagination={null}>
+    pagination={null}
+  >
     <Datagrid>
       <TextField source='firstName' />
       <TextField source='lastName' />

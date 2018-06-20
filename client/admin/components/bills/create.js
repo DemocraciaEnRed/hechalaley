@@ -19,7 +19,8 @@ export default (props) => (
       <ReferenceInput source='coSigners' reference='politicians' allowEmpty>
         <SearchableSelectInput
           optionText='fullname'
-          options={{ multi: true }} />
+          options={{ multi: true }}
+        />
       </ReferenceInput>
     </SimpleForm>
   </Create>

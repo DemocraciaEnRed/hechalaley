@@ -18,7 +18,8 @@ export default (props) => (
           source='bill'
           reference='bills'
           validation={{ required: true }}
-          allowEmpty>
+          allowEmpty
+        >
           <SearchableSelectInput optionText='title' />
         </ReferenceInput>
         <NullableBooleanInput source='published' />
@@ -29,7 +30,8 @@ export default (props) => (
         <ReferenceInput source='authors' reference='politicians' allowEmpty>
           <SearchableSelectInput
             optionText='fullname'
-            options={{ multi: true }} />
+            options={{ multi: true }}
+          />
         </ReferenceInput>
       </FormTab>
       <FormTab label='hechalaley.stageText'>

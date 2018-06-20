@@ -26,7 +26,7 @@ schema.index({ bill: 1, published: 1, trashed: 1, stageDate: -1 })
 schema.plugin(base)
 schema.plugin(trashable)
 
-schema.pre('save', function (next) {
+schema.pre('save', function preSave (next) {
   if (this.text) {
     this.text = this.text.replace(/\n+/g, '\n\n')
   }

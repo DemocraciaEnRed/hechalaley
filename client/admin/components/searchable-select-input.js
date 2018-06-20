@@ -46,7 +46,8 @@ export default class SearchableSelectInput extends Component {
         label={label}
         source={source}
         resource={resource}
-        disabled={false}>
+        disabled={false}
+      >
         <div>
           <Select
             value={value}
@@ -57,7 +58,8 @@ export default class SearchableSelectInput extends Component {
             onBlur={this.handleBlur}
             onChange={this.handleChange}
             autoBlur
-            {...options} />
+            {...options}
+          />
         </div>
       </Labeled>
     )

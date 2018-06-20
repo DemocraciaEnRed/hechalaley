@@ -19,7 +19,7 @@ schema.index({ published: -1, trashed: -1 })
 schema.plugin(base)
 schema.plugin(trashable)
 
-schema.virtual('url').get(function () {
+schema.virtual('url').get(function getUrl () {
   return `/bills/${this._id}`
 })
 

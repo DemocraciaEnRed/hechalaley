@@ -2,7 +2,7 @@ const next = require('next')
 const express = require('express')
 const config = require('dos-config')
 
-const app = module.exports = express()
+const app = express()
 
 const client = next({
   dev: config.nodeEnv !== 'production',
@@ -21,3 +21,5 @@ app.get('*', (req, res, next) => {
 app.use(require('./routes'))
 
 app.get('*', (req, res) => req.handle(req, res))
+
+module.exports = app
