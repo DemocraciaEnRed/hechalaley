@@ -1,13 +1,31 @@
 {
-  "extends": ["democracyos"],
+  "parser": "babel-eslint",
 
-  "globals": {
-    "fetch": true
-  },
+  "plugins": ["babel"],
+
+  "extends": ["mural"],
 
   "rules": {
+    "class-methods-use-this": 0,
+    "semi": ["error", "never"],
+    "semi-style": ["error", "first"],
+    "space-before-function-paren": ["error", "always"],
+    "no-shadow": 0,
+    "no-continue": 0,
+    "no-plusplus": 0,
+    "consistent-return": 0,
+    "comma-dangle": ["error", "never"],
+    "arrow-parens": ["error", "always"],
+    "global-require": 0,
+    "import/prefer-default-export": 0,
+    "no-console": 0,
+    "object-curly-newline": 0,
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/prop-types": 0,
+    "react-native/no-inline-styles": 0,
+    "react-native/no-color-literals": 0,
     "react/react-in-jsx-scope": 0,
-    "node/shebang": 0,
-    "promise/no-nesting": 0
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "no-prototype-builtins": 0
   }
 }

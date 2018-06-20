@@ -3,7 +3,25 @@ const marky = require('marky-markdown')
 const myers = require('myers-diff').default
 const stringSimilarity = require('string-similarity')
 
-const text = module.exports = {}
+const text = {}
+
+function wordDiff (a, b) {
+  return diff(a, b)
+    .replace(/<(ins|del)>(\s+)/g, '$2<$1>')
+    .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
+}
+
+function wrapTag (tag, str) {
+  return `<${tag}>${str}</${tag}>`
+    .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
+}
+
+const wrapInsTag = wrapTag.bind(null, 'ins')
+const wrapDelTag = wrapTag.bind(null, 'del')
+
+function areSimilar (a, b) {
+  return stringSimilarity.compareTwoStrings(a, b) >= 0.5
+}
 
 text.markdownToHtml = function markdownToHtml (str) {
   return Promise.resolve(marky(str, { sanitize: false }))
@@ -42,24 +60,8 @@ text.diffs = function diffs (from, to) {
   return Promise.resolve(lines.join('\n'))
 }
 
-function wordDiff (a, b) {
-  return diff(a, b)
-    .replace(/<(ins|del)>(\s+)/g, '$2<$1>')
-    .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
-}
-
-function wrapTag (tag, str) {
-  return `<${tag}>${str}</${tag}>`
-    .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
-}
-
-const wrapInsTag = wrapTag.bind(null, 'ins')
-const wrapDelTag = wrapTag.bind(null, 'del')
-
-function areSimilar (a, b) {
-  return stringSimilarity.compareTwoStrings(a, b) >= 0.5
-}
-
 text.diffsInHtml = function diffsInHtml (from, to) {
   return text.diffs(from, to).then(text.markdownToHtml)
 }
+
+module.exports = text

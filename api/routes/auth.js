@@ -5,7 +5,9 @@ const jwt = require('../jwt')
 const notifier = require('../notifier')
 const createUrl = require('../create-url')
 
-const app = module.exports = express.Router()
+const app = express.Router()
+
+module.exports = app
 
 const SESSION_DURATION = ms('20d')
 const LOGIN_TIMEOUT = ms('15m')
@@ -18,46 +20,6 @@ class TokensStack extends Array {
 }
 
 const usedTokens = new TokensStack()
-
-app.post('/auth/login', (req, res, next) => {
-  const { email } = req.body
-
-  if (!email) return res.sendStatus(400)
-
-  dbApi.users.findByEmail(email)
-    .then((user) => {
-      if (!user) throw new Error('email not found.')
-    })
-    .then(() => sendToken(email))
-    .then(() => res.status(200).json({ code: 'TOKEN_SENDED' }))
-    .catch(() => res.sendStatus(403))
-})
-
-app.get('/auth/logout', (req, res) => {
-  res.clearCookie('sessionToken')
-  res.redirect('/admin')
-})
-
-app.get('/auth/:token', (req, res, next) => {
-  const token = req.params.token
-
-  if (usedTokens.includes(token)) {
-    res.status(403).json({ code: 'TOKEN_ALREADY_USED' })
-  }
-
-  jwt.verify(token)
-    .then(({ email }) => setToken(res, email))
-    .then(() => usedTokens.push(token))
-    .then(() => res.redirect('/admin'))
-    .catch(() => res.sendStatus(403))
-})
-
-function sendToken (email) {
-  const payload = { email }
-  return jwt.create(payload, LOGIN_TIMEOUT).then((token) => {
-    return sendTokenEmail(email, token)
-  })
-}
 
 function sendTokenEmail (email, token) {
   const uri = createUrl(`/api/auth/${token}`)
@@ -76,10 +38,11 @@ function sendTokenEmail (email, token) {
   })
 }
 
-function setToken (res, email) {
-  return jwt.create({ email }, SESSION_DURATION).then((token) => {
-    setCookie(res, 'sessionToken', token, SESSION_DURATION)
-  })
+function sendToken (email) {
+  const payload = { email }
+  return jwt.create(payload, LOGIN_TIMEOUT).then((token) => (
+    sendTokenEmail(email, token)
+  ))
 }
 
 function setCookie (res, name, payload, duration = 0) {
@@ -89,3 +52,42 @@ function setCookie (res, name, payload, duration = 0) {
     httpOnly: true
   })
 }
+
+function setToken (res, email) {
+  return jwt.create({ email }, SESSION_DURATION).then((token) => {
+    setCookie(res, 'sessionToken', token, SESSION_DURATION)
+  })
+}
+
+app.post('/auth/login', (req, res) => {
+  const { email } = req.body
+
+  if (!email) return res.sendStatus(400)
+
+  dbApi.users.findByEmail(email)
+    .then((user) => {
+      if (!user) throw new Error('email not found.')
+    })
+    .then(() => sendToken(email))
+    .then(() => res.status(200).json({ code: 'TOKEN_SENDED' }))
+    .catch(() => res.sendStatus(403))
+})
+
+app.get('/auth/logout', (req, res) => {
+  res.clearCookie('sessionToken')
+  res.redirect('/admin')
+})
+
+app.get('/auth/:token', (req, res) => {
+  const { token } = req.params
+
+  if (usedTokens.includes(token)) {
+    res.status(403).json({ code: 'TOKEN_ALREADY_USED' })
+  }
+
+  jwt.verify(token)
+    .then(({ email }) => setToken(res, email))
+    .then(() => usedTokens.push(token))
+    .then(() => res.redirect('/admin'))
+    .catch(() => res.sendStatus(403))
+})
