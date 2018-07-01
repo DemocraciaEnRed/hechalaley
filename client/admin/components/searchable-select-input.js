@@ -1,10 +1,9 @@
 import { Component } from 'react'
 import Select from 'react-select'
-import { Labeled } from 'admin-on-rest/lib/mui'
+import { addField, Labeled } from 'react-admin'
 
-export default class SearchableSelectInput extends Component {
+class SearchableSelectInput extends Component {
   static defaultProps = {
-    addField: true,
     choices: [],
     options: {},
     optionText: 'name',
@@ -65,3 +64,5 @@ export default class SearchableSelectInput extends Component {
     )
   }
 }
+
+export default addField(SearchableSelectInput)

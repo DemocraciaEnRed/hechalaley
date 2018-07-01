@@ -1,6 +1,7 @@
 import { Component } from 'react'
+import { addField } from 'react-admin'
 import RichTextEditor from 'react-rte'
-import { Tabs, Tab } from 'material-ui/Tabs'
+import { Tabs, Tab } from '@material-ui/core/Tabs'
 import Textarea from './autogrow-textarea'
 
 const toolbarConfig = {
@@ -28,11 +29,7 @@ const toolbarConfig = {
   ]
 }
 
-export default class TextEditor extends Component {
-  static defaultProps = {
-    addField: true
-  }
-
+class TextEditor extends Component {
   constructor (props) {
     super(props)
 
@@ -66,16 +63,17 @@ export default class TextEditor extends Component {
   }
 
   render () {
+    console.log('reder')
     return (
-      <Tabs style={{ marginTop: '20px', marginBottom: '20px' }}>
-        <Tab label='Texto' style={{ textTransform: 'none' }}>
+      <Tabs>
+        <Tab label='Texto'>
           <RichTextEditor
             value={this.state.richtext}
             toolbarConfig={toolbarConfig}
             onChange={this.handleChange}
           />
         </Tab>
-        <Tab label='Markdown' style={{ textTransform: 'none' }}>
+        <Tab label='Markdown'>
           <p>
             <small>
               <strong>Markdown</strong> es el formato base que se utiliza
@@ -104,3 +102,5 @@ export default class TextEditor extends Component {
     )
   }
 }
+
+export default addField(TextEditor)

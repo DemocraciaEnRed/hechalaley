@@ -1,4 +1,4 @@
-import icon from 'material-ui/svg-icons/action/face'
+import icon from '@material-ui/icons/Face'
 import list from './list'
 import create from './create'
 import edit from './edit'

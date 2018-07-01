@@ -1,4 +1,4 @@
-import { CardActions } from 'material-ui/Card'
+import { CardActions } from '@material-ui/core'
 import {
   Edit,
   SimpleForm,
@@ -6,23 +6,18 @@ import {
   NullableBooleanInput,
   ReferenceInput,
   DeleteButton
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 
 const Actions = ({ basePath, data }) => (
-  <CardActions style={{
-    zIndex: 2,
-    display: 'inline-block',
-    float: 'right'
-  }}
-  >
+  <CardActions>
     <DeleteButton basePath={basePath} record={data} />
   </CardActions>
 )
 
 export default (props) => (
   <Edit actions={<Actions />} {...props}>
-    <SimpleForm>
+    <SimpleForm redirect='list'>
       <NullableBooleanInput source='published' />
       <TextInput source='title' validation={{ required: true }} />
       <TextInput source='summary' validation={{ required: true }} />

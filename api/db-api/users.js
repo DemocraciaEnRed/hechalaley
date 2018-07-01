@@ -17,7 +17,7 @@ exports.list = function list () {
 }
 
 exports.findByEmail = function findByEmail (email) {
-  return User.findOne({ email }).exec()
+  return User.findOne({ email, trashed: false }).exec()
 }
 
 exports.findById = function findById (id) {

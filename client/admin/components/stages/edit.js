@@ -1,4 +1,4 @@
-import { CardActions } from 'material-ui/Card'
+import { CardActions } from '@material-ui/core'
 import {
   Edit,
   TabbedForm,
@@ -8,24 +8,24 @@ import {
   ReferenceInput,
   DateInput,
   DeleteButton
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 import TextEditor from '../text-editor'
 
-const Actions = ({ basePath, data }) => (
+const Actions = ({ basePath, data, resource }) => (
   <CardActions style={{
     zIndex: 2,
     display: 'inline-block',
     float: 'right'
   }}
   >
-    <DeleteButton basePath={basePath} record={data} />
+    <DeleteButton basePath={basePath} record={data} resource={resource} />
   </CardActions>
 )
 
 export default (props) => (
-  <Edit actions={<Actions />} {...props}>
-    <TabbedForm>
+  <Edit undoable={false} actions={<Actions />} {...props}>
+    <TabbedForm redirect={false}>
       <FormTab label='hechalaley.stageAttributes'>
         <ReferenceInput
           source='bill'
@@ -47,9 +47,11 @@ export default (props) => (
           />
         </ReferenceInput>
       </FormTab>
+      {/*
       <FormTab label='hechalaley.stageText'>
         <TextEditor source='text' />
       </FormTab>
+      */}
     </TabbedForm>
   </Edit>
 )

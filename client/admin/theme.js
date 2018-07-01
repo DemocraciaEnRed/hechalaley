@@ -1,6 +1,6 @@
-import { fade } from 'material-ui/utils/colorManipulator'
+import { createMuiTheme } from '@material-ui/core/styles'
 
-export default {
+export default createMuiTheme({
   spacing: {
     iconSize: 18,
     desktopGutter: 24,
@@ -17,20 +17,20 @@ export default {
   fontFamily: 'Avenir Next, Helvetica, Arial, sans-serif',
   borderRadius: 0,
   palette: {
-    primary1Color: '#404659',
-    primary2Color: fade('#404659', 0.8),
-    primary3Color: '#333',
-    accent1Color: '#FD5177',
-    accent2Color: '#F5F5F5',
-    accent3Color: '#9E9E9E',
-    textColor: '#2b3245',
-    secondaryTextColor: fade('#2b3245', 0.54),
-    alternateTextColor: '#f6fafd',
-    canvasColor: '#f6fafd',
-    borderColor: '#E0E0E0',
-    disabledColor: fade('#2b3245', 0.3),
-    pickerHeaderColor: '#404659',
-    clockCircleColor: fade('#2b3245', 0.07),
-    shadowColor: '#000'
+    primary: {
+      light: '#ff79b0',
+      main: '#ff4081',
+      dark: '#c60055',
+      contrastText: '#ffffff'
+    },
+    secondary: {
+      light: '#4f5b62',
+      main: '#404657',
+      dark: '#000a12',
+      contrastText: '#ffffff'
+    },
+    error: {
+      main: '#D50000'
+    }
   }
-}
+})

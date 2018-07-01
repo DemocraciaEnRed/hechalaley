@@ -1,4 +1,5 @@
-import { simpleRestClient, fetchUtils } from 'admin-on-rest'
+import { fetchUtils } from 'react-admin'
+import simpleRestProvider from 'ra-data-simple-rest'
 
 const { Headers } = window
 
@@ -12,4 +13,4 @@ const httpClient = (url, options = {}) => {
   return fetchUtils.fetchJson(url, opts)
 }
 
-export default simpleRestClient('/api', httpClient)
+export default simpleRestProvider('/api', httpClient)

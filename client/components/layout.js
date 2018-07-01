@@ -1,7 +1,9 @@
 import classNames from 'classnames'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import Title from './title'
-import PageLoader from './page-loader'
+
+const Loader = dynamic(import('./page-loader'), { ssr: false })
 
 const Layout = ({ className, children }) => (
   <div className={classNames(className)}>
@@ -13,7 +15,7 @@ const Layout = ({ className, children }) => (
       <link href='/static/fonts/index.css' rel='stylesheet' />
     </Head>
     <Title />
-    <PageLoader />
+    <Loader />
     <style jsx global>
       {`
         * {
@@ -48,7 +50,7 @@ const Layout = ({ className, children }) => (
         }
       `}
     </style>
-    { children }
+    {children}
   </div>
 )
 

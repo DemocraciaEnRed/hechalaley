@@ -6,13 +6,13 @@ import {
   NullableBooleanInput,
   ReferenceInput,
   DateInput
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 import TextEditor from '../text-editor'
 
 export default (props) => (
   <Create {...props}>
-    <TabbedForm>
+    <TabbedForm redirect='list'>
       <FormTab label='hechalaley.stageAttributes'>
         <ReferenceInput
           source='bill'

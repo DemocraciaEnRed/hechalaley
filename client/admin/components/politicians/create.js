@@ -3,12 +3,12 @@ import {
   SimpleForm,
   TextInput,
   ReferenceInput
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 
 export default (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm redirect='list'>
       <TextInput source='firstName' validation={{ required: true }} />
       <TextInput source='lastName' validation={{ required: true }} />
       <TextInput source='bio' />

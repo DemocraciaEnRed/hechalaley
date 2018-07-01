@@ -44,6 +44,7 @@ function setCookie (res, name, payload, duration = 0) {
 function setToken (res, email) {
   return jwt.create({ email }, SESSION_DURATION).then((token) => {
     setCookie(res, 'sessionToken', token, SESSION_DURATION)
+    res.cookie('sessionTokenExists', true, { sameSite: true })
   })
 }
 
@@ -75,6 +76,7 @@ app.post('/auth/login', async (req, res) => {
 
 app.get('/auth/logout', (req, res) => {
   res.clearCookie('sessionToken')
+  res.clearCookie('sessionTokenExists')
   res.redirect('/admin')
 })
 

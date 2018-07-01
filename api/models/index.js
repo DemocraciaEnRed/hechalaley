@@ -9,7 +9,6 @@ module.exports = {
   User: mongoose.model('User', require('./user')),
   all: () => mongoose.modelNames().map((name) => mongoose.model(name)),
   ready: () => mongoose.connect(config.mongodbUri, {
-    useMongoClient: true,
     keepAlive: 1,
     connectTimeoutMS: 30000,
     config: { autoIndex: false }

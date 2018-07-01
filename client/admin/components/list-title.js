@@ -1,4 +1,4 @@
-import { translate } from 'admin-on-rest'
+import { translate } from 'react-admin'
 
 export default translate(({ translate, resource }) => {
   const title = translate(`resources.${resource}.name`, { smart_count: 2 })
