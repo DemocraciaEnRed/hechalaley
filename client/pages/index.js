@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import Layout from '../components/layout'
 import Cover from '../components/home/cover'
 import BillCard from '../components/home/bill-card'

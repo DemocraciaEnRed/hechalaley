@@ -1,4 +1,4 @@
-import icon from 'material-ui/svg-icons/maps/place'
+import icon from '@material-ui/icons/Place'
 import list from './list'
 import create from './create'
 import edit from './edit'

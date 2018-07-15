@@ -17,8 +17,8 @@ exports.list = function list (query = {}) {
     .exec()
 }
 
-exports.findById = function findById (id, opts) {
-  opts = opts || { where: {}, populate: {} }
+exports.findById = function findById (id, options) {
+  const opts = options || { where: {}, populate: {} }
   const query = Bill.findById(id)
 
   if (opts.populate.coSigners) query.populate('coSigners')
@@ -44,7 +44,5 @@ exports.update = function update (id, attrs) {
 }
 
 exports.trash = function trash (id) {
-  return exports.findById(id).then((doc) => {
-    return doc.trash()
-  }).catch((err) => { throw err })
+  return exports.findById(id).then((doc) => doc.trash()).catch((err) => { throw err })
 }

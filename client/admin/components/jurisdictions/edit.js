@@ -1,8 +1,8 @@
-import { Edit, SimpleForm, TextInput } from 'admin-on-rest/lib/mui'
+import { Edit, SimpleForm, TextInput } from 'react-admin'
 
 export default (props) => (
-  <Edit actions={null} {...props}>
-    <SimpleForm>
+  <Edit undoable={false} actions={null} {...props}>
+    <SimpleForm redirect='list'>
       <TextInput source='name' validation={{ required: true }} />
     </SimpleForm>
   </Edit>

@@ -8,7 +8,7 @@ import {
   Filter,
   ReferenceInput,
   SelectInput
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import ListTitle from '../list-title'
 
 const StagesFilter = (props) => (
@@ -24,7 +24,9 @@ export default (props) => (
     {...props}
     title={<ListTitle resource='stages' />}
     filters={<StagesFilter />}
-    pagination={null}>
+    pagination={null}
+    bulkActions={false}
+  >
     <Datagrid>
       <BooleanField source='published' />
       <TextField source='title' />

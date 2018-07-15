@@ -4,14 +4,16 @@ import {
   TextField,
   EditButton,
   BooleanField
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import ListTitle from '../list-title'
 
 export default (props) => (
   <List
     {...props}
     title={<ListTitle resource='bills' />}
-    pagination={null}>
+    pagination={null}
+    bulkActions={false}
+  >
     <Datagrid>
       <BooleanField source='published' />
       <TextField source='title' />

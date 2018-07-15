@@ -1,6 +1,13 @@
-import es from 'aor-language-spanish'
+import es from 'ra-language-spanish'
 
-export default Object.assign({}, es, {
+export default {
+  ra: {
+    ...es.ra,
+    notification: {
+      ...es.ra.notification,
+      deleted: 'Borrando elemento... |||| Borrando %{smart_count} elementos...'
+    }
+  },
   hechalaley: {
     stageAttributes: 'Atributos',
     stageText: 'Contenido'
@@ -28,7 +35,7 @@ export default Object.assign({}, es, {
     bills: {
       name: 'Ley |||| Leyes',
       fields: {
-        published: 'Publicada?',
+        published: 'Pública',
         title: 'Título',
         summary: 'Descripción',
         author: 'Firmante',
@@ -39,7 +46,7 @@ export default Object.assign({}, es, {
       name: 'Etapa |||| Etapas',
       fields: {
         bill: 'Ley',
-        published: 'Publicada?',
+        published: 'Pública',
         title: 'Título',
         summary: 'Descripción',
         identification: 'Identificación Oficial',
@@ -55,4 +62,4 @@ export default Object.assign({}, es, {
       }
     }
   }
-})
+}

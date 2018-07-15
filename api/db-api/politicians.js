@@ -15,8 +15,8 @@ exports.findByIds = function findByIds (ids) {
     .exec()
 }
 
-exports.findById = function findById (id, opts) {
-  opts = opts || { where: {}, populate: {} }
+exports.findById = function findById (id, options) {
+  const opts = options || { where: {}, populate: {} }
   const query = Politician.findById(id)
 
   if (opts.populate.jurisdiction) query.populate('jurisdiction')

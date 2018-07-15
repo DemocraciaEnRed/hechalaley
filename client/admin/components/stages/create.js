@@ -6,19 +6,20 @@ import {
   NullableBooleanInput,
   ReferenceInput,
   DateInput
-} from 'admin-on-rest/lib/mui'
+} from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 import TextEditor from '../text-editor'
 
 export default (props) => (
   <Create {...props}>
-    <TabbedForm>
+    <TabbedForm redirect='list'>
       <FormTab label='hechalaley.stageAttributes'>
         <ReferenceInput
           source='bill'
           reference='bills'
           validation={{ required: true }}
-          allowEmpty>
+          allowEmpty
+        >
           <SearchableSelectInput optionText='title' />
         </ReferenceInput>
         <NullableBooleanInput source='published' />
@@ -29,7 +30,8 @@ export default (props) => (
         <ReferenceInput source='authors' reference='politicians' allowEmpty>
           <SearchableSelectInput
             optionText='fullname'
-            options={{ multi: true }} />
+            options={{ multi: true }}
+          />
         </ReferenceInput>
       </FormTab>
       <FormTab label='hechalaley.stageText'>

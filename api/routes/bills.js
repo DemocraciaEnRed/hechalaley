@@ -1,13 +1,14 @@
-const express = require('express')
+const { Router } = require('express')
 const validate = require('../middlewares/validate')
 const requireAuth = require('../middlewares/require-auth')
 const dbApi = require('../db-api')
 
-const app = module.exports = express.Router()
+const app = Router()
 
-app.get('/bills',
+app.get(
+  '/bills',
   requireAuth.if((req) => !req.query.hasOwnProperty('published')),
-  function getBills (req, res, next) {
+  (req, res, next) => {
     const query = {}
 
     if (req.query.hasOwnProperty('published')) query.published = true
@@ -21,9 +22,10 @@ app.get('/bills',
   }
 )
 
-app.get('/bills/:id',
+app.get(
+  '/bills/:id',
   validate.mongoId((req) => req.params.id),
-  function getBill (req, res, next) {
+  (req, res, next) => {
     const opts = { where: {}, populate: {} }
 
     if (req.query.populate === '[\'coSigners\']') {
@@ -38,7 +40,7 @@ app.get('/bills/:id',
   }
 )
 
-app.post('/bills', requireAuth, function createBill (req, res, next) {
+app.post('/bills', requireAuth, (req, res, next) => {
   dbApi.bills.create({
     title: req.body.title,
     summary: req.body.summary,
@@ -50,10 +52,11 @@ app.post('/bills', requireAuth, function createBill (req, res, next) {
   }).catch(next)
 })
 
-app.put('/bills/:id',
+app.put(
+  '/bills/:id',
   validate.mongoId((req) => req.params.id),
   requireAuth,
-  function updateBill (req, res, next) {
+  (req, res, next) => {
     dbApi.bills.update(req.params.id, {
       title: req.body.title,
       summary: req.body.summary,
@@ -66,20 +69,22 @@ app.put('/bills/:id',
   }
 )
 
-app.delete('/bills/:id',
+app.delete(
+  '/bills/:id',
   validate.mongoId((req) => req.params.id),
   requireAuth,
-  function trashBill (req, res, next) {
+  (req, res, next) => {
     dbApi.bills.trash(req.params.id).then((result) => {
       res.send(result)
     }).catch(next)
   }
 )
 
-app.get('/bills/:id/stages/:stage/text',
+app.get(
+  '/bills/:id/stages/:stage/text',
   validate.mongoId((req) => req.params.id),
   validate.mongoId((req) => req.params.stage),
-  function getStageText (req, res, next) {
+  (req, res, next) => {
     const query = {
       bill: req.params.id
     }
@@ -92,11 +97,12 @@ app.get('/bills/:id/stages/:stage/text',
   }
 )
 
-app.get('/bills/:id/diff/:fromStage/:toStage',
+app.get(
+  '/bills/:id/diff/:fromStage/:toStage',
   validate.mongoId((req) => req.params.id),
   validate.mongoId((req) => req.params.fromStage),
   validate.mongoId((req) => req.params.toStage),
-  function getStagesDiff (req, res, next) {
+  (req, res, next) => {
     const query = {
       bill: req.params.id
     }
@@ -112,3 +118,5 @@ app.get('/bills/:id/diff/:fromStage/:toStage',
     }).catch(next)
   }
 )
+
+module.exports = app

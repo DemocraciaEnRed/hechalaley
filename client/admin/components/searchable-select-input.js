@@ -1,10 +1,9 @@
 import { Component } from 'react'
 import Select from 'react-select'
-import { Labeled } from 'admin-on-rest/lib/mui'
+import { addField, Labeled } from 'react-admin'
 
-export default class SearchableSelectInput extends Component {
+class SearchableSelectInput extends Component {
   static defaultProps = {
-    addField: true,
     choices: [],
     options: {},
     optionText: 'name',
@@ -46,7 +45,8 @@ export default class SearchableSelectInput extends Component {
         label={label}
         source={source}
         resource={resource}
-        disabled={false}>
+        disabled={false}
+      >
         <div>
           <Select
             value={value}
@@ -57,9 +57,12 @@ export default class SearchableSelectInput extends Component {
             onBlur={this.handleBlur}
             onChange={this.handleChange}
             autoBlur
-            {...options} />
+            {...options}
+          />
         </div>
       </Labeled>
     )
   }
 }
+
+export default addField(SearchableSelectInput)

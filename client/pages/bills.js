@@ -1,8 +1,9 @@
 import { PureComponent } from 'react'
+import fetch from 'isomorphic-fetch'
 import Bill from '../components/bills/bill'
 
 export default class Page extends PureComponent {
-  static async getInitialProps ({ req, pathname, query: { id } }) {
+  static async getInitialProps ({ req, query: { id } }) {
     if (req) return req.locals
 
     const res = await fetch(`/api/bills/${id}?populate.coSigners=1&published=true`)
@@ -67,7 +68,8 @@ export default class Page extends PureComponent {
       <Bill
         onStageSelect={this.handleStageSelect}
         bill={bill}
-        {...this.state} />
+        {...this.state}
+      />
     )
   }
 }

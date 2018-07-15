@@ -9,7 +9,7 @@ const models = require('./models')
 
 const log = debug('hechalaley:api')
 
-const app = module.exports = express()
+const app = express()
 
 app.ready = () => checkNodeVersion().then(models.ready)
 
@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(parseJsonQuery('sort', 'range', 'filter'))
 
-app.all('*', function apiLog (req, res, next) {
+app.all('*', (req, res, next) => {
   log(`${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`)
   next()
 })
@@ -26,7 +26,9 @@ app.get('/', (req, res) => res.json(packageJson))
 
 app.use(require('./routes'))
 
-app.use(function apiError (err, req, res, next) {
+app.use((err, req, res, next) => {
   log(`Error: ${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`, err)
   next(err)
 })
+
+module.exports = app

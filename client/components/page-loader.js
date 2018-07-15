@@ -1,5 +1,6 @@
 import NProgress from 'nprogress'
 import Router from 'next/router'
+import Head from 'next/head'
 
 NProgress.configure({ showSpinner: false })
 
@@ -8,8 +9,6 @@ Router.onRouteChangeStart = () => {
 }
 Router.onRouteChangeComplete = () => NProgress.done()
 Router.onRouteChangeError = () => NProgress.done()
-
-import Head from 'next/head'
 
 const PageLoader = () => (
   <Head>

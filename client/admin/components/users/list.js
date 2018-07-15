@@ -1,11 +1,19 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton } from 'admin-on-rest/lib/mui'
+import {
+  List,
+  Datagrid,
+  TextField,
+  EditButton,
+  DeleteButton
+} from 'react-admin'
 import ListTitle from '../list-title'
 
 export default (props) => (
   <List
     {...props}
     title={<ListTitle resource='users' />}
-    pagination={null}>
+    pagination={null}
+    bulkActions={false}
+  >
     <Datagrid>
       <TextField source='email' />
       <EditButton />

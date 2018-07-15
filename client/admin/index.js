@@ -1,5 +1,4 @@
-import { Admin, Resource } from 'admin-on-rest'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import { Admin, Resource } from 'react-admin'
 import * as jurisdictions from './components/jurisdictions'
 import * as politicians from './components/politicians'
 import * as bills from './components/bills'
@@ -8,28 +7,24 @@ import * as users from './components/users'
 import Login from './components/auth/login'
 import i18n from './i18n'
 import theme from './theme'
-import authClient from './auth-client'
-import restClient from './rest-client'
+import restProvider from './rest-provider'
+import authProvider from './auth-provider'
 
 const App = () => (
   <Admin
     locale='es-AR'
-    messages={i18n}
+    i18nProvider={i18n}
     title='Admin - Hecha la Ley'
-    restClient={restClient}
-    theme={getMuiTheme(theme)}
-    authClient={authClient}
-    loginPage={Login}>
+    dataProvider={restProvider}
+    theme={theme}
+    authProvider={authProvider}
+    loginPage={Login}
+  >
     <Resource name='jurisdictions' {...jurisdictions} />
     <Resource name='politicians' {...politicians} />
     <Resource name='bills' {...bills} />
     <Resource name='stages' {...stages} />
     <Resource name='users' {...users} />
-    <style global jsx>{`
-      .Select-input > input {
-        padding: 6px 0;
-      }
-    `}</style>
   </Admin>
 )
 

@@ -30,9 +30,7 @@ exports.update = function update (id, attrs = {}) {
 }
 
 exports.trash = function trash (id) {
-  return exports.findById(id).then((doc) => {
-    return doc.trash()
-  }).catch((err) => { throw err })
+  return exports.findById(id).then((doc) => doc.trash()).catch((err) => { throw err })
 }
 
 exports.getTextHtml = function getTextHtml (id, query = {}) {
@@ -49,6 +47,8 @@ exports.getTextHtml = function getTextHtml (id, query = {}) {
     .then(text.markdownToHtml)
 }
 
+const findById = (docs, id) => docs.find((doc) => doc._id.toString() === id)
+
 exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
   return Stage
     .find(query)
@@ -64,8 +64,4 @@ exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
 
       return text.diffsInHtml(to.text, from.text)
     })
-}
-
-function findById (docs, id) {
-  return docs.find((doc) => doc._id.toString() === id)
 }

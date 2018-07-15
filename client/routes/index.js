@@ -2,7 +2,7 @@ const { Router } = require('express')
 const dbApi = require('../../api/db-api')
 const validate = require('../../api/middlewares/validate')
 
-const app = module.exports = new Router()
+const app = new Router()
 
 app.get('/', (req, res, next) => {
   dbApi.bills.list({
@@ -13,10 +13,11 @@ app.get('/', (req, res, next) => {
   }).catch(next)
 })
 
-app.get('/bills/:id',
+app.get(
+  '/bills/:id',
   validate.mongoId((req) => req.params.id),
   (req, res, next) => {
-    const id = req.params.id
+    const { id } = req.params
 
     dbApi.bills.findById(id, {
       published: true,
@@ -40,3 +41,5 @@ app.get('/bills/:id',
     }).catch(next)
   }
 )
+
+module.exports = app

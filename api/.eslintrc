@@ -1,3 +1,7 @@
 {
-  "extends": ["mural/node"]
+  "extends": ["mural/node"],
+
+  "env": {
+    "node": true
+  }
 }
