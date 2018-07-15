@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import { addField } from 'react-admin'
 import RichTextEditor from 'react-rte'
-import { Tabs, Tab } from '@material-ui/core/Tabs'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
 import Textarea from './autogrow-textarea'
 
 const toolbarConfig = {
@@ -35,11 +36,12 @@ class TextEditor extends Component {
 
     this.state = {
       richtext: RichTextEditor.createValueFromString(props.input.value, 'markdown'),
-      value: props.input.value
+      value: props.input.value,
+      tab: 0
     }
   }
 
-  handleChange = (richtext) => {
+  handleMarkdownChange = (richtext) => {
     const value = richtext.toString('markdown')
 
     this.setState({
@@ -50,10 +52,6 @@ class TextEditor extends Component {
 
   handleTextChange = (evt) => {
     const { value } = evt.target
-    this.setMarkdown(value)
-  }
-
-  setMarkdown = (value) => {
     const richtext = RichTextEditor.createValueFromString(value, 'markdown')
 
     this.setState({
@@ -62,43 +60,54 @@ class TextEditor extends Component {
     }, () => this.props.input.onChange(value))
   }
 
+  handleTabChange = (_, value) => {
+    this.setState({ tab: value })
+  }
+
   render () {
-    console.log('reder')
+    const { tab } = this.state
+
     return (
-      <Tabs>
-        <Tab label='Texto'>
+      <div>
+        <Tabs value={tab} onChange={this.handleTabChange}>
+          <Tab label='Texto' />
+          <Tab label='Markdown' />
+        </Tabs>
+        {tab === 0 && (
           <RichTextEditor
             value={this.state.richtext}
             toolbarConfig={toolbarConfig}
-            onChange={this.handleChange}
+            onChange={this.handleMarkdownChange}
           />
-        </Tab>
-        <Tab label='Markdown'>
-          <p>
-            <small>
-              <strong>Markdown</strong> es el formato base que se utiliza
-              para guardar el texto en la base de datos. Aquí puedes editarlo
-              directamente, o copiar y pegarlo desde otras fuentes sin
-              arruinar los estilos.
-            </small>
-          </p>
-          <Textarea
-            style={{
-              boxSizing: 'border-box',
-              display: 'block',
-              width: '100%',
-              fontFamily: 'monospace',
-              fontSize: '1.1rem',
-              lineHeight: 1.6,
-              resize: 'vertical',
-              padding: '1rem',
-              border: 0
-            }}
-            value={this.state.value}
-            onChange={this.handleTextChange}
-          />
-        </Tab>
-      </Tabs>
+        )}
+        {tab === 1 && (
+          <div>
+            <p>
+              <small>
+                <strong>Markdown</strong> es el formato base que se utiliza
+                para guardar el texto en la base de datos. Aquí puedes editarlo
+                directamente, o copiar y pegarlo desde otras fuentes sin
+                arruinar los estilos.
+              </small>
+            </p>
+            <Textarea
+              style={{
+                boxSizing: 'border-box',
+                display: 'block',
+                width: '100%',
+                fontFamily: 'monospace',
+                fontSize: '1.1rem',
+                lineHeight: 1.6,
+                resize: 'vertical',
+                padding: '1rem',
+                border: 0
+              }}
+              value={this.state.value}
+              onChange={this.handleTextChange}
+            />
+          </div>
+        )}
+      </div>
     )
   }
 }

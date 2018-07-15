@@ -47,11 +47,9 @@ export default (props) => (
           />
         </ReferenceInput>
       </FormTab>
-      {/*
       <FormTab label='hechalaley.stageText'>
         <TextEditor source='text' />
       </FormTab>
-      */}
     </TabbedForm>
   </Edit>
 )
