@@ -1,3 +1,4 @@
+import React from 'react'
 import { Admin, Resource } from 'react-admin'
 import * as jurisdictions from './components/jurisdictions'
 import * as politicians from './components/politicians'

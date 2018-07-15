@@ -1,10 +1,7 @@
 const config = require('dos-config')
 const express = require('express')
-const debug = require('debug')
 const api = require('./api')
 const client = require('./client')
-
-const log = debug('hechalaley:root')
 
 const server = express()
 
@@ -17,9 +14,9 @@ Promise.all([
 ]).then(() => {
   server.listen(config.port, (err) => {
     if (err) throw err
-    log(`Hecha la Ley started on port ${config.port}`)
+    console.log(`· Server started on port ${config.port} ·`)
   })
 }).catch((err) => {
-  log(err)
+  console.error(err)
   process.exit(1) // eslint-disable-line no-process-exit
 })

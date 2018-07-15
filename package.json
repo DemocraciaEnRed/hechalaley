@@ -36,7 +36,6 @@
     "ms": "2.1.1",
     "myers-diff": "1.0.5",
     "next": "6.1.1",
-    "nodemon": "1.17.5",
     "notifme-sdk": "1.7.1",
     "nprogress": "0.2.0",
     "promise": "8.0.1",
@@ -60,6 +59,7 @@
     "babel-eslint": "8.2.5",
     "eslint": "5.0.1",
     "eslint-config-mural": "1.1.0",
-    "eslint-plugin-babel": "5.1.0"
+    "eslint-plugin-babel": "5.1.0",
+    "nodemon": "1.18.2"
   }
 }
