@@ -14,6 +14,8 @@ const log = debug('hechalaley:api')
 
 const app = express()
 
+app.disable('x-powered-by')
+
 app.ready = () => checkNodeVersion().then(models.ready)
 
 app.use(bodyParser.json())

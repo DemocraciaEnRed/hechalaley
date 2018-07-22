@@ -4,6 +4,8 @@ const config = require('dos-config')
 
 const app = express()
 
+app.disable('x-powered-by')
+
 app.use(helmet())
 
 // the CSP module sets the Content-Security-Policy header which can help

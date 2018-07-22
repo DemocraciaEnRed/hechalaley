@@ -4,9 +4,14 @@ const config = require('dos-config')
 
 const app = express()
 
+app.disable('x-powered-by')
+
 const client = next({
   dev: config.nodeEnv === 'development',
-  dir: __dirname
+  dir: __dirname,
+  conf: {
+    poweredByHeader: false
+  }
 })
 
 app.ready = () => client.prepare()
