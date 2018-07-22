@@ -1,10 +1,17 @@
-const { protocol, host, publicPort } = require('dos-config')
+const config = require('dos-config')
 
-let uri = `${protocol}://${host}`
+const shouldSpecifyPort = (protocol, port) =>
+  !(protocol === 'https' && port === 443) &&
+  !(protocol === 'http' && port === 80)
 
-if (
-  !(protocol === 'https' && publicPort === 443) &&
-  !(protocol === 'http' && publicPort === 80)
-) uri += `:${publicPort}`
+module.exports = (path = '') => {
+  const { protocol, host, publicPort } = config
 
-module.exports = (path = '') => uri + path
+  const uri = `${protocol}://${host}`
+
+  const port = shouldSpecifyPort(protocol, publicPort)
+    ? `:${publicPort}`
+    : ''
+
+  return `${uri}${port}${path}`
+}
