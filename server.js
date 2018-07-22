@@ -1,3 +1,4 @@
+const compression = require('compression')
 const express = require('express')
 const helmet = require('helmet')
 const config = require('dos-config')
@@ -5,6 +6,8 @@ const config = require('dos-config')
 const app = express()
 
 app.disable('x-powered-by')
+
+app.use(compression())
 
 app.use(helmet())
 
