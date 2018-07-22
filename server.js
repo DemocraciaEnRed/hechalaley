@@ -41,18 +41,29 @@ app.use((req, res, next) => {
   let uri = req.url
 
   // Trailing slash removal logic
-  if (req.url.length > 1) {
-    if (req.url.endsWith('/')) {
+  if (uri.length > 1) {
+    if (uri.endsWith('/')) {
       // Remove trailing slash
       uri = uri.slice(0, -1)
-    } else if (req.url.includes('/?')) {
+    } else if (uri.includes('/?')) {
       // Remove trailing slash including query
       uri = uri.replace('/?', '?')
     }
-  } else if (req.url !== '/') {
+  } else if (uri !== '/') {
     // On root, enforce trailing slash (some browsers do this, others don't)
     uri = '/'
   }
+
+  console.log('---> uri', uri)
+  console.log('---> req.url', req.url)
+  console.log('---> req.url !== uri', req.url !== uri)
+  console.log('---> req.protocol', req.protocol)
+  console.log('---> config.protocol', config.protocol)
+  console.log('---> req.protocol !== config.protocol', req.protocol !== config.protocol)
+  console.log('---> req.hostname', req.hostname)
+  console.log('---> config.host', config.host)
+  console.log('---> req.hostname !== config.host', req.hostname !== config.host)
+  console.log('---> createUrl(uri)', createUrl(uri))
 
   if (
     // Normalize uri
