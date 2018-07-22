@@ -4,6 +4,7 @@
     "client/index.js",
     "client/routes/**/*",
     "config/*",
+    "server.js",
     "index.js"
   ]
 }

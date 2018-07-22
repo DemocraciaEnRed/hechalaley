@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const hpp = require('hpp')
 const cookieParser = require('cookie-parser')
 const debug = require('debug')
 const packageJson = require('../package.json')
@@ -16,6 +17,7 @@ app.ready = () => checkNodeVersion().then(models.ready)
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(parseJsonQuery('sort', 'range', 'filter'))
+app.use(hpp())
 
 app.all('*', (req, res, next) => {
   log(`${req.method.toUpperCase()} ${req.app.mountpath}${req.url}`)

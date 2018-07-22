@@ -14,7 +14,7 @@ export default createMuiTheme({
     desktopSubheaderHeight: 48,
     desktopToolbarHeight: 56
   },
-  fontFamily: 'Avenir Next, Helvetica, Arial, sans-serif',
+  fontFamily: '"Avenir Next", Helvetica, Arial, sans-serif',
   borderRadius: 0,
   palette: {
     primary: {

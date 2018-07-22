@@ -20,6 +20,7 @@ services:
       - ./config:/usr/src/config
       - ./test:/usr/src/test
       - ./index.js:/usr/src/index.js
+      - ./server.js:/usr/src/server.js
       - ./package-lock.json:/usr/src/package-lock.json
       - ./package.json:/usr/src/package.json
       - /usr/src/node_modules

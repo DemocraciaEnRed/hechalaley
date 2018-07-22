@@ -45,7 +45,7 @@ const Layout = ({ className, children }) => (
         body {
           font-size: 16px;
           text-rendering: geometricPrecision;
-          font-family: Avenir Next, Helvetica, Arial, sans-serif;
+          font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
           background-color: #f6fafd;
         }
       `}
