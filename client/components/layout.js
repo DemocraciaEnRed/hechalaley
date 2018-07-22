@@ -15,7 +15,6 @@ const Layout = ({ className, children }) => (
       <link href='/static/fonts/index.css' rel='stylesheet' />
     </Head>
     <Title />
-    <Loader />
     <style jsx global>
       {`
         * {
@@ -51,6 +50,7 @@ const Layout = ({ className, children }) => (
       `}
     </style>
     {children}
+    <Loader />
   </div>
 )
 
