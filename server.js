@@ -2,6 +2,7 @@ const compression = require('compression')
 const express = require('express')
 const helmet = require('helmet')
 const config = require('dos-config')
+const createUrl = require('./api/create-url')
 
 const app = express()
 
@@ -33,6 +34,39 @@ app.use(helmet.contentSecurityPolicy({
 app.use(helmet.referrerPolicy({
   policy: 'same-origin'
 }))
+
+
+// Enforce configured domain
+app.use((req, res, next) => {
+  let uri = req.url
+
+  // Trailing slash removal logic
+  if (req.url.length > 1) {
+    if (req.url.endsWith('/')) {
+      // Remove trailing slash
+      uri = uri.slice(0, -1)
+    } else if (req.url.includes('/?')) {
+      // Remove trailing slash including query
+      uri = uri.replace('/?', '?')
+    }
+  } else if (req.url !== '/') {
+    // On root, enforce trailing slash (some browsers do this, others don't)
+    uri = '/'
+  }
+
+  if (
+    // Normalize uri
+    req.url !== uri
+    // Enforce SSL
+    || req.protocol !== config.protocol
+    // Enforce configured domain
+    || req.hostname !== config.host
+  ) {
+    return res.redirect(301, createUrl(uri))
+  }
+
+  next()
+})
 
 app.start = (port = 3000) => new Promise((resolve, reject) => {
   app.listen(port, (err) => {
