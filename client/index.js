@@ -5,7 +5,7 @@ const config = require('dos-config')
 const app = express()
 
 const client = next({
-  dev: true || config.nodeEnv === 'development',
+  dev: config.nodeEnv === 'development',
   dir: __dirname
 })
 
