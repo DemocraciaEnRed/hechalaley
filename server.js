@@ -8,6 +8,8 @@ const app = express()
 
 app.disable('x-powered-by')
 
+app.set('trust proxy', config.trustProxy)
+
 app.use(compression())
 
 app.use(helmet())
@@ -64,6 +66,7 @@ app.use((req, res, next) => {
   console.log('---> config.host', config.host)
   console.log('---> req.hostname !== config.host', req.hostname !== config.host)
   console.log('---> createUrl(uri)', createUrl(uri))
+  console.log('---> req.headers', req.headers)
 
   if (
     // Normalize uri
