@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import test from 'ava'
 import { diffs } from '../../../api/text'
 

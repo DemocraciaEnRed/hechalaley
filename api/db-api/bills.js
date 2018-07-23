@@ -9,15 +9,13 @@ populate.stages = {
   options: { sort: { stageDate: -1 } }
 }
 
-exports.list = function list (query = {}) {
-  return Bill
-    .find(query)
-    .where({ trashed: false })
-    .populate(populate.stages)
-    .exec()
-}
+exports.list = (query = {}) => Bill
+  .find(query)
+  .where({ trashed: false })
+  .populate(populate.stages)
+  .exec()
 
-exports.findById = function findById (id, options) {
+exports.findById = (id, options) => {
   const opts = options || { where: {}, populate: {} }
   const query = Bill.findById(id)
 
@@ -30,19 +28,15 @@ exports.findById = function findById (id, options) {
     .exec()
 }
 
-exports.create = function create (attrs) {
-  return Bill.create(attrs)
+exports.create = (attrs) => Bill.create(attrs)
+
+exports.update = async (id, attrs = {}) => {
+  const doc = await exports.findById(id)
+  doc.set(attrs)
+  return doc.save()
 }
 
-exports.update = function update (id, attrs) {
-  return exports.findById(id)
-    .then((doc) => {
-      doc.set(attrs)
-      return doc.save()
-    })
-    .catch((err) => { throw err })
-}
-
-exports.trash = function trash (id) {
-  return exports.findById(id).then((doc) => doc.trash()).catch((err) => { throw err })
+exports.trash = async (id) => {
+  const doc = await exports.findById(id)
+  return doc.trash()
 }

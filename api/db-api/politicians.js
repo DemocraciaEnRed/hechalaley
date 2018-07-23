@@ -1,21 +1,17 @@
 const { Politician } = require('../models')
 
-exports.list = function list () {
-  return Politician
-    .find()
-    .limit(1000)
-    .sort('name')
-    .exec()
-}
+exports.list = () => Politician
+  .find()
+  .limit(1000)
+  .sort('name')
+  .exec()
 
-exports.findByIds = function findByIds (ids) {
-  return Politician
-    .find({ _id: { $in: ids } })
-    .limit(1000)
-    .exec()
-}
+exports.findByIds = (ids) => Politician
+  .find({ _id: { $in: ids } })
+  .limit(1000)
+  .exec()
 
-exports.findById = function findById (id, options) {
+exports.findById = (id, options) => {
   const opts = options || { where: {}, populate: {} }
   const query = Politician.findById(id)
 
@@ -25,15 +21,10 @@ exports.findById = function findById (id, options) {
   return query.exec()
 }
 
-exports.create = function create (attrs) {
-  return Politician.create(attrs)
-}
+exports.create = (attrs) => Politician.create(attrs)
 
-exports.update = function update (id, attrs) {
-  return Politician.findById(id).exec()
-    .then((doc) => {
-      doc.set(attrs)
-      return doc.save()
-    })
-    .catch((err) => { throw err })
+exports.update = async (id, attrs = {}) => {
+  const doc = await exports.findById(id)
+  doc.set(attrs)
+  return doc.save()
 }

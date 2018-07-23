@@ -1,0 +1,12 @@
+{
+  "extends": ["mural/node"],
+
+  "env": {
+    "node": true
+  },
+
+  "rules": {
+    "import/no-unresolved": [2, { "ignore": ["ava"] }],
+    "node/no-unsupported-features": 0,
+  }
+}

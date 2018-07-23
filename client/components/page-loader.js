@@ -1,6 +1,5 @@
 import NProgress from 'nprogress'
 import Router from 'next/router'
-import Head from 'next/head'
 
 NProgress.configure({ showSpinner: false })
 

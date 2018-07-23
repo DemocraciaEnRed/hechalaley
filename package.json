@@ -10,7 +10,7 @@
     "url": "https://github.com/DemocraciaEnRed/hechalaley"
   },
   "scripts": {
-    "test": "ava",
+    "test": "npx ava",
     "dev": "DEBUG='hechalaley*' nodemon",
     "start": "node .",
     "build": "next build client",

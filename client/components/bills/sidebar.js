@@ -83,6 +83,8 @@ const StageLink = ({ stage, onStageSelect, comparing, selected }) => {
 
   return (
     <div
+      role='button'
+      tabIndex='0'
       onClick={handleClick}
       className={classNames('link', { selected, comparing })}
     >
@@ -124,6 +126,8 @@ const StagesCompareLink = ({ stages, selected, onStageSelect }) => {
 
   return (
     <div
+      role='button'
+      tabIndex='0'
       onClick={handleClick}
       className={classNames('link', { selected })}
     >

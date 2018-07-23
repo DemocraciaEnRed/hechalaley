@@ -1,15 +1,13 @@
 const text = require('../text')
 const { Stage } = require('../models')
 
-exports.list = function list (query = {}) {
-  return Stage
-    .find(query)
-    .where({ trashed: false })
-    .sort('-stageDate')
-    .exec()
-}
+exports.list = (query = {}) => Stage
+  .find(query)
+  .where({ trashed: false })
+  .sort('-stageDate')
+  .exec()
 
-exports.findById = function findById (id, opts = { where: {}, populate: {} }) {
+exports.findById = (id, opts = { where: {}, populate: {} }) => {
   const query = Stage.findById(id)
 
   if (opts.populate.authors) query.populate('authors')
@@ -18,50 +16,44 @@ exports.findById = function findById (id, opts = { where: {}, populate: {} }) {
   return query.where({ trashed: false }).exec()
 }
 
-exports.create = function create (attrs = {}) {
-  return Stage.create(attrs)
+exports.create = (attrs = {}) => Stage.create(attrs)
+
+exports.update = async (id, attrs = {}) => {
+  const doc = await exports.findById(id)
+  doc.set(attrs)
+  return doc.save()
 }
 
-exports.update = function update (id, attrs = {}) {
-  return exports.findById(id).then((doc) => {
-    doc.set(attrs)
-    return doc.save()
-  }).catch((err) => { throw err })
+exports.trash = async (id) => {
+  const doc = await exports.findById(id)
+  return doc.trash()
 }
 
-exports.trash = function trash (id) {
-  return exports.findById(id).then((doc) => doc.trash()).catch((err) => { throw err })
-}
+exports.getTextHtml = (id, query = {}) => Stage
+  .findOne({ _id: id })
+  .where(query)
+  .where({ trashed: false })
+  .select('text')
+  .exec()
+  .then(({ text } = {}) => {
+    if (!text) throw new Error('Stage not found')
+    return text
+  })
+  .then(text.markdownToHtml)
 
-exports.getTextHtml = function getTextHtml (id, query = {}) {
-  return Stage
-    .findOne({ _id: id })
-    .where(query)
-    .where({ trashed: false })
-    .select('text')
-    .exec()
-    .then(({ text } = {}) => {
-      if (!text) throw new Error('Stage not found')
-      return text
-    })
-    .then(text.markdownToHtml)
-}
+const getById = (docs, id) => docs.find((doc) => doc._id.toString() === id)
 
-const findById = (docs, id) => docs.find((doc) => doc._id.toString() === id)
+exports.getDiffHtml = (fromStage, toStage, query = {}) => Stage
+  .find(query)
+  .where({ trashed: false })
+  .where({ _id: { $in: [fromStage, toStage] } })
+  .select('text')
+  .exec()
+  .then((stages) => {
+    if (stages.length !== 2) throw new Error('Stages not found')
 
-exports.getDiffHtml = function getDiffHtml (fromStage, toStage, query = {}) {
-  return Stage
-    .find(query)
-    .where({ trashed: false })
-    .where({ _id: { $in: [fromStage, toStage] } })
-    .select('text')
-    .exec()
-    .then((stages) => {
-      if (stages.length !== 2) throw new Error('Stages not found')
+    const from = getById(stages, fromStage)
+    const to = getById(stages, toStage)
 
-      const from = findById(stages, fromStage)
-      const to = findById(stages, toStage)
-
-      return text.diffsInHtml(to.text, from.text)
-    })
-}
+    return text.diffsInHtml(to.text, from.text)
+  })
