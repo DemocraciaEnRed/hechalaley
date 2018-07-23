@@ -24,7 +24,7 @@ app.use(helmet.contentSecurityPolicy({
     scriptSrc: ["'self'", "'unsafe-inline'"],
     styleSrc: ["'self'", "'unsafe-inline'"],
     connectSrc: ["'self'"],
-    imgSrc: ["'self'"],
+    imgSrc: ["'self' data:"],
     fontSrc: ["'self'"],
     upgradeInsecureRequests: config.protocol === 'https'
   },
