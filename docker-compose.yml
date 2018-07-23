@@ -8,7 +8,7 @@ services:
       context: .
     environment:
       - NODE_ENV=development
-      - MONGODB_URI=mongodb://mongo/hechalaley
+      - MONGODB_URI=mongodb://mongo:27017/hechalaley
       - NOTIFME_CATCHER_OPTIONS=smtp://notifier:1025?ignoreTLS=true
     command: ["npm", "run", "dev"]
     ports:
@@ -36,7 +36,7 @@ services:
       - 1080:1080
 
   mongo:
-    image: mongo:3.6
+    image: mongo:3.6.6
     command: mongod --quiet --logpath=/tmp/mongodb.log
     ports:
       - 27017:27017

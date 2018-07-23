@@ -11,6 +11,7 @@ module.exports = {
   ready: () => mongoose.connect(config.mongodbUri, {
     keepAlive: 1,
     connectTimeoutMS: 30000,
+    useNewUrlParser: true,
     config: { autoIndex: false }
   })
 }

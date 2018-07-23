@@ -1,6 +1,6 @@
 {
   "nodeEnv": "development",
-  "mongodbUri": "mongodb://localhost/hechalaley",
+  "mongodbUri": "mongodb://localhost:27017/hechalaley",
   "protocol": "http",
   "host": "localhost",
   "port": 3000,
