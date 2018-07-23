@@ -5,7 +5,10 @@ const getFromHeader = (req) => {
 
   const { authorization } = req.headers
 
-  if (typeof authorization !== 'string' || !authorization.startsWith('Bearer ')) {
+  if (
+    typeof authorization !== 'string'
+    || !authorization.startsWith('Bearer ')
+  ) {
     return false
   }
 
@@ -14,15 +17,17 @@ const getFromHeader = (req) => {
 
 const getFromCookie = (req) => !!req.cookies && req.cookies.sessionToken
 
-const requireAuth = (req, res, next) => {
+const requireAuth = async (req, res, next) => {
   const token = getFromHeader(req) || getFromCookie(req)
 
   if (!token) return res.sendStatus(401)
 
-  jwt.verify(token).then((user) => {
-    req.user = user
+  try {
+    req.user = await jwt.verify(token)
     next()
-  }).catch(() => res.sendStatus(403))
+  } catch (err) {
+    res.sendStatus(403)
+  }
 }
 
 requireAuth.if = (condition) => (req, res, next) => {

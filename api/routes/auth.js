@@ -12,7 +12,7 @@ module.exports = app
 const SESSION_DURATION = ms('20d')
 const LOGIN_TIMEOUT = ms('12hrs')
 
-function sendTokenEmail (email, token) {
+const sendTokenEmail = (email, token) => {
   const uri = createUrl(`/api/auth/${token}`)
 
   return sendEmail({
@@ -26,26 +26,23 @@ function sendTokenEmail (email, token) {
   })
 }
 
-function sendToken (email) {
+const sendToken = async (email) => {
   const payload = { email }
-  return jwt.create(payload, LOGIN_TIMEOUT).then((token) => (
-    sendTokenEmail(email, token)
-  ))
+  const token = await jwt.create(payload, LOGIN_TIMEOUT)
+  return sendTokenEmail(email, token)
 }
 
-function setCookie (res, name, payload, duration = 0) {
-  return res.cookie(name, payload, {
+const setCookie = (res, name, payload, duration = 0) =>
+  res.cookie(name, payload, {
     maxAge: duration,
     sameSite: true,
     httpOnly: true
   })
-}
 
-function setToken (res, email) {
-  return jwt.create({ email }, SESSION_DURATION).then((token) => {
-    setCookie(res, 'sessionToken', token, SESSION_DURATION)
-    res.cookie('sessionTokenExists', true, { sameSite: true })
-  })
+const setToken = async (res, email) => {
+  const token = await jwt.create({ email }, SESSION_DURATION)
+  setCookie(res, 'sessionToken', token, SESSION_DURATION)
+  res.cookie('sessionTokenExists', true, { sameSite: true })
 }
 
 app.post('/auth/login', async (req, res) => {
@@ -80,11 +77,14 @@ app.get('/auth/logout', (req, res) => {
   res.redirect('/admin')
 })
 
-app.get('/auth/:token', (req, res) => {
+app.get('/auth/:token', async (req, res) => {
   const { token } = req.params
 
-  jwt.verify(token)
-    .then(({ email }) => setToken(res, email))
-    .then(() => res.redirect('/admin'))
-    .catch(() => res.sendStatus(403))
+  try {
+    const { email } = await jwt.verify(token)
+    await setToken(res, email)
+    res.redirect('/admin')
+  } catch (err) {
+    res.sendStatus(403)
+  }
 })
