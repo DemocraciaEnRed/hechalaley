@@ -8,6 +8,7 @@ const app = express()
 
 app.disable('x-powered-by')
 
+// Set trustProxy to true if your app is running behind a Proxy
 app.set('trust proxy', config.trustProxy)
 
 app.use(compression())
@@ -55,18 +56,6 @@ app.use((req, res, next) => {
     // On root, enforce trailing slash (some browsers do this, others don't)
     uri = '/'
   }
-
-  console.log('---> uri', uri)
-  console.log('---> req.url', req.url)
-  console.log('---> req.url !== uri', req.url !== uri)
-  console.log('---> req.protocol', req.protocol)
-  console.log('---> config.protocol', config.protocol)
-  console.log('---> req.protocol !== config.protocol', req.protocol !== config.protocol)
-  console.log('---> req.hostname', req.hostname)
-  console.log('---> config.host', config.host)
-  console.log('---> req.hostname !== config.host', req.hostname !== config.host)
-  console.log('---> createUrl(uri)', createUrl(uri))
-  console.log('---> req.headers', req.headers)
 
   if (
     // Normalize uri
