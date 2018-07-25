@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const dbApi = require('../../api/db-api')
-const validate = require('../../api/middlewares/validate')
+const validate = require('../../api/helpers/validate')
 
 const app = new Router()
 

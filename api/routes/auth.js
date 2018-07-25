@@ -1,9 +1,9 @@
 const { Router } = require('express')
 const ms = require('ms')
 const dbApi = require('../db-api')
-const jwt = require('../jwt')
+const jwt = require('../helpers/jwt')
 const { sendEmail } = require('../notifier')
-const createUrl = require('../create-url')
+const createUrl = require('../helpers/create-url')
 
 const app = Router()
 

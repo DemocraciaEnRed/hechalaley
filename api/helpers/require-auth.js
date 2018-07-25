@@ -1,4 +1,4 @@
-const jwt = require('../jwt')
+const jwt = require('./jwt')
 
 const getFromHeader = (req) => {
   if (!req.headers || !req.headers.authorization) return false

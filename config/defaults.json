@@ -1,4 +1,5 @@
 {
+  "logLevel": "log",
   "nodeEnv": "development",
   "mongodbUri": "mongodb://localhost:27017/hechalaley",
   "protocol": "http",

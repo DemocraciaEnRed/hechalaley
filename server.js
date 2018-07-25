@@ -2,7 +2,7 @@ const compression = require('compression')
 const express = require('express')
 const helmet = require('helmet')
 const config = require('dos-config')
-const createUrl = require('./api/create-url')
+const createUrl = require('./api/helpers/create-url')
 
 const app = express()
 

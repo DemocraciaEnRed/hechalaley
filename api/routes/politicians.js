@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const { pick } = require('lodash/fp')
-const validate = require('../middlewares/validate')
-const parseRouteIds = require('../middlewares/parse-route-ids')
-const requireAuth = require('../middlewares/require-auth')
+const validate = require('../helpers/validate')
+const parseRouteIds = require('../helpers/parse-route-ids')
+const requireAuth = require('../helpers/require-auth')
 const dbApi = require('../db-api')
 
 const app = Router()

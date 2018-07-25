@@ -1,6 +1,7 @@
 const next = require('next')
 const express = require('express')
 const config = require('dos-config')
+const requestLogger = require('../api/helpers/request-logger')
 
 const app = express()
 
@@ -15,6 +16,8 @@ const client = next({
 })
 
 app.ready = () => client.prepare()
+
+app.use(requestLogger({ without: '/_next/' }))
 
 app.get('*', (req, res, next) => {
   req.locals = {}
