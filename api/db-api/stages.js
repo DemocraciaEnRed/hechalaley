@@ -35,9 +35,9 @@ exports.getTextHtml = (id, query = {}) => Stage
   .where({ trashed: false })
   .select('text')
   .exec()
-  .then(({ text } = {}) => {
-    if (!text) throw new Error('Stage not found')
-    return text
+  .then((stage) => {
+    if (!stage) throw new Error('Stage not found')
+    return stage.text
   })
   .then(text.markdownToHtml)
 

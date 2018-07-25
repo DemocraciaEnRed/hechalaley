@@ -12,7 +12,7 @@ const schema = new Schema({
   identification: { type: String, trim: true, maxlength: 63 },
   authors: [{ type: ObjectId, ref: 'Politician' }],
   stageDate: Date,
-  text: String
+  text: { type: String, default: '' }
 }, {
   timestamps: true
 })
@@ -27,8 +27,9 @@ schema.plugin(base)
 schema.plugin(trashable)
 
 schema.pre('save', function preSave (next) {
+  // Normalize whitespace
   if (this.text) {
-    this.text = this.text.replace(/\n+/g, '\n\n')
+    this.text = this.text.replace(/\n{2,}/g, '\n\n')
   }
 
   next()

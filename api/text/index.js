@@ -17,9 +17,9 @@ const wrapDelTag = wrapTag.bind(null, 'del')
 
 const areSimilar = (a, b) => stringSimilarity.compareTwoStrings(a, b) >= 0.5
 
-text.markdownToHtml = async (str) => marked(str)
+text.markdownToHtml = async (str = '') => marked(str)
 
-text.diffs = function diffs (from, to) {
+text.diffs = function diffs (from = '', to = '') {
   const diffs = myers.diff(from, to)
   const lines = to.split('\n')
 
