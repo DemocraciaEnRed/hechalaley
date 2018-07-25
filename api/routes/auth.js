@@ -1,16 +1,16 @@
 const { Router } = require('express')
 const ms = require('ms')
 const dbApi = require('../db-api')
-const jwt = require('../helpers/jwt')
 const { sendEmail } = require('../notifier')
+const jwt = require('../helpers/jwt')
 const createUrl = require('../helpers/create-url')
 
 const app = Router()
 
 module.exports = app
 
-const SESSION_DURATION = ms('20d')
-const LOGIN_TIMEOUT = ms('12hrs')
+const SESSION_DURATION = ms('15d')
+const LOGIN_TIMEOUT = ms('3hrs')
 
 const sendTokenEmail = (email, token) => {
   const uri = createUrl(`/api/auth/${token}`)
