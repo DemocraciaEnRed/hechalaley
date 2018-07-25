@@ -42,7 +42,7 @@ const setCookie = (res, name, payload, duration = 0) =>
 const setToken = async (res, email) => {
   const token = await jwt.create({ email }, SESSION_DURATION)
   setCookie(res, 'sessionToken', token, SESSION_DURATION)
-  res.cookie('sessionTokenExists', true, { sameSite: true })
+  setCookie(res, 'sessionTokenExists', true, SESSION_DURATION)
 }
 
 app.post('/auth/login', async (req, res) => {
