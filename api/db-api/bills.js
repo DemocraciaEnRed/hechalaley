@@ -1,4 +1,5 @@
 const { Bill } = require('../models')
+const dbApiStages = require('./stages')
 
 const populate = {}
 
@@ -38,5 +39,12 @@ exports.update = async (id, attrs = {}) => {
 
 exports.trash = async (id) => {
   const doc = await exports.findById(id)
+
+  if (!doc) throw new Error('Bill not found')
+
+  const stages = await dbApiStages.findByBill(doc._id)
+
+  await Promise.all(stages.map((stage) => stage.trash()))
+
   return doc.trash()
 }

@@ -34,7 +34,7 @@ app.get(
 
         return dbApi.stages.getTextHtml(stageId).then((text) => {
           req.locals.text = text
-        })
+        }).catch(next)
       }
     }).then(() => {
       req.client.render(req, res, '/bills', { id })

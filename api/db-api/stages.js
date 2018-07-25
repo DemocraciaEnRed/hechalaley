@@ -16,6 +16,9 @@ exports.findById = (id, opts = { where: {}, populate: {} }) => {
   return query.where({ trashed: false }).exec()
 }
 
+exports.findByBill = (billId) =>
+  Stage.where({ bill: billId, trashed: false }).exec()
+
 exports.create = (attrs = {}) => Stage.create(attrs)
 
 exports.update = async (id, attrs = {}) => {
