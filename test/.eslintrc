@@ -6,7 +6,6 @@
   },
 
   "rules": {
-    "import/no-unresolved": [2, { "ignore": ["ava"] }],
-    "node/no-unsupported-features": 0,
+    "node/no-unpublished-require": 0,
   }
 }

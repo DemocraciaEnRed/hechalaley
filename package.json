@@ -10,7 +10,7 @@
     "url": "https://github.com/DemocraciaEnRed/hechalaley"
   },
   "scripts": {
-    "test": "npx ava",
+    "test": "tape test/**/*.js",
     "dev": "DEBUG='hechalaley*' nodemon",
     "start": "node .",
     "build": "next build client",
@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "babel-eslint": "8.2.6",
+    "blue-tape": "1.0.0",
     "eslint": "5.2.0",
     "eslint-config-mural": "1.1.0",
     "eslint-plugin-babel": "5.1.0",
