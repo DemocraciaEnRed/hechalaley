@@ -11,6 +11,7 @@
   },
   "scripts": {
     "test": "tape test/**/*.js",
+    "test:watch": "nodemon --watch . --exec 'npm run test'",
     "dev": "DEBUG='hechalaley*' nodemon",
     "start": "node .",
     "build": "next build client",

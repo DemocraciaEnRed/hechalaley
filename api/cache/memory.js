@@ -1,7 +1,16 @@
 module.exports = class MemoryCache {
-  constructor () {
+  constructor (options = {}) {
+    const {
+      delimiter = ':'
+    } = options
+
+    this.delimiter = delimiter
+
+    this.clear()
+  }
+
+  async clear () {
     this.values = new Map()
-    this.keyTags = new Map()
     this.tagKeys = new Map()
   }
 
@@ -13,15 +22,12 @@ module.exports = class MemoryCache {
     return this.values.has(key)
   }
 
-  async set (key, value, tags = []) {
-    if (!Array.isArray(tags)) {
-      throw new Error('Tags param should be an array')
-    }
+  async set (key, value) {
+    if (await this.has(key)) await this.del(key)
 
-    if (this.values.has(key)) await this.del(key)
+    const tags = key.split(this.delimiter)
 
     this.values.set(key, value)
-    this.keyTags.set(key, tags)
 
     tags.forEach((tag) => {
       const keys = this.tagKeys.get(tag)
@@ -31,12 +37,11 @@ module.exports = class MemoryCache {
   }
 
   async del (key) {
-    if (!this.values.has(key)) return
+    if (!(await this.has(key))) return
 
-    const tags = this.keyTags.get(key)
+    const tags = key.split(this.delimiter)
 
     this.values.delete(key)
-    this.keyTags.delete(key)
 
     tags.forEach((tag) => {
       const tagKeys = this.tagKeys.get(tag)
@@ -56,5 +61,19 @@ module.exports = class MemoryCache {
     const keys = this.tagKeys.get(tag)
 
     return Promise.all(keys.map((key) => this.del(key)))
+  }
+
+  wrap (getCacheKey, fn) {
+    return async (...args) => {
+      const key = getCacheKey(...args)
+
+      if (await this.has(key)) return this.get(key)
+
+      const value = await fn(...args)
+
+      await this.set(key, value)
+
+      return value
+    }
   }
 }
