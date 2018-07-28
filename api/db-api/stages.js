@@ -22,30 +22,27 @@ exports.findById = (id, opts = { where: {}, populate: {} }) => {
 exports.findByBill = (billId) =>
   Stage.where({ bill: billId, trashed: false }).exec()
 
-exports.create = (attrs = {}) => Stage.create(attrs)
+exports.create = (attrs = {}) =>
+  Stage.create(attrs)
 
 exports.update = async (id, attrs = {}) => {
   const doc = await exports.findById(id)
 
   doc.set(attrs)
 
-  const clearCache = attrs.hasOwnProperty('text')
-    ? cache.delByTag(id)
-    : true
+  if (attrs.hasOwnProperty('text')) {
+    await cache.delByTag(id)
+  }
 
-  return Promise.all([
-    clearCache,
-    doc.save()
-  ])
+  return doc.save()
 }
 
 exports.trash = async (id) => {
   const doc = await exports.findById(id)
 
-  return Promise.all([
-    cache.delByTag(id),
-    doc.trash()
-  ])
+  await cache.delByTag(id)
+
+  return doc.trash()
 }
 
 exports.getTextHtml = cache.wrap(
