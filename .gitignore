@@ -2,6 +2,7 @@
 *.pad.*
 .DS_Store
 .next
+.vscode
 /build
 /node_modules
 /tmp
