@@ -1,4 +1,5 @@
 const { Router } = require('express')
+const config = require('dos-config')
 const ms = require('ms')
 const dbApi = require('../db-api')
 const { sendEmail } = require('../notifier')
@@ -65,7 +66,19 @@ app.post('/auth/login', async (req, res) => {
 
     await sendToken(email)
 
-    res.status(200).json({ code: 'TOKEN_SENDED' })
+    const data = { code: 'TOKEN_SENDED' }
+
+    // Send `notificationCatcherUrl` on development so the client
+    // can automatically open a new window with the validation email.
+    if (
+      config.nodeEnv === 'development'
+      && config.notifier.useNotificationCatcher
+      && config.notificationCatcherUrl
+    ) {
+      data.notificationCatcherUrl = config.notificationCatcherUrl
+    }
+
+    res.status(200).json(data)
   } catch (err) {
     res.sendStatus(403)
   }

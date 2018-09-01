@@ -22,6 +22,14 @@ export const doLogin = async ({ email }) => {
     throw err
   }
 
+  const data = await res.json()
+
+  if (data.code === 'TOKEN_SENDED' && data.notificationCatcherUrl) {
+    const link = document.createElement('a')
+    link.href = data.notificationCatcherUrl
+    link.click()
+  }
+
   return res.json()
 }
 

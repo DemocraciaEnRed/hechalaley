@@ -8,6 +8,7 @@
   "publicPort": 3000,
   "trustProxy": false,
   "jwtToken": "",
+  "notificationCatcherUrl": "http://localhost:1080",
   "notifier": {
     "useNotificationCatcher": true,
     "channels": {
