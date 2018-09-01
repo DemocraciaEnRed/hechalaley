@@ -38,7 +38,6 @@ app.use(helmet.referrerPolicy({
   policy: 'same-origin'
 }))
 
-
 // Enforce configured domain
 app.use((req, res, next) => {
   let uri = req.url
