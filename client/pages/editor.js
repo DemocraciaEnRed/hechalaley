@@ -19,7 +19,7 @@ Some text describing the bill. Some text describing the bill. Some text describi
 
 ### Article 2
 
-Some text describing the bill. Some text describing the bill. Some text describing the bill. Some text describing the bill. Some text describing the bill. Some text describing the bill.
+Some text describing the **bill**. Some text describing the bill. Some text describing the bill. Some text describing the bill. Some text describing the bill. Some text describing the bill.
 
 ## Ordered Lists
 

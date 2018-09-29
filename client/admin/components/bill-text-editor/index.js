@@ -3,8 +3,11 @@ import { Editor } from 'slate-react'
 import { Toolbar, Button } from './components'
 import { deserialize } from './serializer'
 import { renderNode, renderMark } from './renders'
+import Schema from './schema'
 
 const DEFAULT_NODE = 'paragraph'
+
+const plugins = [Schema()]
 
 /* Markdown Editor
 
@@ -64,6 +67,7 @@ export default class BillTextEditor extends Component {
           onChange={this.handleChange}
           renderNode={renderNode}
           renderMark={renderMark}
+          plugins={plugins}
         />
       </div>
     )
