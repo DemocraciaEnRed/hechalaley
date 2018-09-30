@@ -20,6 +20,7 @@
   "dependencies": {
     "@material-ui/core": "3.0.1",
     "@material-ui/icons": "3.0.1",
+    "@sindresorhus/class-names": "0.1.0",
     "body-parser": "1.18.3",
     "check-node-version": "3.2.0",
     "classnames": "2.2.6",
@@ -55,6 +56,7 @@
     "rich-text-diff": "0.2.3",
     "scroll-to-element": "2.0.2",
     "slate": "0.36.0",
+    "slate-edit-table": "0.18.0",
     "slate-md-serializer": "4.1.0",
     "slate-react": "0.14.1",
     "string-similarity": "1.2.1"

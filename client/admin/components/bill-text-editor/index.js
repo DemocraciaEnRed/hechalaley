@@ -1,13 +1,13 @@
 import { Component } from 'react'
 import { Editor } from 'slate-react'
-import { Toolbar, Button } from './components'
+import EditTable from 'slate-edit-table'
+import { Toolbar } from './components/toolbar'
+import { Button } from './components/button'
 import { deserialize } from './serializer'
 import { renderNode, renderMark } from './renders'
 import Schema from './schema'
 
 const DEFAULT_NODE = 'paragraph'
-
-const plugins = [Schema()]
 
 /* Markdown Editor
 
@@ -28,6 +28,13 @@ Block Styles:
 */
 
 export default class BillTextEditor extends Component {
+  table = EditTable()
+
+  plugins = [
+    Schema(),
+    this.table
+  ]
+
   state = {
     value: deserialize(this.props.defaultValue)
   }
@@ -62,12 +69,12 @@ export default class BillTextEditor extends Component {
         <Editor
           spellCheck
           autoFocus
-          placeholder='Enter some text...'
+          placeholder='Ingrese el texto aquí...'
           value={value}
           onChange={this.handleChange}
           renderNode={renderNode}
           renderMark={renderMark}
-          plugins={plugins}
+          plugins={this.plugins}
         />
       </div>
     )
