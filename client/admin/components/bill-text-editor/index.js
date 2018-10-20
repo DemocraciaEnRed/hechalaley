@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { Editor } from 'slate-react'
-import EditTable from 'slate-edit-table'
+// import EditTable from 'slate-edit-table'
 import { Toolbar } from './components/toolbar'
 import { Button } from './components/button'
 import { deserialize } from './serializer'
@@ -28,11 +28,11 @@ Block Styles:
 */
 
 export default class BillTextEditor extends Component {
-  table = EditTable()
+  // table = EditTable()
 
   plugins = [
-    Schema(),
-    this.table
+    Schema()
+    // this.table
   ]
 
   state = {
