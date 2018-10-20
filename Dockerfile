@@ -1,7 +1,5 @@
 FROM node:8.11.3-alpine
 
-MAINTAINER Matías Lescano <matias@democraciaenred.org>
-
 WORKDIR /usr/src
 
 COPY ["package.json", "package-lock.json", "/usr/src/"]
