@@ -1,66 +1,48 @@
+import Button from './button'
+
 export default () => (
   <div className='cover'>
     <style jsx>
       {`
         .cover {
           position: relative;
-          padding: 25vh 15px 5em;
-          min-height: 50vh;
-          text-align: center;
+          padding: 200px 0;
         }
-
         .logo {
-          margin: 0 auto 1.2em;
-          max-width: 460px;
-          width: 100%;
-          opacity: .9;
+          max-width: 380px;
+          margin-bottom: 20px;
         }
-
         p {
-          margin: 0 auto 20px;
-          max-width: 530px;
+          max-width: 580px;
           width: 100%;
-          line-height: 23px;
-          font-size: 1.05em;
-          letter-spacing: 1px;
+          line-height: 28px;
+          font-size: 21px;
           color: rgba(43, 50, 69, 0.87);
+          padding: 30px 0 30px;
         }
-
-        .arrow {
+        p:first-of-type {
+          padding-bottom: 0;
+        }
+        .line {
+          position: absolute;
+          left: -25px;
+          top: 310px;
           display: block;
-          margin: 20vh auto 0;
-          width: 40px;
-          height: 30px;
-          font-family: 'Georgia', 'Apple Symbols';
-          animation: bounce 2s infinite;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-image: url('/static/icons/down-arrow.svg');
-        }
-
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-
-          40% {
-            -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
-          }
-
-          60% {
-            -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
-          }
+          height: 150px;
+          width: 2px;
+          background-color: rgba(43, 50, 69, 0.87);
         }
       `}
     </style>
     <img src='/static/logo.png' alt='Hecha la Ley' className='logo' />
+    <span className='line' />
     <p>
-      Una aplicación para realizar seguimiento a los<br />
-      proyectos de ley que se debaten en el Congreso.
+      Hecha la ley es un sitio que sigue los proyectos de ley dentro del congreso.
+    </p>
+    <p>
       Examiná el trabajo legislativo de una manera clara y sencilla.
     </p>
-    <span className='arrow' />
+    <img src='/static/logo.png' alt='Hecha la Ley description' className='logo' />
+    <Button title='Ver proyectos de ley' />
   </div>
 )

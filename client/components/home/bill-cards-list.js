@@ -5,11 +5,11 @@ const BillCardsList = ({ className, children }) => (
     <style jsx>
       {`
         .cards-list {
-          position: relative
-          display: flex
-          flex-wrap: wrap
-          justify-content: center
-          margin-bottom: 4em
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin-bottom: 4em;
         }
       `}
     </style>

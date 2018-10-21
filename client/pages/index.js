@@ -1,11 +1,13 @@
 import fetch from 'isomorphic-fetch'
 import Layout from '../components/layout'
 import Cover from '../components/home/cover'
+import Menu from '../components/home/menu'
 import BillCard from '../components/home/bill-card'
 import BillCardsList from '../components/home/bill-cards-list'
 
 const Page = ({ bills }) => (
   <Layout>
+    <Menu />
     <Cover />
     <BillCardsList>
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}

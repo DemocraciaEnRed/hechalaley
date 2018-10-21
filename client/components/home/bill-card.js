@@ -38,22 +38,19 @@ const BillCard = ({
               0 6px 6px rgba(0, 0, 0, .23);
           }
 
+          .bill_header {
+            padding: 20px 20px;
+          }
+
           .title {
-            flex-grow: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 35px;
+            max-height: 100px;
           }
 
           .title h1 {
             color: #2b3245;
             display: block;
-            font-size: 27px;
-            font-weight: 700;
-            line-height: 1;
-            text-transform: uppercase;
-            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
           }
 
           .title span {
@@ -62,32 +59,55 @@ const BillCard = ({
             font-size: 13px;
             font-weight: 400;
             line-height: .5;
-            text-align: center;
             margin-bottom: 13px;
           }
 
           .summary {
-            padding: 35px;
-            border-top: 1px solid #e0e0e0;
-            background-color: #eef1f6;
+            font-size: 16px;
+            margin-top: 20px;
+            color: rgba(43,50,69,.87);
+          }
+          
+          .date {
+            font-size: 12px;
           }
 
-          .summary p {
-            font-size: .9em;
-            color: rgba(43,50,69,.87);
+          .stage_summary {
+            color: #A4A9B4;
+            font-size: 12px;
           }
         `}
       </style>
-      <div className='title'>
-        <h1>
-          {withNewestStage(stages, (stage) => (
-            <span>{stage.identification}</span>
-          ))}
-          {title}
-        </h1>
-      </div>
-      <div className='summary'>
-        <p>{summary}</p>
+      <div className='bill_header'>
+        <div className='date'>
+          <span>11/11/11</span>
+          {/*
+          COMMENT FUTURE LOGIC FOR RENDER DATE
+          <h3>
+            {withNewestStage(stages, (stage) => (
+              <span>{stage.date}</span>
+            ))}
+          </h3>
+          */}
+        </div>
+        <div className='title'>
+          <h1>
+            {withNewestStage(stages, (stage) => (
+              <span>{stage.identification}</span>
+            ))}
+            {title}
+          </h1>
+        </div>
+        <p className='summary'>{summary}</p>
+        {/*
+          COMMENT FUTURE LOGIC FOR RENDER STAGE
+          <h3>
+            {withNewestStage(stages, (stage) => (
+              <span>{stage.date}</span>
+            ))}
+          </h3>
+          */}
+        <p className='stage_summary'>Cámara de Diputados</p>
       </div>
     </a>
   </BillLink>
