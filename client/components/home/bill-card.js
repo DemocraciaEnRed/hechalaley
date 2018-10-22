@@ -1,4 +1,5 @@
 import BillLink from '../bill-link'
+const moment = require('moment')
 
 const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))
 
@@ -62,14 +63,19 @@ const BillCard = ({
             margin-bottom: 13px;
           }
 
+          .stage_identification {
+            display: none;
+          }
+
           .summary {
             font-size: 16px;
             margin-top: 20px;
             color: rgba(43,50,69,.87);
           }
           
-          .date {
+          .stage_date {
             font-size: 12px;
+            padding-bottom: 10px;
           }
 
           .stage_summary {
@@ -80,21 +86,17 @@ const BillCard = ({
       </style>
       <div className='bill_header'>
         <div className='date'>
-          <span>11/11/11</span>
-          {/*
-          COMMENT FUTURE LOGIC FOR RENDER DATE
-          <h3>
-            {withNewestStage(stages, (stage) => (
-              <span>{stage.date}</span>
-            ))}
-          </h3>
-          */}
+          {withNewestStage(stages, (stage) => (
+            <p className='stage_date' >{moment(stage[0].stageDate).format('DD/MM/YYYY')}</p>
+          ))}
         </div>
         <div className='title'>
           <h1>
-            {withNewestStage(stages, (stage) => (
-              <span>{stage.identification}</span>
-            ))}
+            {/* This function doesn't render anything,
+                check if is the spected behavior */}
+            {/* {withNewestStage(stages, (stage) => (
+              <span className='stage_identification' >{stage[0].identification}</span>
+            ))} */}
             {title}
           </h1>
         </div>

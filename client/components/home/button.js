@@ -32,6 +32,7 @@ const Button = ({ title, typeOfButton }) => (
         }
       `}
     </style>
+    {/* Use typeOfButton to make custom styles */}
     <button className={typeOfButton || 'primary'}>{title}</button>
   </div>
 )

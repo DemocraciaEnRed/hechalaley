@@ -1,4 +1,5 @@
 import Button from './button'
+import Logo from './logo'
 
 export default () => (
   <div className='cover'>
@@ -7,10 +8,6 @@ export default () => (
         .cover {
           position: relative;
           padding: 200px 0;
-        }
-        .logo {
-          max-width: 380px;
-          margin-bottom: 20px;
         }
         p {
           max-width: 580px;
@@ -34,7 +31,7 @@ export default () => (
         }
       `}
     </style>
-    <img src='/static/logo.png' alt='Hecha la Ley' className='logo' />
+    <Logo />
     <span className='line' />
     <p>
       Hecha la ley es un sitio que sigue los proyectos de ley dentro del congreso.
@@ -42,7 +39,7 @@ export default () => (
     <p>
       Examiná el trabajo legislativo de una manera clara y sencilla.
     </p>
-    <img src='/static/logo.png' alt='Hecha la Ley description' className='logo' />
+    <Logo />
     <Button title='Ver proyectos de ley' />
   </div>
 )
