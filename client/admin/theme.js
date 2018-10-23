@@ -1,6 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 export default createMuiTheme({
+  typography: {
+    useNextVariants: true
+  },
   spacing: {
     iconSize: 18,
     desktopGutter: 24,

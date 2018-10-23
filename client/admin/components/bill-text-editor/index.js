@@ -1,9 +1,10 @@
 import { Component } from 'react'
 import { Editor } from 'slate-react'
 // import EditTable from 'slate-edit-table'
+import { debounce } from 'lodash'
 import { Toolbar } from './components/toolbar'
 import { Button } from './components/button'
-import { deserialize } from './serializer'
+import { serialize, deserialize } from './serializer'
 import { renderNode, renderMark } from './renders'
 import Schema from './schema'
 
@@ -37,6 +38,12 @@ export default class BillTextEditor extends Component {
 
   state = {
     value: deserialize(this.props.defaultValue)
+  }
+
+  constructor (props) {
+    super(props)
+
+    this.triggerChangeDebounced = debounce(this.triggerChange, 250)
   }
 
   render () {
@@ -82,6 +89,13 @@ export default class BillTextEditor extends Component {
 
   handleChange = ({ value }) => {
     this.setState({ value })
+    this.triggerChangeDebounced()
+  }
+
+  triggerChange = () => {
+    if (!this.props.onChange) return
+    const { value } = this.state
+    this.props.onChange(serialize(value))
   }
 
   hasMark = (type) => {
