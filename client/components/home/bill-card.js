@@ -1,4 +1,5 @@
 import BillLink from '../bill-link'
+
 const moment = require('moment')
 
 const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))
@@ -41,6 +42,7 @@ const BillCard = ({
 
           .bill_header {
             padding: 20px 20px;
+            min-height: 275px;
           }
 
           .title {
@@ -74,19 +76,36 @@ const BillCard = ({
           }
           
           .stage_date {
-            font-size: 12px;
+            font-size: 16px;
             padding-bottom: 10px;
           }
 
-          .stage_summary {
+          .stage_chamber {
             color: #A4A9B4;
-            font-size: 12px;
+            font-size: 16px;
+            padding-left: 20px;
+            margin-bottom: 16px;
+          }
+
+          .bill_footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+          }
+
+          .bill_footer__current_stage {
+            text-align: center;
+            background-color: #e0e0e0;
+            color: #2b3245;
+            font-size: 16px;
+            padding: 10px 0;
           }
         `}
       </style>
       <div className='bill_header'>
         <div className='date'>
-          {withNewestStage(stages, (stage) => (
+          {withNewestStage(stages, (stage) => (         
             <p className='stage_date' >{moment(stage[0].stageDate).format('DD/MM/YYYY')}</p>
           ))}
         </div>
@@ -101,15 +120,13 @@ const BillCard = ({
           </h1>
         </div>
         <p className='summary'>{summary}</p>
-        {/*
-          COMMENT FUTURE LOGIC FOR RENDER STAGE
-          <h3>
-            {withNewestStage(stages, (stage) => (
-              <span>{stage.date}</span>
-            ))}
-          </h3>
-          */}
-        <p className='stage_summary'>Cámara de Diputados</p>
+      </div>
+      <div className='bill_footer'>
+        {/* TO DO: The API doesn't return the stage chamber */}
+        <p className='stage_chamber'>Cámara de Diputados</p>
+        <div className='bill_footer__current_stage'>
+          <p>Paso por comisión de salud y esa</p>
+        </div>
       </div>
     </a>
   </BillLink>

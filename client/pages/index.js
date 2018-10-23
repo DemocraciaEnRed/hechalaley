@@ -9,7 +9,7 @@ const Page = ({ bills }) => (
   <Layout>
     <Menu />
     <Cover />
-    <BillCardsList>
+    <BillCardsList title='Proyectos destacados'>
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}
     </BillCardsList>
   </Layout>
