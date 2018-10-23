@@ -42,8 +42,11 @@ export default class BillTextEditor extends Component {
 
   constructor (props) {
     super(props)
-
     this.triggerChangeDebounced = debounce(this.triggerChange, 250)
+  }
+
+  componentWillUnmount () {
+    this.triggerChangeDebounced.flush()
   }
 
   render () {
