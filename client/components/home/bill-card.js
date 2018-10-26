@@ -1,5 +1,7 @@
 import BillLink from '../bill-link'
 
+const moment = require('moment')
+
 const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))
 
 const BillCard = ({
@@ -38,22 +40,20 @@ const BillCard = ({
               0 6px 6px rgba(0, 0, 0, .23);
           }
 
+          .bill_header {
+            padding: 20px 20px;
+            min-height: 275px;
+          }
+
           .title {
-            flex-grow: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 35px;
+            max-height: 100px;
           }
 
           .title h1 {
             color: #2b3245;
             display: block;
-            font-size: 27px;
-            font-weight: 700;
-            line-height: 1;
-            text-transform: uppercase;
-            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
           }
 
           .title span {
@@ -62,32 +62,71 @@ const BillCard = ({
             font-size: 13px;
             font-weight: 400;
             line-height: .5;
-            text-align: center;
             margin-bottom: 13px;
           }
 
-          .summary {
-            padding: 35px;
-            border-top: 1px solid #e0e0e0;
-            background-color: #eef1f6;
+          .stage_identification {
+            display: none;
           }
 
-          .summary p {
-            font-size: .9em;
+          .summary {
+            font-size: 16px;
+            margin-top: 20px;
             color: rgba(43,50,69,.87);
+          }
+          
+          .stage_date {
+            font-size: 16px;
+            padding-bottom: 10px;
+          }
+
+          .stage_chamber {
+            color: #A4A9B4;
+            font-size: 16px;
+            padding-left: 20px;
+            margin-bottom: 16px;
+          }
+
+          .bill_footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+          }
+
+          .bill_footer__current_stage {
+            text-align: center;
+            background-color: #e0e0e0;
+            color: #2b3245;
+            font-size: 16px;
+            padding: 10px 0;
           }
         `}
       </style>
-      <div className='title'>
-        <h1>
-          {withNewestStage(stages, (stage) => (
-            <span>{stage.identification}</span>
+      <div className='bill_header'>
+        <div className='date'>
+          {withNewestStage(stages, (stage) => (         
+            <p className='stage_date' >{moment(stage[0].stageDate).format('DD/MM/YYYY')}</p>
           ))}
-          {title}
-        </h1>
+        </div>
+        <div className='title'>
+          <h1>
+            {/* This function doesn't render anything,
+                check if is the spected behavior */}
+            {/* {withNewestStage(stages, (stage) => (
+              <span className='stage_identification' >{stage[0].identification}</span>
+            ))} */}
+            {title}
+          </h1>
+        </div>
+        <p className='summary'>{summary}</p>
       </div>
-      <div className='summary'>
-        <p>{summary}</p>
+      <div className='bill_footer'>
+        {/* TO DO: The API doesn't return the stage chamber */}
+        <p className='stage_chamber'>Cámara de Diputados</p>
+        <div className='bill_footer__current_stage'>
+          <p>Paso por comisión de salud y esa</p>
+        </div>
       </div>
     </a>
   </BillLink>
