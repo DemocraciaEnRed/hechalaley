@@ -4,6 +4,9 @@ const Menu = () => (
   <div className='menu'>
     <style jsx>
       {`
+        .menu {
+          padding-bottom: 200px;
+        }
         p {
           color: red;
           display: inline;

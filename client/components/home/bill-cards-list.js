@@ -5,20 +5,21 @@ const BillCardsList = ({ className, title, children }) => (
     <style jsx>
       {`
         .cards-list {
+          padding: 60px 10% 0;
         }
 
         .card-list__title {
           font-size: 35px;
           font-weight: 600;
           text-align: center;
-          padding-bottom: 57px;
+          padding: 50px 0 57px;
         }
 
         .card-list__subtitle {
           font-size: 30px;
           font-weight: 400;
           letter-spacing: 0.3px;
-          padding-bottom: 70px;
+          padding-bottom: 30px;
         }
 
         .card-list__subtitle::after {
@@ -35,7 +36,7 @@ const BillCardsList = ({ className, title, children }) => (
           display: flex;
           flex-direction: row;
           justify-content: center;
-          margin-bottom: 4em;
+          margin-bottom: 30px;
         }
       `}
     </style>

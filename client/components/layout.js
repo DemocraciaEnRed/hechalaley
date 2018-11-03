@@ -49,7 +49,6 @@ const Layout = ({ className, children }) => (
           text-rendering: geometricPrecision;
           font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
           background-color: #f6fafd;
-          padding: 60px 10% 0;
         }
       `}
     </style>
