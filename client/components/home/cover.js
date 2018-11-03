@@ -33,10 +33,12 @@ export default () => (
           position: absolute;
           width: 806.5px;
           height: 1118.8px;
-          animation-name: imageMovement;
-          animation-duration: 20s;
-          animation-iteration-count: infinite;
-          animation-direction: alternate-reverse;
+          top: -200px;
+          right: -300px;
+        }
+        .onboard_img {
+          width: 400px;
+          height: auto;
         }
         @keyframes imageMovement {
           0% {
@@ -59,9 +61,9 @@ export default () => (
       <p>
         Examiná el trabajo legislativo de una manera clara y sencilla.
       </p>
-      <Logo />
+      <img src='/static/onboard_icons.svg' alt='Hecha la Ley - On Board Steps' className='onboard_img' />
       <Button title='Ver proyectos de ley' />
     </div>
-    <img src='/static/img_congreso.jpg' srcSet='/static/img_congreso@2x.jpg 2x' alt='Hecha la Ley Congreso' className='cover_img' />
+    <img src='/static/congreso_forms.png' srcSet='/static/congreso_forms.png 2x' alt='Hecha la Ley Congreso' className='cover_img' />
   </div>
 )

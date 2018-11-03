@@ -8,7 +8,7 @@ const Button = ({ title, typeOfButton }) => (
           padding: 11px 35px;
           border-radius: 20px;
           font-weight: 100;
-          margin-top: 20px;
+          margin-top: 30px;
           text-align: center;
         }
         .primary {
