@@ -1,6 +1,6 @@
 import BillLink from '../bill-link'
 
-const moment = require('moment')
+import moment from 'moment'
 
 const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))
 
