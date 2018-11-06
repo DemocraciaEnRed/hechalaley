@@ -7,7 +7,7 @@ import BillCardsList from '../components/home/bill-cards-list'
 const Page = ({ bills }) => (
   <Layout>
     <Cover />
-    <BillCardsList>
+    <BillCardsList title='Proyectos destacados'>
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}
     </BillCardsList>
   </Layout>

@@ -21,7 +21,7 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'none'"],
-    scriptSrc: ["'self'", "'unsafe-inline'"],
+    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
     styleSrc: ["'self'", "'unsafe-inline'"],
     connectSrc: ["'self'"],
     imgSrc: ["'self' data:"],
@@ -37,7 +37,6 @@ app.use(helmet.contentSecurityPolicy({
 app.use(helmet.referrerPolicy({
   policy: 'same-origin'
 }))
-
 
 // Enforce configured domain
 app.use((req, res, next) => {

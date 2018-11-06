@@ -3,7 +3,10 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Title from './title'
 
-const Loader = dynamic(import('./page-loader'), { ssr: false })
+const Loader = dynamic(import('./page-loader'), {
+  ssr: false,
+  loading: () => null
+})
 
 const Layout = ({ className, children }) => (
   <div className={classNames(className)}>
