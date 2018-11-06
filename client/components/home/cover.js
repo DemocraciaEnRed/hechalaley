@@ -56,7 +56,9 @@ export default () => (
       <Menu />
       <div>
         <Logo />
-        <span className='line' />
+        {/* TODO: Fix line position
+        to fit design
+        <span className='line' /> */}
         <p>
           Hecha la ley es un sitio que sigue los proyectos de ley dentro del congreso.
         </p>
