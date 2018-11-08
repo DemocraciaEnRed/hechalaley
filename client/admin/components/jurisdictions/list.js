@@ -10,6 +10,7 @@ export default (props) => (
   <List
     {...props}
     title={<ListTitle resource='jurisdictions' />}
+    exporter={null}
     pagination={null}
     bulkActions={false}
   >

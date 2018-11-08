@@ -6,6 +6,8 @@ import {
   AUTH_CHECK
 } from 'react-admin'
 
+const wait = (ms = 0) => new Promise((resolve) => setTimeout(() => resolve(), ms))
+
 export const doLogin = async ({ email }) => {
   const res = await fetch('/api/auth/login', {
     method: 'POST',
@@ -28,9 +30,10 @@ export const doLogin = async ({ email }) => {
     const link = document.createElement('a')
     link.href = data.notificationCatcherUrl
     link.click()
+    await wait(3000)
   }
 
-  return res.json()
+  return data
 }
 
 const reducers = {
