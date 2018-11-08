@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '@sindresorhus/class-names'
 
 const BillCardsList = ({ className, title, children }) => (
   <div className={classNames('cards-list', className)}>

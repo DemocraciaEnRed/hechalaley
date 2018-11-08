@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '@sindresorhus/class-names'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Title from './title'

@@ -5,7 +5,7 @@ import Text from './text'
 
 const Bill = ({
   bill,
-  selected,
+  selectedStagesIds,
   text,
   onStageSelect,
   comparing,
@@ -43,8 +43,8 @@ const Bill = ({
       <Sidebar
         onStageSelect={onStageSelect}
         onToggleComparing={onToggleComparing}
+        selectedStagesIds={selectedStagesIds}
         stages={bill.stages}
-        selected={selected}
         comparing={comparing}
       />
     </div>
