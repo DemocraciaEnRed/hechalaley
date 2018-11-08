@@ -1,29 +1,9 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
-const Loader = () => (
-  <div className='loader'>
-    <style global jsx>
-      {`
-        body {
-          background-color: #edecec;
-        }
-      `}
-    </style>
-    <style jsx>
-      {`
-        .loader {
-          height: 64px;
-          background-color: #404659;
-        }
-      `}
-    </style>
-  </div>
-)
-
 const Admin = dynamic(import('../admin'), {
   ssr: false,
-  loading: Loader
+  loading: () => null
 })
 
 export default () => (
@@ -38,6 +18,7 @@ export default () => (
         body {
           padding: 0;
           margin: 0;
+          background-color: #fafafa;
         }
       `}
     </style>
