@@ -7,7 +7,9 @@ const Bill = ({
   bill,
   selected,
   text,
-  onStageSelect
+  onStageSelect,
+  comparing,
+  onToggleComparing
 }) => (
   <Layout className='bills-page'>
     <style jsx>
@@ -40,8 +42,10 @@ const Bill = ({
     <div className='sidebar'>
       <Sidebar
         onStageSelect={onStageSelect}
+        onToggleComparing={onToggleComparing}
         stages={bill.stages}
         selected={selected}
+        comparing={comparing}
       />
     </div>
     <main className='content'>

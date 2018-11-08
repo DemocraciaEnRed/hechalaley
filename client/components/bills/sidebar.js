@@ -1,8 +1,15 @@
 import Link from 'next/link'
 import classNames from 'classnames'
 import { flatten } from 'lodash'
+import Button from './button'
 
-const Sidebar = ({ stages, onStageSelect, selected }) => (
+const Sidebar = ({
+  stages,
+  onStageSelect,
+  selected,
+  comparing,
+  onToggleComparing
+}) => (
   <div className='sidebar'>
     <style jsx>
       {`
@@ -25,6 +32,9 @@ const Sidebar = ({ stages, onStageSelect, selected }) => (
         />
       </a>
     </Link>
+    <Button active={comparing} onClick={onToggleComparing}>
+      Comparar cambios
+    </Button>
     {stages && stages.length > 0 && (
       <Stages
         selected={selected}

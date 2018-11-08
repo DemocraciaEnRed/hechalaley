@@ -15,9 +15,11 @@ export default class Page extends PureComponent {
   static getStateFromProps ({
     selected = null,
     text = null,
+    comparing = false,
     bill: { stages = [] } = {}
   }) {
     return {
+      comparing,
       selected: selected || (stages.length === 0 ? null : [stages[0].id]),
       text
     }
@@ -61,11 +63,16 @@ export default class Page extends PureComponent {
     }, this.fetchStageText)
   }
 
+  handleToggleComparing = () => {
+    this.setState({ comparing: !this.state.comparing })
+  }
+
   render () {
     const { bill } = this.props
 
     return (
       <Bill
+        onToggleComparing={this.handleToggleComparing}
         onStageSelect={this.handleStageSelect}
         bill={bill}
         {...this.state}
