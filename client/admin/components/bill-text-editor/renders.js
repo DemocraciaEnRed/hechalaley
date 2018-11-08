@@ -39,6 +39,8 @@ export const renderMark = (props) => {
       return <em {...attributes}>{children}</em>
     case 'underlined':
       return <u {...attributes}>{children}</u>
+    case 'placeholder':
+      return <span {...attributes}>{children}</span>
     default:
       throw new Error('Couldn\'t render mark: ', props)
   }
