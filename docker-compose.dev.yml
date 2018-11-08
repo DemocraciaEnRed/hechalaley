@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  notifier:
+    image: node:8.11.3-alpine
+    command: ["npx", "notification-catcher"]
+    ports:
+      - 1025:1025
+      - 1080:1080
+
+  mongo:
+    image: mongo:3.6.6
+    command: mongod --quiet --logpath=/tmp/mongodb.log
+    ports:
+      - 27017:27017
+    volumes:
+      - ./tmp/db:/data/db
