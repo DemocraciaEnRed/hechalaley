@@ -77,7 +77,11 @@ export default class Page extends PureComponent {
   }
 
   handleToggleComparing = () => {
-    this.setState({ comparing: !this.state.comparing })
+    this.setState({
+      comparing: !this.state.comparing,
+      selectedStagesIds: [this.state.selectedStagesIds[0]],
+      text: null
+    }, this.fetchStageText)
   }
 
   render () {
