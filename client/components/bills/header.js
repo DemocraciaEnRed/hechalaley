@@ -7,6 +7,10 @@ const Header = ({ title }) => {
     <div className='header'>
       <style jsx>
         {`
+          .header {
+            margin-bottom: 3rem;
+          }
+
           h1 {
             color: #2b3245;
             font-size: 3em;
