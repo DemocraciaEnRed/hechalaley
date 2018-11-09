@@ -1,7 +1,7 @@
 import Button from './button'
 import Logo from './logo'
 import Layout from '../layout'
-import Menu from './menu'
+import Menu from '../menu'
 
 export default () => (
   <Layout className='cover-page'>

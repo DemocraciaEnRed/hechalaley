@@ -1,11 +1,8 @@
-import Link from 'next/link'
-
-const Menu = () => (
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+const MenuLink = ({ child, onClick }) => (
   <div className='menu'>
     <style jsx>
       {`
-        .menu {
-          padding-bottom: 200px;
         }
         p {
           color: red;
@@ -23,19 +20,8 @@ const Menu = () => (
         }
       `}
     </style>
-    <Link>
-        <p>Inicio</p>
-    </Link>
-    <Link>
-        <p>Proyectos</p>
-    </Link>
-    <Link>
-        <p>Nuestra Propuesta</p>
-    </Link>
-    <Link>
-        <p>Sobre Nosotros</p>
-    </Link>
+    <p onClick={onClick} >{child}</p>
   </div>
 )
 
-export default Menu
+export default MenuLink
