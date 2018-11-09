@@ -1,7 +1,7 @@
 import Layout from '../layout'
 import Sidebar from './sidebar'
 import Header from './header'
-import Text from './text'
+import { BillText, BillTextCompare } from '../bill-text'
 
 const Bill = ({
   bill,
@@ -18,15 +18,6 @@ const Bill = ({
           display: grid;
           grid-template-columns: 240px 1fr;
           grid-template-areas: 'sidebar content';
-          grid-template-rows: 100vh;
-        }
-
-        :global(.bills-content) {
-          margin-right: auto;
-          margin-left: auto;
-          padding-right: 15px;
-          padding-left: 15px;
-          max-width: 700px;
         }
 
         .sidebar {
@@ -36,6 +27,21 @@ const Bill = ({
 
         .content {
           grid-area: content;
+        }
+
+        .fixed-content {
+          position: relative;
+          margin-right: auto;
+          margin-left: auto;
+          padding-right: 15px;
+          padding-left: 15px;
+          max-width: 700px;
+        }
+
+        .fluid-content {
+          position: relative;
+          padding-right: 15px;
+          padding-left: 15px;
         }
       `}
     </style>
@@ -49,8 +55,12 @@ const Bill = ({
       />
     </div>
     <main className='content'>
-      <Header {...bill} />
-      {text && <Text text={text} />}
+      <div className='fixed-content'>
+        <Header {...bill} />
+      </div>
+      {comparing
+        ? <div className='fluid-content'><BillTextCompare text={text} diff={selectedStagesIds.length > 1} /></div>
+        : <div className='fixed-content'><BillText text={text} /></div>}
     </main>
   </Layout>
 )

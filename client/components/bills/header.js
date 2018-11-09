@@ -30,11 +30,8 @@ const Header = ({ title }) => {
           }
         `}
       </style>
-      <h1 className='bills-content'>{title}</h1>
-      <Tabs
-        selectedTabClassName='active'
-        className='submenu bills-content'
-      >
+      <h1>{title}</h1>
+      <Tabs selectedTabClassName='active' className='submenu'>
         <TabList>
           <Tab>Información General</Tab>
           <Tab>Descripción</Tab>
