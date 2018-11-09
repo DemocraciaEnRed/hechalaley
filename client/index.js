@@ -11,7 +11,17 @@ const client = next({
   dev: config.nodeEnv === 'development',
   dir: __dirname,
   conf: {
-    poweredByHeader: false
+    poweredByHeader: false,
+    /**
+     * Disable Hot Module Reloader until we fix the build of assets at /admin
+     * when NODE_ENV=production
+     */
+    webpack: (config, { isServer }) => {
+      if (isServer) return config
+      const hmrIndex = config.plugins.findIndex((plugin) => !!plugin.fullBuildTimeout)
+      config.plugins.splice(hmrIndex, 1)
+      return config
+    }
   }
 })
 

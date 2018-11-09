@@ -13,12 +13,14 @@ export default class Page extends PureComponent {
   }
 
   static getStateFromProps ({
-    selected = null,
+    selectedStagesIds = null,
     text = null,
+    comparing = false,
     bill: { stages = [] } = {}
   }) {
     return {
-      selected: selected || (stages.length === 0 ? null : [stages[0].id]),
+      comparing,
+      selectedStagesIds: selectedStagesIds || (stages.length === 0 ? null : [stages[0].id]),
       text
     }
   }
@@ -38,11 +40,11 @@ export default class Page extends PureComponent {
 
   fetchStageText = async () => { // eslint-disable-line no-undef
     const { bill: { id } } = this.props
-    const { selected } = this.state
+    const { selectedStagesIds } = this.state
 
-    if (!selected) return
+    if (!selectedStagesIds) return
 
-    const [fromStage, toStage] = selected
+    const [fromStage, toStage] = selectedStagesIds
 
     const url = toStage
       ? `/api/bills/${id}/diff/${fromStage}/${toStage}?published=true`
@@ -54,9 +56,30 @@ export default class Page extends PureComponent {
     this.setState({ text })
   }
 
-  handleStageSelect = ([fromStage, toStage]) => { // eslint-disable-line no-undef
+  handleStageSelect = (stageId) => {
+    const { comparing } = this.state
+    const selected = this.state.selectedStagesIds
+
+    let selectedStagesIds
+
+    if (comparing) {
+      if (selected.length === 1 && selected[0] === stageId) return
+      selectedStagesIds = selected.includes(stageId)
+        ? selected.filter((id) => id !== stageId)
+        : [stageId, selected[0]]
+    } else {
+      // stage is already selected
+      if (selected[0] === stageId) return
+      selectedStagesIds = [stageId]
+    }
+
+    this.setState({ selectedStagesIds, text: null }, this.fetchStageText)
+  }
+
+  handleToggleComparing = () => {
     this.setState({
-      selected: toStage ? [fromStage, toStage] : [fromStage],
+      comparing: !this.state.comparing,
+      selectedStagesIds: [this.state.selectedStagesIds[0]],
       text: null
     }, this.fetchStageText)
   }
@@ -66,6 +89,7 @@ export default class Page extends PureComponent {
 
     return (
       <Bill
+        onToggleComparing={this.handleToggleComparing}
         onStageSelect={this.handleStageSelect}
         bill={bill}
         {...this.state}
