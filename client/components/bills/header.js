@@ -1,6 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel, resetIdCounter } from 'react-tabs'
 
-const Header = ({ title }) => {
+const Header = () => {
   resetIdCounter()
 
   return (
@@ -9,16 +9,6 @@ const Header = ({ title }) => {
         {`
           .header {
             margin-bottom: 3rem;
-          }
-
-          h1 {
-            color: #2b3245;
-            font-size: 3em;
-            font-weight: 700;
-            letter-spacing: .8px;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            hyphens: auto;
           }
 
           .submenu {
@@ -30,7 +20,6 @@ const Header = ({ title }) => {
           }
         `}
       </style>
-      <h1>{title}</h1>
       <Tabs selectedTabClassName='active' className='submenu'>
         <TabList>
           <Tab>Información General</Tab>

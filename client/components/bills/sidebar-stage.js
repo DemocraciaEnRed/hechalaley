@@ -5,7 +5,7 @@ export default ({
   onStageSelect,
   active
 }) => {
-  const { id, title, summary } = stage
+  const { id, title } = stage
 
   const handleClick = () => onStageSelect(id)
 
@@ -39,7 +39,6 @@ export default ({
         `}
       </style>
       <h2>{title}</h2>
-      <p className='summary'>{summary}</p>
     </div>
   )
 }

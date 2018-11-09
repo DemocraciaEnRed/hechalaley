@@ -23,17 +23,17 @@ const Menu = () => (
         }
       `}
     </style>
-    <Link>
-        <p>Inicio</p>
+    <Link href='#'>
+      <p>Inicio</p>
     </Link>
-    <Link>
-        <p>Proyectos</p>
+    <Link href='#'>
+      <p>Proyectos</p>
     </Link>
-    <Link>
-        <p>Nuestra Propuesta</p>
+    <Link href='#'>
+      <p>Nuestra Propuesta</p>
     </Link>
-    <Link>
-        <p>Sobre Nosotros</p>
+    <Link href='#'>
+      <p>Sobre Nosotros</p>
     </Link>
   </div>
 )

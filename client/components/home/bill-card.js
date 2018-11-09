@@ -1,8 +1,8 @@
+import printDate from '../../helpers/print-date'
 import BillLink from '../bill-link'
 
-import moment from 'moment'
-
-const withNewestStage = (stages = [], cb) => cb(stages.slice(-1))
+const withNewestStage = (stages = [], cb) =>
+  (stages.length > 0 ? cb(stages[0]) : null)
 
 const BillCard = ({
   id,
@@ -74,7 +74,7 @@ const BillCard = ({
             margin-top: 20px;
             color: rgba(43,50,69,.87);
           }
-          
+
           .stage_date {
             font-size: 16px;
             padding-bottom: 10px;
@@ -105,8 +105,8 @@ const BillCard = ({
       </style>
       <div className='bill_header'>
         <div className='date'>
-          {withNewestStage(stages, (stage) => (         
-            <p className='stage_date' >{moment(stage[0].stageDate).format('DD/MM/YYYY')}</p>
+          {withNewestStage(stages, ({ stageDate }) => (
+            <p className='stage_date' >{printDate(stageDate)}</p>
           ))}
         </div>
         <div className='title'>
@@ -114,7 +114,7 @@ const BillCard = ({
             {/* This function doesn't render anything,
                 check if is the spected behavior */}
             {/* {withNewestStage(stages, (stage) => (
-              <span className='stage_identification' >{stage[0].identification}</span>
+              <span className='stage_identification' >{stage.identification}</span>
             ))} */}
             {title}
           </h1>

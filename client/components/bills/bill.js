@@ -1,7 +1,11 @@
 import Layout from '../layout'
+import { BillText, BillTextCompare } from '../bill-text'
 import Sidebar from './sidebar'
 import Header from './header'
-import { BillText, BillTextCompare } from '../bill-text'
+import StagesHeaders from './stages-headers'
+
+const getSelectedStages = (stages, selected) =>
+  selected.map((id) => stages.find((stage) => stage.id === id))
 
 const Bill = ({
   bill,
@@ -43,6 +47,16 @@ const Bill = ({
           padding-right: 15px;
           padding-left: 15px;
         }
+
+        h1 {
+          color: #2b3245;
+          font-size: 3em;
+          font-weight: 700;
+          letter-spacing: .8px;
+          margin-top: 2em;
+          margin-bottom: 1em;
+          hyphens: auto;
+        }
       `}
     </style>
     <div className='sidebar'>
@@ -56,11 +70,16 @@ const Bill = ({
     </div>
     <main className='content'>
       <div className='fixed-content'>
-        <Header {...bill} />
+        <h1>{bill.title}</h1>
       </div>
-      {comparing
-        ? <div className='fluid-content'><BillTextCompare text={text} diff={selectedStagesIds.length > 1} /></div>
-        : <div className='fixed-content'><BillText text={text} /></div>}
+      <div className={comparing ? 'fluid-content' : 'fixed-content'}>
+        {comparing
+          ? <StagesHeaders stages={getSelectedStages(bill.stages, selectedStagesIds)} />
+          : <Header {...bill} />}
+        {comparing
+          ? <BillTextCompare text={text} diff={selectedStagesIds.length > 1} />
+          : <BillText text={text} />}
+      </div>
     </main>
   </Layout>
 )
