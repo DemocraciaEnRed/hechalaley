@@ -6,6 +6,7 @@ export default ({
   active
 }) => {
   const { id, title } = stage
+  console.log(stage)
 
   const handleClick = () => onStageSelect(id)
 
@@ -36,9 +37,29 @@ export default ({
             opacity: .8;
             font-size: .8em;
           }
+
+          .stage-commission {
+            margin-bottom: 30px;
+            outline: none;
+          }
+
+          h2{
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 5px;
+          }
+
+          p {
+            font-size: 14px;
+          }
         `}
       </style>
       <h2>{title}</h2>
+      <p>Tratado por:</p>
+      {/**
+       * @todo Display commissions from API
+       */}
+      <p className='stage-commission'>Comisiones de la Cámara de Origen</p>
     </div>
   )
 }

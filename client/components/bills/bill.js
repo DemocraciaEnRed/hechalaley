@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import Layout from '../layout'
 import { BillText, BillTextCompare } from '../bill-text'
 import Sidebar from './sidebar'
@@ -37,9 +38,7 @@ const Bill = ({
           position: relative;
           margin-right: auto;
           margin-left: auto;
-          padding-right: 15px;
-          padding-left: 15px;
-          max-width: 700px;
+          padding: 0 30px;
         }
 
         .fluid-content {
@@ -48,14 +47,27 @@ const Bill = ({
           padding-left: 15px;
         }
 
+        .bill-header {
+          background: #fff;
+          text-align: center;
+          padding: 50px 0;
+          margin: 30px auto 10px;
+          border-radius: 10px;
+          max-width: 96%;
+        }
+
         h1 {
           color: #2b3245;
-          font-size: 3em;
+          font-size: 40px;
           font-weight: 700;
-          letter-spacing: .8px;
-          margin-top: 2em;
-          margin-bottom: 1em;
           hyphens: auto;
+        }
+
+        p {
+          color: #fe3e68;
+          padding: 9px 0;
+          margin-bottom: 23px;
+          font-size: 18px;
         }
       `}
     </style>
@@ -66,16 +78,25 @@ const Bill = ({
         selectedStagesIds={selectedStagesIds}
         stages={bill.stages}
         comparing={comparing}
+        billTitle={bill.title}
       />
     </div>
     <main className='content'>
-      <div className='fixed-content'>
+      <div className='fixed-content bill-header'>
         <h1>{bill.title}</h1>
-      </div>
-      <div className={comparing ? 'fluid-content' : 'fixed-content'}>
+        <p>{
+          /**
+         * @todo Show the selected stage title
+         */
+          bill.stages[0].title
+        }
+        </p>
+
         {comparing
           ? <StagesHeaders stages={getSelectedStages(bill.stages, selectedStagesIds)} />
           : <Header {...bill} />}
+      </div>
+      <div className={comparing ? 'fluid-content' : 'fixed-content'}>
         {comparing
           ? <BillTextCompare text={text} diff={selectedStagesIds.length > 1} />
           : <BillText text={text} />}

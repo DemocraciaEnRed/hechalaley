@@ -1,7 +1,4 @@
-import Router from 'next/router'
-import MenuLink from './menu-link'
-
-const Menu = () => (
+const Menu = ({ children }) => (
   <div className='menu'>
     <style jsx>
       {`
@@ -10,11 +7,9 @@ const Menu = () => (
         }
       `}
     </style>
-    <MenuLink onClick={() => Router.push('/')}>Inicio</MenuLink>
-    <MenuLink onClick={() => Router.push('/proyects')}>Proyectos</MenuLink>
-    <MenuLink onClick={() => Router.push('/proposal')}>Nuestra Propuesta</MenuLink>
-    <MenuLink onClick={() => Router.push('/about')}>Sobre Nosotros</MenuLink>
+    { children }
   </div>
 )
 
 export default Menu
+

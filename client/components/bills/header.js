@@ -7,24 +7,32 @@ const Header = () => {
     <div className='header'>
       <style jsx>
         {`
-          .header {
-            margin-bottom: 3rem;
-          }
-
-          .submenu {
-            margin-bottom: 3em;
+          .header :global(.bill-tab) {
+            display: inline-block;
+            padding: 0 50px;
+            color: #9196a4;
           }
 
           .header :global(.active) {
-            font-weight: bold;
+            color: #fe3e68;
+          }
+
+          .header :global(.bill-tablist) {
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e0e0e0;
+          }
+
+          .header :global(.submenu) {
+            max-width: 700px;
+            margin: 0 auto;
           }
         `}
       </style>
       <Tabs selectedTabClassName='active' className='submenu'>
-        <TabList>
-          <Tab>Información General</Tab>
-          <Tab>Descripción</Tab>
-          <Tab>Votantes</Tab>
+        <TabList className='bill-tablist'>
+          <Tab className='bill-tab'>Información General</Tab>
+          <Tab className='bill-tab'>Descripción</Tab>
+          <Tab className='bill-tab'>Votantes</Tab>
         </TabList>
         <TabPanel>
           <p>
