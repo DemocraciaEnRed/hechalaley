@@ -92,7 +92,10 @@ const Bill = ({
         }
         </p>
 
-        {comparing
+        {/**
+         * @todo reuse getSelectedStages to render the stages
+         */
+          comparing
           ? <StagesHeaders stages={getSelectedStages(bill.stages, selectedStagesIds)} />
           : <Header {...bill} />}
       </div>
