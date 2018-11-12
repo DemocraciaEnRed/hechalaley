@@ -1,34 +1,55 @@
 const test = require('blue-tape')
 const { diffs } = require('../../../api/text')
 
-test('#diffs with a sentence adding a word', (t) => {
-  const from = 'Some markdown sentence.'
-  const to = 'Some markdown sentence and a word.'
-  const expected = 'Some markdown sentence <ins>and a word</ins>.'
+const tests = [
+  {
+    from: 'Some markdown sentence.',
+    to: 'Some markdown sentence and a word.',
+    expected: 'Some markdown sentence <ins>and a word</ins>.'
+  },
+  {
+    from: '',
+    to: '# New title',
+    expected: '# <ins>New title</ins>'
+  },
+  {
+    from: '# New title',
+    to: '# New title 2',
+    expected: '# New title <ins>2</ins>'
+  },
+  {
+    from: '# My content title\nSome markdown paragraph.',
+    to: '# My content\nSome markdown paragraph.',
+    expected: '# My content <del>title</del>\nSome markdown paragraph.'
+  },
+  {
+    from: '# First title with words\n## Second title with more words\n### Third Title',
+    to: '# First title with words\n### Third Title',
+    expected: '# First title with words\n## <del>Second title with more words</del>\n### Third Title'
+  },
+  {
+    from: '',
+    to: '* Bullet Point',
+    expected: '* <ins>Bullet Point</ins>'
+  },
+  {
+    from: '* Bullet Point',
+    to: '* Bullet Point 2',
+    expected: '- <del>Bullet Point</del>\n- <ins>Bullet Point 2</ins>'
+  },
+  {
+    modifier: 'only',
+    from: '1. First',
+    to: '1. First Edit',
+    expected: '1. <del>First</del>\n1. <ins>First Edit</ins>'
+  }
+]
 
-  return diffs(from, to).then((result) => t.equal(result, expected))
-})
+tests.forEach(({ from, to, expected, modifier }, index) => {
+  const createTest = modifier ? test[modifier] : test
 
-test('#diffs adding a title', (t) => {
-  const from = ''
-  const to = '# New title'
-  const expected = '# <ins>New title</ins>'
-
-  return diffs(from, to).then((result) => t.equal(result, expected))
-})
-
-test('#diffs with a title removing a word', (t) => {
-  const from = '# My content title\nSome markdown paragraph.'
-  const to = '# My content\nSome markdown paragraph.'
-  const expected = '# My content <del>title</del>\nSome markdown paragraph.'
-
-  return diffs(from, to).then((result) => t.equal(result, expected))
-})
-
-test('#diffs removing title after title', (t) => {
-  const from = '# First title with words\n## Second title with more words\n### Third Title'
-  const to = '# First title with words\n### Third Title'
-  const expected = '# First title with words\n## <del>Second title with more words</del>\n### Third Title'
-
-  return diffs(from, to).then((result) => t.equal(result, expected))
+  createTest(`#diffs assertion nº${index + 1}`, async (t) => {
+    const result = await diffs(from, to)
+    t.equal(result, expected)
+  })
 })

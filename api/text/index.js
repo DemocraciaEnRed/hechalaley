@@ -5,12 +5,27 @@ const stringSimilarity = require('string-similarity')
 
 const text = {}
 
-const wordDiff = (a, b) => diff(a, b)
-  .replace(/<(ins|del)>(\s+)/g, '$2<$1>')
-  .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
+const fixMdBlock = (str) =>
+  str.replace(/<(ins|del)>((?:#+|\*|\+)\s*)/g, '$2<$1>')
 
-const wrapTag = (tag, str) => `<${tag}>${str}</${tag}>`
-  .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
+const fixWhitespace = (str) =>
+  str.replace(/<(ins|del)>(\s+)/g, '$2<$1>')
+
+// 'rich-text-diff' only recognizes lists that use the '-' char
+// not '*' or '+'
+const fixBullets = (str) =>
+  str.replace(/^(\s*)(?:\*|\+)(\s*)/g, '$1-$2')
+
+// 'rich-text-diff' sometimes creates a LI items with number '0.'
+// this fixes it to '1.'
+const fixNumbers = (str) => str
+// str.replace(/^(\s*)(?:0\.)(\s*)/g, (_, $1, $2) => `${$1}-${$2}`)
+
+const wordDiff = (a, b) =>
+  fixMdBlock(fixWhitespace(fixNumbers(diff(fixBullets(a), fixBullets(b)))))
+
+const wrapTag = (tag, str) =>
+  fixMdBlock(`<${tag}>${str}</${tag}>`)
 
 const wrapInsTag = wrapTag.bind(null, 'ins')
 const wrapDelTag = wrapTag.bind(null, 'del')
@@ -30,11 +45,17 @@ text.diffs = function diffs (from = '', to = '') {
       if (!value) continue
 
       if (lines[i]) {
+        console.log('-----------------')
+        console.log('value: ', value)
+        console.log('lines[i]: ', lines[i])
+        console.log('areSimilar: ', areSimilar(value, lines[i]))
         if (areSimilar(value, lines[i])) {
+          console.log('wordDiff: ', wordDiff(value, lines[i]))
           lines[i] = wordDiff(value, lines[i])
         } else {
           lines[i] = `${wrapDelTag(value)}\n${lines[i]}`
         }
+        console.log('-----------------')
       } else {
         lines[i] = wrapDelTag(value)
       }
