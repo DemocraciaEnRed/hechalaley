@@ -15,6 +15,17 @@ export default ({
         .hide-del :global(del) {
           visibility: hidden;
         }
+
+        .bills-text-container {
+          background: #fff;
+          border-radius: 10px;
+          padding: 0 180px;
+          padding-top: 100px;
+        }
+
+        .bills-text {
+          padding: 30px;
+        }
       `}
     </style>
     <Style className='bills-text' />

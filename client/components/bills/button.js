@@ -13,6 +13,11 @@ export default ({ className, active, children, ...otherProps }) => (
           margin: 0 auto 1rem;
           padding: .8rem 3rem;
           cursor: pointer;
+          background-color: transparent;
+          border: solid 1px #fefefe;
+          border-radius: 26px;
+          color: #fff;
+          font-size: 14px;
         }
 
         button.active {

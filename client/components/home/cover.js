@@ -1,7 +1,9 @@
+import Router from 'next/router'
 import Button from './button'
 import Logo from './logo'
 import Layout from '../layout'
-import Menu from './menu'
+import Menu from '../menu'
+import MenuLink from '../menu-link'
 
 export default () => (
   <Layout className='cover-page'>
@@ -53,7 +55,13 @@ export default () => (
           }
         `}
       </style>
-      <Menu />
+      <Menu>
+        <MenuLink onClick={() => Router.push('/')}>Inicio</MenuLink>
+        <MenuLink onClick={() => Router.push('/proyects')}>Proyectos</MenuLink>
+        <MenuLink onClick={() => Router.push('/know')}>¿Cómo funciona?</MenuLink>
+        <MenuLink onClick={() => Router.push('/proposal')}>Nuestra propuesta</MenuLink>
+        <MenuLink onClick={() => Router.push('/about')}>Sobre nosotros</MenuLink>
+      </Menu>
       <div>
         <Logo />
         {/* TODO: Fix line position
