@@ -12,6 +12,10 @@ const StageHeader = ({ stage }) => {
             margin-bottom: 3rem;
           }
 
+          .stage-header:first-of-type {
+            border-right: 1px solid #e0e0e0;
+          }
+
           .stage-header :global(.bill-tab) {
             display: inline-block;
             padding: 0 50px;
@@ -24,7 +28,6 @@ const StageHeader = ({ stage }) => {
 
           .stage-header :global(.bill-tablist) {
             padding-bottom: 32px;
-            border-bottom: 1px solid #e0e0e0;
           }
 
           .submenu {
@@ -37,7 +40,10 @@ const StageHeader = ({ stage }) => {
 
           .stage-data {
             display: inline-block;
-            margin: 0 15px;
+            margin: 0 45px;
+            font-size: 18px;
+            color: #2b3245;
+            font-weight: 100;
           }
 
           .stage-data::before {
@@ -47,6 +53,9 @@ const StageHeader = ({ stage }) => {
           }
 
           .stage-data-details {
+            padding-top: 5px;
+            font-size: 22px;
+            font-weight: 500;
             display: block;
           }
 
@@ -61,7 +70,6 @@ const StageHeader = ({ stage }) => {
           <Tab className='bill-tab'>Descripción</Tab>
           <Tab className='bill-tab'>Votantes</Tab>
         </TabList>
-        <hr />
         <TabPanel className='stage-data-wrapper'>
           <ul>
             <li className='stage-data'>

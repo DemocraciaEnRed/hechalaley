@@ -21,7 +21,8 @@ export default ({ className, active, children, ...otherProps }) => (
         }
 
         button.active {
-          background-color: red;
+          background-color: rgba(252, 252, 252, 0.27);
+          border: none;
         }
       `}
     </style>
