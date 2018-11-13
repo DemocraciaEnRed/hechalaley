@@ -45,6 +45,8 @@ const Bill = ({
           position: relative;
           padding-right: 15px;
           padding-left: 15px;
+          max-width: 1410px;
+          margin: 0 auto;
         }
 
         .bill-header {
@@ -53,7 +55,18 @@ const Bill = ({
           padding: 50px 0;
           margin: 30px auto 10px;
           border-radius: 10px;
-          max-width: 96%;
+          max-width: 1380px;
+        }
+
+        .bill-text-card {
+          background-color: #fff;
+          border-radius: 10px;
+        }
+
+        .bill-text-no_compare_container {
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 0 30px;
         }
 
         h1 {
@@ -100,9 +113,15 @@ const Bill = ({
           : <Header {...bill} />}
       </div>
       <div className={comparing ? 'fluid-content' : 'fixed-content'}>
-        {comparing
-          ? <BillTextCompare text={text} diff={selectedStagesIds.length > 1} />
-          : <BillText text={text} />}
+        <div className='bill-text-card'>
+          {comparing
+            ?
+              <BillTextCompare text={text} diff={selectedStagesIds.length > 1} />
+            :
+              <div className='bill-text-no_compare_container'>
+                <BillText text={text} />
+              </div >}
+        </div>
       </div>
     </main>
   </Layout>

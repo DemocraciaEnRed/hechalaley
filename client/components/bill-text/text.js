@@ -16,11 +16,12 @@ export default ({
           visibility: hidden;
         }
 
+        .hide-ins {
+          border-right: 1px solid #e0e0e0;
+        }
+
         .bills-text-container {
-          background: #fff;
-          border-radius: 10px;
-          padding: 0 180px;
-          padding-top: 100px;
+          padding: 100px 30px 0;
         }
 
         .bills-text {
