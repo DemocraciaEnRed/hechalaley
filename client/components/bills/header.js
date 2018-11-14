@@ -7,6 +7,10 @@ const Header = () => {
     <div className='header'>
       <style jsx>
         {`
+          .header {
+            height: 150px;
+          }
+          
           .header :global(.bill-tab) {
             display: inline-block;
             padding: 0 50px;
