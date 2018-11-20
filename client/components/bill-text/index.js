@@ -7,9 +7,10 @@ export const BillTextCompare = ({ text, diff = null }) => (
     <style jsx>
       {`
         .bill-text-compare {
+          position: relative;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 0 15px;
+          grid-template-columns: 50% 50%;
+          grid-gap: 0 0;
         }
 
         .select-stage {
