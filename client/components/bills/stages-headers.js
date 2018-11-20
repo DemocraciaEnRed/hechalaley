@@ -9,7 +9,7 @@ const StageHeader = ({ stage }) => {
       <style jsx>
         {`
           .stage-header {
-            margin-bottom: 3rem;
+            height: 150px;
           }
 
           .stage-header:first-of-type {
@@ -62,6 +62,7 @@ const StageHeader = ({ stage }) => {
           .stage-header :global(.stage-data-wrapper) {
             text-align: left;
           }
+
         `}
       </style>
       <Tabs selectedTabClassName='active' className='submenu'>
@@ -106,11 +107,29 @@ export default ({ stages }) => (
           grid-template-columns: 1fr 1fr;
           grid-gap: 0 15px;
         }
+        
+        .no-stage-selected {
+          background-color: #fbfbfb;
+          text-align: center;          
+          margin-right: 15px;
+        }
+
+        p {
+          color: #2b3245;
+          width: 250px;
+          margin: 0 auto;
+        }
+
       `}
     </style>
     {stages.map((stage) => <StageHeader stage={stage} />)}
     {stages.length === 1 && (
-      <div>Seleccioná una etapa para comparar cambios</div>
+      <div className='no-stage-selected'>
+        {/* /**
+         * @todo Add interaction <img>
+         */}
+        <p>Seleccioná una etapa para comparar cambios</p>
+      </div>
     )}
   </div>
 )

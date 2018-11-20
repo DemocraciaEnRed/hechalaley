@@ -21,7 +21,7 @@ export default ({
         }
 
         .bills-text-container {
-          padding: 100px 30px 0;
+          padding: 60px 30px 0;
         }
 
         .bills-text {

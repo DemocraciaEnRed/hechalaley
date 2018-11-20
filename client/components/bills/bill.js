@@ -66,7 +66,7 @@ const Bill = ({
         .bill-text-no_compare_container {
           max-width: 100%;
           margin: 0 auto;
-          padding: 0 30px;
+          padding: 0 140px;
         }
 
         h1 {
