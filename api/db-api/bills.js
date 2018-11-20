@@ -7,7 +7,7 @@ populate.stages = {
   path: 'stages',
   select: '-text',
   match: { trashed: false, published: true },
-  options: { sort: { stageDate: -1 } }
+  options: { sort: { stageDate: 1 } }
 }
 
 exports.list = (query = {}) => Bill
