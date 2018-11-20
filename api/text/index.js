@@ -45,17 +45,11 @@ text.diffs = function diffs (from = '', to = '') {
       if (!value) continue
 
       if (lines[i]) {
-        console.log('-----------------')
-        console.log('value: ', value)
-        console.log('lines[i]: ', lines[i])
-        console.log('areSimilar: ', areSimilar(value, lines[i]))
         if (areSimilar(value, lines[i])) {
-          console.log('wordDiff: ', wordDiff(value, lines[i]))
           lines[i] = wordDiff(value, lines[i])
         } else {
           lines[i] = `${wrapDelTag(value)}\n${lines[i]}`
         }
-        console.log('-----------------')
       } else {
         lines[i] = wrapDelTag(value)
       }
