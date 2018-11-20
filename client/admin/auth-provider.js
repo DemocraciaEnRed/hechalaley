@@ -48,14 +48,9 @@ const reducers = {
       err.status = status
       throw err
     }
-
-    const err = new Error('Hubo un error de autenticación.')
-    err.status = status
-
-    throw err
   },
 
-  [AUTH_CHECK]: () =>
+  [AUTH_CHECK]: async () =>
     !!document.cookie && document.cookie.includes('sessionTokenExists=')
 }
 

@@ -28,7 +28,7 @@ app.use(cors({
   optionsSuccessStatus: 200
 }))
 
-app.get('/', (req, res) => res.json({ version }))
+app.get('/', (_, res) => res.json({ version }))
 
 app.use(require('./routes'))
 
