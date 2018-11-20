@@ -39,6 +39,8 @@ export default (props) => (
         <TextInput source='title' validation={{ required: true }} />
         <TextInput source='summary' validation={{ required: true }} />
         <TextInput source='identification' validation={{ required: true }} />
+        <TextInput source='currentCondition' allowEmpty />
+        <TextInput source='nextCondition' allowEmpty />
         <DateInput source='stageDate' validation={{ required: true }} />
         <ReferenceInput source='authors' reference='politicians' allowEmpty>
           <SearchableSelectInput

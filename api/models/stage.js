@@ -10,6 +10,8 @@ const schema = new Schema({
   summary: { type: String, trim: true, maxlength: 255 },
   published: { type: Boolean, default: false },
   identification: { type: String, trim: true, maxlength: 63 },
+  currentCondition: { type: String, trim: true, maxlength: 255 },
+  nextCondition: { type: String, trim: true, maxlength: 255 },
   authors: [{ type: ObjectId, ref: 'Politician' }],
   stageDate: Date,
   text: { type: String, default: '' }
