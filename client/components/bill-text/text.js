@@ -11,11 +11,6 @@ export default ({
   <div className={classNames('bills-text-container', hide && `hide-${hide}`)}>
     <style jsx>
       {`
-        .hide-ins :global(ins),
-        .hide-del :global(del) {
-          visibility: hidden;
-        }
-
         .hide-ins {
           border-right: 1px solid #e0e0e0;
         }
