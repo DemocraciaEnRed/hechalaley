@@ -24,7 +24,8 @@ app.use(hpp())
 
 app.use(cors({
   origin: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  credentials: true
 }))
 
 app.get('/', (_, res) => res.json({ version }))
