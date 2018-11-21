@@ -12,6 +12,7 @@
   "enforceAdmin": "",
   "enforceClient": "",
   "enableHMR": true,
+  "cspDomains": ["'self'"],
   "notifier": {
     "useNotificationCatcher": true,
     "channels": {
