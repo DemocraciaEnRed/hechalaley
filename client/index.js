@@ -16,11 +16,12 @@ const client = next({
      * Disable Hot Module Reloader until we fix the build of assets at /admin
      * when NODE_ENV=production
      */
-    webpack: (config, { isServer }) => {
-      if (isServer) return config
-      const hmrIndex = config.plugins.findIndex((plugin) => !!plugin.fullBuildTimeout)
-      config.plugins.splice(hmrIndex, 1)
-      return config
+    webpack: (webpackConfig, { isServer }) => {
+      if (config.enableHMR) return webpackConfig
+      if (isServer) return webpackConfig
+      const hmrIndex = webpackConfig.plugins.findIndex((plugin) => !!plugin.fullBuildTimeout)
+      webpackConfig.plugins.splice(hmrIndex, 1)
+      return webpackConfig
     }
   }
 })
@@ -28,6 +29,18 @@ const client = next({
 app.ready = () => client.prepare()
 
 app.use(requestLogger({ without: '/_next/' }))
+
+app.get('*', (req, res, next) => {
+  if (config.enforceAdmin && req.url.startsWith('/admin')) {
+    return res.redirect(config.enforceAdmin)
+  }
+
+  if (config.enforceClient && !req.url.startsWith('/admin')) {
+    return res.redirect(config.enforceClient)
+  }
+
+  next()
+})
 
 app.get('*', (req, res, next) => {
   req.locals = {}

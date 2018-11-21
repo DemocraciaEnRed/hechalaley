@@ -9,6 +9,9 @@
   "trustProxy": false,
   "jwtToken": "",
   "notificationCatcherUrl": "http://localhost:1080",
+  "enforceAdmin": "",
+  "enforceClient": "",
+  "enableHMR": true,
   "notifier": {
     "useNotificationCatcher": true,
     "channels": {
