@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const hpp = require('hpp')
+const config = require('dos-config')
 const { version } = require('../package.json')
 const { handleApiErrors } = require('./errors/middleware')
 const parseJsonQuery = require('./helpers/parse-json-query')
@@ -23,7 +24,7 @@ app.use(parseJsonQuery('sort', 'range', 'filter'))
 app.use(hpp())
 
 app.use(cors({
-  origin: true,
+  origin: config.corsOrigins,
   optionsSuccessStatus: 200,
   credentials: true
 }))
