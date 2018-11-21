@@ -57,6 +57,7 @@ export default class Page extends PureComponent {
   }
 
   handleStageSelect = (stageId) => {
+    const { bill } = this.props
     const { comparing } = this.state
     const selected = this.state.selectedStagesIds
 
@@ -64,9 +65,15 @@ export default class Page extends PureComponent {
 
     if (comparing) {
       if (selected.length === 1 && selected[0] === stageId) return
-      selectedStagesIds = selected.includes(stageId)
-        ? selected.filter((id) => id !== stageId)
-        : [stageId, selected[0]]
+      if (selected.includes(stageId)) {
+        // deselect stageId
+        selectedStagesIds = selected.filter((id) => id !== stageId)
+      } else {
+        // compare 2 stages, ordered with the same order as bill.stages
+        selectedStagesIds = bill.stages
+          .filter(({ id }) => id === stageId || id === selected[0])
+          .map(({ id }) => id)
+      }
     } else {
       // stage is already selected
       if (selected[0] === stageId) return
