@@ -125,7 +125,7 @@ const BillCard = ({
         {/* TO DO: The API doesn't return the stage chamber */}
         <p className='stage_chamber'>Cámara de Diputados</p>
         <div className='bill_footer__current_stage'>
-          <p>Paso por comisión de salud y esa</p>
+          <p>Recinto de la Cámara Revisora</p>
         </div>
       </div>
     </a>

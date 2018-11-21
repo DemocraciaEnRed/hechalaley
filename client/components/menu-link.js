@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 const MenuLink = ({ children, onClick }) => (
-  <p onClick={onClick} >
+  <p
+    onClick={onClick}
+  >
     <style jsx>
       {`
         }

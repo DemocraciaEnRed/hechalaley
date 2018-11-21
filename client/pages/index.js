@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import Cover from '../components/home/cover'
 import BillCard from '../components/home/bill-card'
 import BillCardsList from '../components/home/bill-cards-list'
+import HowWorks from '../components/home/how-work'
 
 const Page = ({ bills }) => (
   <Layout>
@@ -10,6 +11,7 @@ const Page = ({ bills }) => (
     <BillCardsList title='Proyectos destacados'>
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}
     </BillCardsList>
+    <HowWorks />
   </Layout>
 )
 
