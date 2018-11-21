@@ -35,7 +35,12 @@ app.get('*', (req, res, next) => {
     return res.redirect(config.enforceAdmin)
   }
 
-  if (config.enforceClient && !req.url.startsWith('/admin')) {
+  if (
+    config.enforceClient &&
+    !req.url.startsWith('/admin') &&
+    !req.url.startsWith('/_next') &&
+    !req.url.startsWith('/static')
+  ) {
     return res.redirect(config.enforceClient)
   }
 
