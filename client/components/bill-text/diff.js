@@ -15,23 +15,16 @@ export default (str, tagToHide) => {
     if (child.tagName === 'OL' || child.tagName === 'UL') {
       Array.from(child.children).forEach((li) => {
         if (!has(li, tagToHide)) return
+        // Hide and move to bottom
         child.removeChild(li)
         hide(li)
         child.appendChild(li)
       })
-
-      return
     }
 
-    // Move items to be hidden to the bottom
+    // Hide items
     const items = child.querySelectorAll(tagToHide)
-    Array.from(items).forEach((item) => {
-      const parent = item.parentElement
-      if (!parent) return
-      parent.removeChild(item)
-      hide(item)
-      parent.appendChild(item)
-    })
+    Array.from(items).forEach(hide)
   })
 
   return content.outerHTML

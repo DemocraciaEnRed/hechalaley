@@ -6,7 +6,6 @@ export default ({
   active
 }) => {
   const { id, title } = stage
-  console.log(stage)
 
   const handleClick = () => onStageSelect(id)
 
