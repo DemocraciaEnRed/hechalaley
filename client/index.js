@@ -48,7 +48,9 @@ app.get('*', (req, res, next) => {
 })
 
 app.get('*', (req, res, next) => {
-  req.locals = {}
+  req.locals = {
+    config: { ...config.clientConfig }
+  }
   req.client = client
   req.handle = client.getRequestHandler()
   next()

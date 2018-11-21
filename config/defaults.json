@@ -13,6 +13,9 @@
   "enforceClient": "",
   "enableHMR": true,
   "cspDomains": ["'self'"],
+  "clientConfig": {
+    "apiUrl": "/api"
+  },
   "notifier": {
     "useNotificationCatcher": true,
     "channels": {

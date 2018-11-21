@@ -13,4 +13,4 @@ const httpClient = (url, options = {}) => {
   return fetchUtils.fetchJson(url, opts)
 }
 
-export default simpleRestProvider('/api', httpClient)
+export default (endpoint = '/api') => simpleRestProvider(endpoint, httpClient)

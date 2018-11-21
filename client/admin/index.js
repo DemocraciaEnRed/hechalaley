@@ -11,12 +11,12 @@ import theme from './theme'
 import restProvider from './rest-provider'
 import authProvider from './auth-provider'
 
-const App = () => (
+const App = ({ apiUrl }) => (
   <Admin
     locale='es-AR'
     i18nProvider={i18n}
     title='Admin - Hecha la Ley'
-    dataProvider={restProvider}
+    dataProvider={restProvider(apiUrl)}
     theme={theme}
     authProvider={authProvider}
     loginPage={Login}
