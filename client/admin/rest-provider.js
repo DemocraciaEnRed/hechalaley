@@ -7,7 +7,7 @@ const httpClient = (url, options = {}) => {
   const opts = {
     headers: new Headers({ Accept: 'application/json' }),
     ...options,
-    credentials: 'same-origin'
+    credentials: 'include'
   }
 
   return fetchUtils.fetchJson(url, opts)
