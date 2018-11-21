@@ -7,7 +7,6 @@
   "port": 3000,
   "publicPort": 3000,
   "trustProxy": false,
-  "corsOrigins": ["*"],
   "jwtToken": "",
   "notificationCatcherUrl": "http://localhost:1080",
   "enforceAdmin": "",
