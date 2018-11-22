@@ -131,7 +131,7 @@ const Header = ({ stage }) => {
           }
         `}
       </style>
-      <h2>{stage.title}</h2>
+      <h2>{stage.title} - {stage.summary}</h2>
       <Tabs selectedTabClassName='active' className='submenu'>
         <TabList className='bill-tablist'>
           <Tab className='bill-tab'>Información General</Tab>
@@ -145,7 +145,6 @@ const Header = ({ stage }) => {
             attrs={[
               { title: 'Fecha', value: printDate(stage.stageDate) },
               { title: 'Estado', value: stage.currentCondition || '-' },
-              { title: 'Tratado por', value: stage.summary },
               { title: 'Próximos Pasos', value: stage.nextCondition || '-' }
             ]}
           />

@@ -50,15 +50,15 @@ export default ({
 
           p {
             font-size: 14px;
+            margin-bottom: 5px;
           }
         `}
       </style>
       <h2>{title}</h2>
       <p>Tratado por:</p>
-      {/**
-       * @todo Display commissions from API
-       */}
-      <p className='stage-commission'>Comisiones de la Cámara de Origen</p>
+      <p className='stage-commission'>
+        {stage.summary}
+      </p>
     </div>
   )
 }
