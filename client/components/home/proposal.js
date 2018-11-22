@@ -83,7 +83,7 @@ export default () => (
             se lleva a cabo para tratar los proyectos de ley en el Congreso Nacional de la República Argentina.
           </p>
           <p>
-            Si querés tener más información sobre el Camino de la ley, <Link href='/'><a>hacé click acá.</a></Link>
+            Si querés tener más información sobre el Camino de la ley, <Link href='https://www.congreso.gob.ar/leyes.php'><a>hacé click acá.</a></Link>
           </p>
         </div>
       </div>

@@ -6,6 +6,7 @@ import BillCardsList from '../components/home/bill-cards-list'
 import HowWorks from '../components/home/how-work'
 import Proposal from '../components/home/proposal'
 import About from '../components/home/about'
+import AboutUs from '../components/home/about-us'
 
 const Page = ({ bills }) => (
   <Layout>
@@ -16,6 +17,7 @@ const Page = ({ bills }) => (
     <HowWorks />
     <Proposal />
     <About />
+    <AboutUs />
   </Layout>
 )
 

@@ -52,6 +52,7 @@
     "react-icons": "3.2.2",
     "react-redux": "5.1.1",
     "react-select": "1.2.1",
+    "react-sticky": "6.0.3",
     "react-tabs": "2.3.0",
     "scroll-to-element": "2.0.2",
     "slate": "0.43.7",

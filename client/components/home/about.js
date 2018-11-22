@@ -7,18 +7,13 @@ export default () => (
     <div className='about-page' id='about-page'>
       <style jsx>
         {`
-          span {
-            display: inline;
-            
-          }
-          
           a {
-            text-decoration: underline;
             color: #fe3e68;
+            cursor: pointer;
           }
 
-          .about-page{
-            
+          a:hover {
+            text-decoration: underline;
           }
 
           .about-title {
@@ -45,14 +40,48 @@ export default () => (
             padding-top: 15px;
           }
 
+          .about-logo-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 15px;
+          }
+
+          .about-logo-container .logo-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            height: 130px;
+            width: 215px;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+            margin: 15px;
+          }
+
+          .dl-logo {
+            max-height: 78px;
+          }
+
+          .der-logo {
+            max-height: 75px;
+          }
+
         `}
       </style>
       <div className='about-content'>
-        <h3 className='about-title'>Sobre el sitio</h3>
+        <h2 className='about-title'>Sobre el sitio</h2>
         <p>
           La plataforma "Hecha la Ley" es un desarrollo coordinado conjuntamente
-          por <Link href='/about'><a>Directorio Legislativo</a></Link> y <Link href='/about'><a>Democracia en Red</a></Link>.
+          por <Link href='http://directoriolegislativo.org/'><a>Directorio Legislativo</a></Link> y <Link href='https://democraciaenred.org/'><a>Democracia en Red</a></Link>.
         </p>
+      </div>
+      <div className='about-logo-container'>
+        <div className='logo-box'>
+          <img src='/static/logo-DER.svg' alt='Democracia en Red - Logo' className='der-logo' />
+        </div>
+        <div className='logo-box'>
+          <img src='/static/logo-dl4americas.svg' alt='Directorio Legislativo - Logo' className='dl-logo' />
+        </div>
       </div>
     </div>
   </Layout>
