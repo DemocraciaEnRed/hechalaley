@@ -7,7 +7,7 @@ export default () => (
       <style jsx>
         {`
           .how-work-page{
-            margin-top: 100px;
+            margin: 100px 0;
           }
 
           .how-header {

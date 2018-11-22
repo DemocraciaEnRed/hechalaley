@@ -13,6 +13,7 @@ export default () => (
           :global(.cover-page) {
             position: relative;
             padding: 60px 10% 0;
+            overflow: hidden;
           }
           p {
             max-width: 580px;
@@ -34,6 +35,7 @@ export default () => (
           }
           .cover_img{
             position: absolute;
+            z-index: 2000;
             width: 806.5px;
             height: 1118.8px;
             top: -200px;

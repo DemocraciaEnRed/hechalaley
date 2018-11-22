@@ -4,6 +4,7 @@ import Cover from '../components/home/cover'
 import BillCard from '../components/home/bill-card'
 import BillCardsList from '../components/home/bill-cards-list'
 import HowWorks from '../components/home/how-work'
+import Proposal from '../components/home/proposal'
 
 const Page = ({ bills }) => (
   <Layout>
@@ -12,6 +13,7 @@ const Page = ({ bills }) => (
       {bills.map((bill) => <BillCard key={bill.id} {...bill} />)}
     </BillCardsList>
     <HowWorks />
+    <Proposal />
   </Layout>
 )
 
