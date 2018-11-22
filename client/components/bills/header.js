@@ -145,7 +145,7 @@ const Header = ({ stage }) => {
             attrs={[
               { title: 'Fecha', value: printDate(stage.stageDate) },
               { title: 'Estado', value: stage.currentCondition || '-' },
-              { title: 'Tratado por', value: 'Recinto de la Cámara Revisora' },
+              { title: 'Tratado por', value: stage.summary },
               { title: 'Próximos Pasos', value: stage.nextCondition || '-' }
             ]}
           />
