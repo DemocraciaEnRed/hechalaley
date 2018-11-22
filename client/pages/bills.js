@@ -6,7 +6,7 @@ export default class Page extends PureComponent {
   static async getInitialProps ({ req, query: { id } }) {
     if (req) return req.locals
 
-    const res = await fetch(`/api/bills/${id}?populate.coSigners=1&published=true`)
+    const res = await fetch(`/api/bills/${id}?populate.coSigners=1&populate.stagesAuthors=1&published=true`)
     const bill = await res.json()
 
     return { bill }
