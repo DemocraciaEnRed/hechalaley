@@ -41,10 +41,10 @@ export default () => (
           .cover_img{
             position: absolute;
             z-index: 2000;
-            width: 806.5px;
-            height: 1118.8px;
-            top: -200px;
-            right: -300px;
+            width: 700px;
+            height: auto;
+            top: 20px;
+            right: 0px;
           }
           .onboard_img {
             width: 400px;
@@ -83,7 +83,7 @@ export default () => (
         <img src='/static/onboard_icons.svg' alt='Hecha la Ley - On Board Steps' className='onboard_img' />
         <Button title='Ver proyectos de ley' />
       </div>
-      <img src='/static/congreso_forms.png' srcSet='/static/congreso_forms.png 2x' alt='Hecha la Ley Congreso' className='cover_img' />
+      <img src='/static/congress_main.png' srcSet='/static/congress_main@2x.png 2x' alt='Hecha la Ley Congreso' className='cover_img' />
     </div>
   </Layout>
 )
