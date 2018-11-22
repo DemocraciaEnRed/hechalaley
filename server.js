@@ -18,18 +18,18 @@ app.use(helmet())
 // the CSP module sets the Content-Security-Policy header which can help
 // protect against malicious injection of JavaScript, CSS, plugins, and more.
 // https://helmetjs.github.io/docs/csp/
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'none'"],
-    scriptSrc: [...config.cspDomains, "'unsafe-inline'", "'unsafe-eval'"],
-    styleSrc: [...config.cspDomains, "'unsafe-inline'"],
-    connectSrc: [...config.cspDomains],
-    imgSrc: [...config.cspDomains],
-    fontSrc: [...config.cspDomains],
-    upgradeInsecureRequests: config.protocol === 'https'
-  },
-  loose: false
-}))
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'none'"],
+//     scriptSrc: [...config.cspDomains, "'unsafe-inline'", "'unsafe-eval'"],
+//     styleSrc: [...config.cspDomains, "'unsafe-inline'"],
+//     connectSrc: [...config.cspDomains],
+//     imgSrc: [...config.cspDomains],
+//     fontSrc: [...config.cspDomains],
+//     upgradeInsecureRequests: config.protocol === 'https'
+//   },
+//   loose: false
+// }))
 
 // The Referrer Policy module can control the behavior of the Referer header
 // by setting the Referrer-Policy header.
