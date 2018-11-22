@@ -21,7 +21,10 @@ app.get(
 
     dbApi.bills.findById(id, {
       published: true,
-      populate: 'coSigners'
+      populate: {
+        coSigners: true,
+        stagesAuthors: true
+      }
     }).then((result) => {
       const bill = result.toJSON()
 
@@ -30,7 +33,7 @@ app.get(
       if (bill.stages && bill.stages.length > 0) {
         const stageId = bill.stages[0].id
 
-        req.locals.selected = [stageId]
+        req.locals.selectedStagesIds = [stageId]
 
         return dbApi.stages.getTextHtml(stageId).then((text) => {
           req.locals.text = text

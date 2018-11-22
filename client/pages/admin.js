@@ -1,32 +1,13 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-
-const Loader = () => (
-  <div className='loader'>
-    <style global jsx>
-      {`
-        body {
-          background-color: #edecec;
-        }
-      `}
-    </style>
-    <style jsx>
-      {`
-        .loader {
-          height: 64px;
-          background-color: #404659;
-        }
-      `}
-    </style>
-  </div>
-)
+import withConfig from '../helpers/with-config'
 
 const Admin = dynamic(import('../admin'), {
   ssr: false,
-  loading: Loader
+  loading: () => null
 })
 
-export default () => (
+const Page = ({ config }) => (
   <div>
     <Head>
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -38,9 +19,12 @@ export default () => (
         body {
           padding: 0;
           margin: 0;
+          background-color: #fafafa;
         }
       `}
     </style>
-    <Admin />
+    <Admin apiUrl={config.apiUrl} />
   </div>
 )
+
+export default withConfig(Page)

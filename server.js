@@ -21,11 +21,11 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'none'"],
-    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-    styleSrc: ["'self'", "'unsafe-inline'"],
-    connectSrc: ["'self'"],
-    imgSrc: ["'self' data:"],
-    fontSrc: ["'self'"],
+    scriptSrc: [...config.cspDomains, "'unsafe-inline'", "'unsafe-eval'"],
+    styleSrc: [...config.cspDomains, "'unsafe-inline'"],
+    connectSrc: [...config.cspDomains],
+    imgSrc: [...config.cspDomains],
+    fontSrc: [...config.cspDomains],
     upgradeInsecureRequests: config.protocol === 'https'
   },
   loose: false

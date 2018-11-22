@@ -1,58 +1,36 @@
-const diff = require('rich-text-diff')
+const { diffLines } = require('diff')
 const marked = require('marked')
-const myers = require('myers-diff').default
 const stringSimilarity = require('string-similarity')
 
-const text = {}
+const fixMdBlock = (str) =>
+  str.replace(/<(ins|del)>((?:#+|\*|\+|[0-9]+\.|>)\s*)/g, '$2<$1>')
 
-const wordDiff = (a, b) => diff(a, b)
-  .replace(/<(ins|del)>(\s+)/g, '$2<$1>')
-  .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
-
-const wrapTag = (tag, str) => `<${tag}>${str}</${tag}>`
-  .replace(/<(ins|del)>(#+\s*)/g, '$2<$1>')
-
-const wrapInsTag = wrapTag.bind(null, 'ins')
-const wrapDelTag = wrapTag.bind(null, 'del')
-
-const areSimilar = (a, b) => stringSimilarity.compareTwoStrings(a, b) >= 0.5
-
-text.markdownToHtml = async (str = '') => marked(str)
-
-text.diffs = function diffs (from = '', to = '') {
-  const diffs = myers.diff(from, to)
-  const lines = to.split('\n')
-
-  diffs.forEach((item) => {
-    for (let i = item.lhs.at; i < item.lhs.at + item.lhs.del; ++i) {
-      const value = item.lhs.ctx.getLine(i)
-
-      if (!value) continue
-
-      if (lines[i]) {
-        if (areSimilar(value, lines[i])) {
-          lines[i] = wordDiff(value, lines[i])
-        } else {
-          lines[i] = `${wrapDelTag(value)}\n${lines[i]}`
-        }
-      } else {
-        lines[i] = wrapDelTag(value)
-      }
-    }
-
-    for (let i = item.rhs.at; i < item.rhs.at + item.rhs.add; ++i) {
-      const value = item.rhs.ctx.getLine(i)
-
-      if (value && lines[i] === value) {
-        lines[i] = wrapInsTag(value)
-      }
-    }
-  })
-
-  return Promise.resolve(lines.join('\n'))
+const wrapTag = (tag, str) => {
+  if (!str) return str
+  return fixMdBlock(`<${tag}>${str}</${tag}>`)
 }
 
-text.diffsInHtml = (from, to) =>
-  text.diffs(from, to).then(text.markdownToHtml)
+exports.areSimilar = (a, b) => stringSimilarity.compareTwoStrings(a, b) >= 0.5
 
-module.exports = text
+exports.markdownToHtml = async (str = '') => marked(str)
+
+exports.diffs = (from = '', to = '') => {
+  const changes = diffLines(from, to, {
+    ignoreWhitespace: true,
+    newlineIsToken: false
+  })
+
+  const result = changes.map(({ added, removed, value }) => {
+    if (added || removed) {
+      const tag = added ? 'ins' : 'del'
+      return value.split('\n').map((str) => wrapTag(tag, str)).join('\n')
+    }
+
+    return value
+  })
+
+  return Promise.resolve(result.join('\n'))
+}
+
+exports.diffsInHtml = (from, to) =>
+  exports.diffs(from, to).then(exports.markdownToHtml)

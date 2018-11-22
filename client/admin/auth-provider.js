@@ -6,10 +6,12 @@ import {
   AUTH_CHECK
 } from 'react-admin'
 
+const wait = (ms = 0) => new Promise((resolve) => setTimeout(() => resolve(), ms))
+
 export const doLogin = async ({ email }) => {
   const res = await fetch('/api/auth/login', {
     method: 'POST',
-    credentials: 'same-origin',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email })
   })
@@ -28,9 +30,10 @@ export const doLogin = async ({ email }) => {
     const link = document.createElement('a')
     link.href = data.notificationCatcherUrl
     link.click()
+    await wait(3000)
   }
 
-  return res.json()
+  return data
 }
 
 const reducers = {
@@ -45,14 +48,9 @@ const reducers = {
       err.status = status
       throw err
     }
-
-    const err = new Error('Hubo un error de autenticación.')
-    err.status = status
-
-    throw err
   },
 
-  [AUTH_CHECK]: () =>
+  [AUTH_CHECK]: async () =>
     !!document.cookie && document.cookie.includes('sessionTokenExists=')
 }
 

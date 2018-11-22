@@ -7,7 +7,7 @@ populate.stages = {
   path: 'stages',
   select: '-text',
   match: { trashed: false, published: true },
-  options: { sort: { stageDate: -1 } }
+  options: { sort: { stageDate: 1 } }
 }
 
 exports.list = (query = {}) => Bill
@@ -23,9 +23,19 @@ exports.findById = (id, options) => {
   if (opts.populate.coSigners) query.populate('coSigners')
   if (opts.where) query.where(opts.where)
 
+  const population = { ...populate.stages }
+
+  if (opts.populate.stagesAuthors) {
+    population.populate = {
+      path: 'authors',
+      select: 'firstName lastName fullname jurisdiction party',
+      populate: { path: 'jurisdiction' }
+    }
+  }
+
   return query
     .where({ trashed: false })
-    .populate(populate.stages)
+    .populate(population)
     .exec()
 }
 

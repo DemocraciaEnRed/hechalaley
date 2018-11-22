@@ -12,6 +12,8 @@ const pickAttrs = pick([
   'summary',
   'published',
   'identification',
+  'currentCondition',
+  'nextCondition',
   'authors',
   'stageDate',
   'text'

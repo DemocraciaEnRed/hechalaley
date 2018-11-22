@@ -49,7 +49,9 @@ export default {
         published: 'Pública',
         title: 'Título',
         summary: 'Descripción',
-        identification: 'Identificación Oficial',
+        identification: 'Número Expediente',
+        currentCondition: 'Estado Actual',
+        nextCondition: 'Próximos Pasos',
         stageDate: 'Fecha',
         authors: 'Co-firmantes',
         text: 'Contenido'
