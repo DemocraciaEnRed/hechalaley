@@ -1,4 +1,6 @@
-const Button = ({ title, typeOfButton }) => (
+import Link from 'next/link'
+
+const Button = ({ title, typeOfButton, buttonHref }) => (
   <div>
     <style jsx>
       {`
@@ -33,7 +35,7 @@ const Button = ({ title, typeOfButton }) => (
       `}
     </style>
     {/* Use typeOfButton to make custom styles */}
-    <button className={typeOfButton || 'primary'}>{title}</button>
+    <Link href={buttonHref} title='Bill list'><button className={typeOfButton || 'primary'}>{title}</button></Link>
   </div>
 )
 

@@ -81,7 +81,7 @@ export default () => (
           Examiná el trabajo legislativo de una manera clara y sencilla.
         </p>
         <img src='/static/onboard_icons.svg' alt='Hecha la Ley - On Board Steps' className='onboard_img' />
-        <Button title='Ver proyectos de ley' />
+        <Button buttonHref='/#bill-list' title='Ver proyectos de ley' />
       </div>
       <img src='/static/congress_main.png' srcSet='/static/congress_main@2x.png 2x' alt='Hecha la Ley Congreso' className='cover_img' />
     </div>
