@@ -21,7 +21,10 @@ app.get(
 
     dbApi.bills.findById(id, {
       published: true,
-      populate: 'coSigners'
+      populate: {
+        coSigners: true,
+        stagesAuthors: true
+      }
     }).then((result) => {
       const bill = result.toJSON()
 

@@ -23,9 +23,19 @@ exports.findById = (id, options) => {
   if (opts.populate.coSigners) query.populate('coSigners')
   if (opts.where) query.where(opts.where)
 
+  const population = { ...populate.stages }
+
+  if (opts.populate.stagesAuthors) {
+    population.populate = {
+      path: 'authors',
+      select: 'firstName lastName fullname jurisdiction party',
+      populate: { path: 'jurisdiction' }
+    }
+  }
+
   return query
     .where({ trashed: false })
-    .populate(populate.stages)
+    .populate(population)
     .exec()
 }
 

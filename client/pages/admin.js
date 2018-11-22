@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import withConfig from '../helpers/with-config'
 
 const Admin = dynamic(import('../admin'), {
   ssr: false,
   loading: () => null
 })
 
-export default () => (
+const Page = ({ config }) => (
   <div>
     <Head>
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -22,6 +23,8 @@ export default () => (
         }
       `}
     </style>
-    <Admin />
+    <Admin apiUrl={config.apiUrl} />
   </div>
 )
+
+export default withConfig(Page)

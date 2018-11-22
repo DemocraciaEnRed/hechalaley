@@ -64,16 +64,19 @@ module.exports = class MemoryCache {
   }
 
   wrap (getCacheKey, fn) {
-    return async (...args) => {
-      const key = getCacheKey(...args)
+    // temporarily (?) disable cache
+    // it should be implemented using redis
+    return fn
+    // return async (...args) => {
+    //   const key = getCacheKey(...args)
 
-      if (await this.has(key)) return this.get(key)
+    //   if (await this.has(key)) return this.get(key)
 
-      const value = await fn(...args)
+    //   const value = await fn(...args)
 
-      await this.set(key, value)
+    //   await this.set(key, value)
 
-      return value
-    }
+    //   return value
+    // }
   }
 }

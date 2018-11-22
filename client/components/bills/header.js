@@ -1,33 +1,124 @@
 import { Tab, Tabs, TabList, TabPanel, resetIdCounter } from 'react-tabs'
+import printDate from '../../helpers/print-date'
 
-const Header = () => {
+const Attributes = ({ attrs = [] }) => (
+  <div className='attributes'>
+    <style jsx>
+      {`
+        .attributes {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+        .attr {
+          padding: 5px 30px;
+          text-align: left;
+        }
+
+        .attr-title {
+          display: block;
+          color: #2b3245;
+          font-size: 16px;
+        }
+
+        .attr-value {
+          display: block;
+          color: #2b3245;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      `}
+    </style>
+    {attrs.map(({ title, value }) => (
+      <div className='attr' key={`${title}-${value}`}>
+        <span className='attr-title'>{title}</span>
+        <span className='attr-value'>{value}</span>
+      </div>
+    ))}
+  </div>
+)
+
+const Authors = ({ authors }) => (
+  <div className='authors'>
+    <style jsx>
+      {`
+        .authors {
+          text-align: left;
+          max-height: 75px;
+          overflow-y: scroll;
+        }
+
+        .authors table {
+          width: 100%;
+        }
+
+        .authors th {
+          color: #2b3245;
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        .authors :global(tbody tr:nth-child(odd)) {
+          background-color: #eef1f6;
+        }
+      `}
+    </style>
+    <table>
+      <thead>
+        <tr>
+          <th>Firmante</th>
+          <th>Distrito</th>
+          <th>Bloque</th>
+        </tr>
+      </thead>
+      <tbody>
+        {authors.map(({ id, fullname, party, jurisdiction }) => (
+          <tr key={id}>
+            <td>{fullname}</td>
+            <td>{jurisdiction.name}</td>
+            <td>{party}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)
+
+const Header = ({ stage }) => {
   resetIdCounter()
+
+  console.log(stage)
 
   return (
     <div className='header'>
       <style jsx>
         {`
-          .header {
-            height: 150px;
+          .header :global(.bill-tablist) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-bottom: 26px;
+            border-bottom: 1px solid #e0e0e0;
           }
-          
+
           .header :global(.bill-tab) {
-            display: inline-block;
-            padding: 0 50px;
+            padding: 0 5px;
             color: #9196a4;
+            font-size: 18px;
+            list-style: none;
+            cursor: pointer;
           }
 
           .header :global(.active) {
             color: #fe3e68;
-          }
-
-          .header :global(.bill-tablist) {
-            padding-bottom: 32px;
-            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
           }
 
           .header :global(.submenu) {
-            max-width: 700px;
+            max-width: 880px;
             margin: 0 auto;
           }
         `}
@@ -36,30 +127,34 @@ const Header = () => {
         <TabList className='bill-tablist'>
           <Tab className='bill-tab'>Información General</Tab>
           <Tab className='bill-tab'>Descripción</Tab>
-          <Tab className='bill-tab'>Votantes</Tab>
+          {stage.authors && stage.authors.length > 0 && (
+            <Tab className='bill-tab'>Firmantes</Tab>
+          )}
         </TabList>
         <TabPanel>
-          <p>
-            Ex pariatur et in ut aut veniam. Quia autem praesentium laboriosam quo
-            quis. Non adipisci non enim distinctio nihil dolores assumenda
-            consectetur.
-          </p>
+          <Attributes
+            attrs={[
+              { title: 'Fecha', value: printDate(stage.stageDate) },
+              { title: 'Estado', value: stage.currentCondition || '-' },
+              { title: 'Tratado por', value: 'Recinto de la Cámara Revisora' },
+              { title: 'Próximos Pasos', value: stage.nextCondition || '-' }
+            ]}
+          />
         </TabPanel>
         <TabPanel>
-          <p>
-            Vero aut animi at est rerum libero consequatur. Accusantium eius est
-            similique et consequuntur animi quos eos.
-          </p>
+          <Attributes
+            attrs={[
+              { title: 'Tipo', value: 'Proyecto de Ley' },
+              { title: 'Nº Expediente', value: stage.identification },
+              { title: 'Origen', value: 'Diputados' }
+            ]}
+          />
         </TabPanel>
-        <TabPanel>
-          <p>
-          Fugiat quae atque qui officiis. Non temporibus est dolores delectus
-          blanditiis est hic. Qui doloribus sint rem optio unde. Quibusdam omnis
-          harum itaque ab possimus minus quo fugiat. Delectus sint autem ipsa non
-          dignissimos eos qui. Est odio sed doloremque expedita nulla officia
-          dolores et.
-          </p>
-        </TabPanel>
+        {stage.authors && stage.authors.length > 0 && (
+          <TabPanel>
+            <Authors authors={stage.authors} />
+          </TabPanel>
+        )}
       </Tabs>
     </div>
   )

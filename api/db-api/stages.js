@@ -76,6 +76,6 @@ exports.getDiffHtml = cache.wrap(
       const from = getById(stages, fromStage)
       const to = getById(stages, toStage)
 
-      return text.diffsInHtml(to.text, from.text)
+      return text.diffsInHtml(from.text, to.text)
     })
 )

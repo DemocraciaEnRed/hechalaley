@@ -11,7 +11,7 @@ const wait = (ms = 0) => new Promise((resolve) => setTimeout(() => resolve(), ms
 export const doLogin = async ({ email }) => {
   const res = await fetch('/api/auth/login', {
     method: 'POST',
-    credentials: 'same-origin',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email })
   })
