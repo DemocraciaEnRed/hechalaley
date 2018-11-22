@@ -96,9 +96,16 @@ const Header = ({ stage }) => {
         {`
           h2 {
             color: #fe3e68;
+            margin: 10px 0 0;
+            font-size: 24px;
+            font-weight: 600;
+          }
+
+          h3 {
+            color: #2b3245;
             padding: 9px 0;
             margin: 0 0 23px;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
           }
 
@@ -131,7 +138,10 @@ const Header = ({ stage }) => {
           }
         `}
       </style>
-      <h2>{stage.title} - {stage.summary}</h2>
+      <h2>{stage.title}</h2>
+      {stage.summary && (
+        <h3>Tratado por: {stage.summary}</h3>
+      )}
       <Tabs selectedTabClassName='active' className='submenu'>
         <TabList className='bill-tablist'>
           <Tab className='bill-tab'>Información General</Tab>
