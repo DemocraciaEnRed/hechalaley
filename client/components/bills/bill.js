@@ -78,14 +78,6 @@ const Bill = ({
             font-weight: 700;
             hyphens: auto;
           }
-
-          h2 {
-            color: #fe3e68;
-            padding: 9px 0;
-            margin: 0 0 23px;
-            font-size: 24px;
-            font-weight: 600;
-          }
         `}
       </style>
       <div className='sidebar'>
@@ -101,14 +93,13 @@ const Bill = ({
       <main className='content'>
         <div className='fixed-content bill-header'>
           <h1>{bill.title}</h1>
-          {!comparing && <h2>{currentStages[0].title}</h2>}
           {comparing
             ? <StagesHeaders stages={currentStages} />
             : <Header stage={currentStages[0]} />}
         </div>
         <div className={comparing ? 'fluid-content' : 'fixed-content'}>
           <div className='bill-text-card'>
-            {comparing && <BillTextCompare text={text} diff={comparing} />}
+            {comparing && <BillTextCompare text={text} diff={currentStages.length > 1} />}
             {!comparing && (
               <div className='bill-text-no_compare_container'>
                 <BillText text={text} />

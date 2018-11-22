@@ -19,13 +19,13 @@ const Attributes = ({ attrs = [] }) => (
         .attr-title {
           display: block;
           color: #2b3245;
-          font-size: 18px;
+          font-size: 16px;
         }
 
         .attr-value {
           display: block;
           color: #2b3245;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 600;
         }
       `}
@@ -94,6 +94,14 @@ const Header = ({ stage }) => {
     <div className='header'>
       <style jsx>
         {`
+          h2 {
+            color: #fe3e68;
+            padding: 9px 0;
+            margin: 0 0 23px;
+            font-size: 24px;
+            font-weight: 600;
+          }
+
           .header :global(.bill-tablist) {
             display: flex;
             flex-direction: row;
@@ -123,6 +131,7 @@ const Header = ({ stage }) => {
           }
         `}
       </style>
+      <h2>{stage.title}</h2>
       <Tabs selectedTabClassName='active' className='submenu'>
         <TabList className='bill-tablist'>
           <Tab className='bill-tab'>Información General</Tab>

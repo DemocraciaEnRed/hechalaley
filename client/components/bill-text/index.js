@@ -16,12 +16,14 @@ export const BillTextCompare = ({ text, diff = null }) => (
         .select-stage {
           text-align: center;
           background-color: #fbfbfb;
-          margin: 90px 15px 30px 0;
+          padding: 15px;
+          border: 30px solid white;
         }
 
         p {
           padding-top: 100px;
           color: #fe3e68;
+          font-size: 22px;
         }
       `}
     </style>
