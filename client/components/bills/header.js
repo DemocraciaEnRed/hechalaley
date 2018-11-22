@@ -76,8 +76,8 @@ const Authors = ({ authors }) => (
         {authors.map(({ id, fullname, party, jurisdiction }) => (
           <tr key={id}>
             <td>{fullname}</td>
-            <td>{jurisdiction.name}</td>
-            <td>{party}</td>
+            <td>{jurisdiction ? jurisdiction.name : '-'}</td>
+            <td>{party || '-'}</td>
           </tr>
         ))}
       </tbody>
