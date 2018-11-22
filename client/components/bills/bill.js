@@ -78,6 +78,14 @@ const Bill = ({
             font-weight: 700;
             hyphens: auto;
           }
+
+          h3 {
+            color: #fe3e68;
+            padding: 9px 0;
+            margin: 0 0 23px;
+            font-size: 24px;
+            font-weight: 600;
+          }
         `}
       </style>
       <div className='sidebar'>
@@ -93,6 +101,9 @@ const Bill = ({
       <main className='content'>
         <div className='fixed-content bill-header'>
           <h1>{bill.title}</h1>
+          {comparing && (
+            <h3>Comparación de cambios</h3>
+          )}
           {comparing
             ? <StagesHeaders stages={currentStages} />
             : <Header stage={currentStages[0]} />}
