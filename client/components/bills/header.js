@@ -19,13 +19,13 @@ const Attributes = ({ attrs = [] }) => (
         .attr-title {
           display: block;
           color: #2b3245;
-          font-size: 16px;
+          font-size: 18px;
         }
 
         .attr-value {
           display: block;
           color: #2b3245;
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 600;
         }
       `}
@@ -88,7 +88,7 @@ const Authors = ({ authors }) => (
 const Header = ({ stage }) => {
   resetIdCounter()
 
-  console.log(stage)
+  const hasAuthors = !!stage.authors && stage.authors.length > 0
 
   return (
     <div className='header'>
@@ -99,7 +99,7 @@ const Header = ({ stage }) => {
             flex-direction: row;
             justify-content: space-around;
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(${hasAuthors ? '3' : '2'}, 1fr);
             padding-bottom: 26px;
             border-bottom: 1px solid #e0e0e0;
           }
@@ -127,7 +127,7 @@ const Header = ({ stage }) => {
         <TabList className='bill-tablist'>
           <Tab className='bill-tab'>Información General</Tab>
           <Tab className='bill-tab'>Descripción</Tab>
-          {stage.authors && stage.authors.length > 0 && (
+          {hasAuthors && (
             <Tab className='bill-tab'>Firmantes</Tab>
           )}
         </TabList>
@@ -150,7 +150,7 @@ const Header = ({ stage }) => {
             ]}
           />
         </TabPanel>
-        {stage.authors && stage.authors.length > 0 && (
+        {hasAuthors && (
           <TabPanel>
             <Authors authors={stage.authors} />
           </TabPanel>
