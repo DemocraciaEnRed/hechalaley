@@ -3,7 +3,7 @@ const marked = require('marked')
 const stringSimilarity = require('string-similarity')
 
 const fixMdBlock = (str) =>
-  str.replace(/<(ins|del)>((?:#+|\*|\+|[0-9]+\.)\s*)/g, '$2<$1>')
+  str.replace(/<(ins|del)>((?:#+|\*|\+|[0-9]+\.|>)\s*)/g, '$2<$1>')
 
 const wrapTag = (tag, str) => {
   if (!str) return str
