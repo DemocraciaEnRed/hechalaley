@@ -15,10 +15,6 @@ export default ({
           border-right: 1px solid #e0e0e0;
         }
 
-        .bills-text-container {
-          padding: 60px 30px 0;
-        }
-
         .bills-text {
           padding: 30px;
         }

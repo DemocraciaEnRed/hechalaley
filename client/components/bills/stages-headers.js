@@ -7,8 +7,19 @@ export default ({ stages }) => (
         .stages-headers {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-gap: 0 15px;
+          grid-gap: 0 30px;
+          position: relative;
           padding-top: 25px;
+        }
+
+        .stages-headers::after {
+          content: ' ';
+          position: absolute;
+          left: 50%;
+          top: 20%;
+          width: 1px;
+          height: 80%;
+          background-color: #e0e0e0;
         }
 
         .no-stage-selected {

@@ -21,19 +21,33 @@ const Sidebar = ({
           padding: 48px 20px 20px;
           width: 100%;
         }
+
         p {
           color: #fefefe;
           font-size: 16px;
           text-align: center;
           margin-bottom: 45px;
         }
-        .line{
+
+        .sidebar :global(.compare-button) {
+          margin-bottom: 40px;
+        }
+
+        .line {
           display: block;
           background-color: #707070;
           opacity: 0.5;
           height: 2px;
           width: 90%;
-          margin: 80px auto 20px;
+          margin: 20px auto;
+        }
+
+        .select-stages {
+          font-size: 14px;
+          font-weight: 600;
+          color: #fefefe;
+          text-align: center;
+          padding: 0 15px;
         }
       `}
     </style>
@@ -47,9 +61,12 @@ const Sidebar = ({
       </a>
     </Link>
     <p>{billTitle}</p>
-    <Button active={comparing} onClick={onToggleComparing}>
+    <Button className='compare-button' active={comparing} onClick={onToggleComparing}>
       Comparar cambios
     </Button>
+    {comparing && (
+      <p className='select-stages'>Seleccioná las 2 etapas para comparar</p>
+    )}
     <span className='line' />
     {stages && stages.map((stage) => (
       <SidebarStage

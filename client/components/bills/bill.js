@@ -55,21 +55,21 @@ const Bill = ({
           .bill-header {
             background: #fff;
             text-align: center;
-            padding: 50px 0;
+            padding: 50px 30px;
             margin: 30px auto 10px;
             border-radius: 10px;
             max-width: 1380px;
           }
 
           .bill-text-card {
-            background-color: #fff;
+            padding: 60px 30px;
             border-radius: 10px;
+            background-color: #fff;
           }
 
           .bill-text-no_compare_container {
-            max-width: 100%;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 140px;
           }
 
           h1 {
