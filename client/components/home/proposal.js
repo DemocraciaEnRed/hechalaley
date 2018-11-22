@@ -17,13 +17,10 @@ export default () => (
             color: #fe3e68;
           }
 
-          .proposal-page{
-            margin-bottom: 100px;
-          }
-
           .proposal-title {
             text-align: center;
             color: #fe3e68;
+            padding-bottom: 15px;
           }
 
           .proposal-title::after {
