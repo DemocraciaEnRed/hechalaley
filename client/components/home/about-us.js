@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import Link from 'next/link'
 import Layout from '../layout'
+import Anchor from '../anchor'
 
 export default () => (
   <Layout className='cover-page'>
+    <Anchor id='about-us' />
     <div className='about-us-page' id='about-us-page'>
       <style jsx>
         {`

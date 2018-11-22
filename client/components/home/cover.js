@@ -1,12 +1,14 @@
-import Router from 'next/router'
+import Link from 'next/link'
 import Button from './button'
 import Logo from './logo'
 import Layout from '../layout'
 import Menu from '../menu'
 import MenuLink from '../menu-link'
+import Anchor from '../anchor'
 
 export default () => (
   <Layout className='cover-page'>
+    <Anchor id='home' />
     <div>
       <style jsx>
         {`
@@ -14,6 +16,9 @@ export default () => (
             position: relative;
             padding: 60px 10% 0;
             overflow: hidden;
+          }
+          a {
+            background-color: red;
           }
           p {
             max-width: 580px;
@@ -45,24 +50,24 @@ export default () => (
             width: 400px;
             height: auto;
           }
-          @keyframes imageMovement {
-            0% {
-              top: -200px;
-              right: -300px;
-            }
-            100% {
-              top: -250px;
-              right: -250px;
-            }
-          }
         `}
       </style>
       <Menu>
-        <MenuLink onClick={() => Router.push('/')}>Inicio</MenuLink>
-        <MenuLink onClick={() => Router.push('/proyects')}>Proyectos</MenuLink>
-        <MenuLink onClick={() => Router.push('#how-work-page')}>¿Cómo funciona?</MenuLink>
-        <MenuLink onClick={() => Router.push('/proposal')}>Nuestra propuesta</MenuLink>
-        <MenuLink onClick={() => Router.push('/about')}>Sobre nosotros</MenuLink>
+        <Link href='/#home' title='Home'>
+          <MenuLink>Inicio</MenuLink>
+        </Link>
+        <Link href='/#bill-list' title='Bill list'>
+          <MenuLink>Proyectos</MenuLink>
+        </Link>
+        <Link href='/#how-works' title='How it Works'>
+          <MenuLink>¿Cómo funciona?</MenuLink>
+        </Link>
+        <Link href='/#proposal' title='Our proposal'>
+          <MenuLink>Nuestra propuesta</MenuLink>
+        </Link>
+        <Link href='/#about-us' title='Our proposal'>
+          <MenuLink>Sobre nosotros</MenuLink>
+        </Link>
       </Menu>
       <div>
         <Logo />

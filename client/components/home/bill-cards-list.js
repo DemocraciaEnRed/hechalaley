@@ -1,7 +1,9 @@
 import classNames from '@sindresorhus/class-names'
+import Anchor from '../anchor'
 
 const BillCardsList = ({ className, title, children }) => (
   <div className={classNames('cards-list', className)}>
+    <Anchor id='bill-list' />
     <style jsx>
       {`
         .cards-list {
