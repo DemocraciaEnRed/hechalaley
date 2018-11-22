@@ -28,8 +28,14 @@ app.get(
   (req, res, next) => {
     const opts = { where: {}, populate: {} }
 
-    if (req.query.populate === '[\'coSigners\']') {
-      opts.populate = 'coSigners'
+    console.log(req.query)
+
+    if (req.query['populate.coSigners']) {
+      opts.populate = { coSigners: true }
+    }
+
+    if (req.query['populate.stagesAuthors']) {
+      opts.populate = { stagesAuthors: true }
     }
 
     if (req.query.hasOwnProperty('published')) opts.where.published = true
