@@ -28,8 +28,6 @@ app.get(
   (req, res, next) => {
     const opts = { where: {}, populate: {} }
 
-    console.log(req.query)
-
     if (req.query['populate.coSigners']) {
       opts.populate = { coSigners: true }
     }
