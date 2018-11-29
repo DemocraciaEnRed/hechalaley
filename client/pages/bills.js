@@ -1,8 +1,9 @@
 import { PureComponent } from 'react'
 import fetch from 'isomorphic-fetch'
 import Bill from '../components/bills/bill'
+import withAnalytics from '../helpers/with-analytics'
 
-export default class Page extends PureComponent {
+class Page extends PureComponent {
   static async getInitialProps ({ req, query: { id } }) {
     if (req) return req.locals
 
@@ -104,3 +105,5 @@ export default class Page extends PureComponent {
     )
   }
 }
+
+export default withAnalytics(Page)

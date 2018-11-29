@@ -15,7 +15,8 @@
   "enableHMR": true,
   "cspDomains": ["'self'"],
   "clientConfig": {
-    "apiUrl": "/api"
+    "apiUrl": "/api",
+    "analyticsId": ""
   },
   "notifier": {
     "useNotificationCatcher": true,

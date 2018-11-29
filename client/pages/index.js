@@ -7,6 +7,7 @@ import HowWorks from '../components/home/how-work'
 import Proposal from '../components/home/proposal'
 import About from '../components/home/about'
 import AboutUs from '../components/home/about-us'
+import withAnalytics from '../helpers/with-analytics'
 
 const Page = ({ bills }) => (
   <Layout>
@@ -30,4 +31,4 @@ Page.getInitialProps = async ({ req }) => {
   return { bills }
 }
 
-export default Page
+export default withAnalytics(Page)
