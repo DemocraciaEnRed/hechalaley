@@ -3,7 +3,6 @@ const express = require('express')
 const helmet = require('helmet')
 const config = require('dos-config')
 const createUrl = require('./api/helpers/create-url')
-const logger = require('./api/logger')
 
 const app = express()
 
@@ -41,7 +40,8 @@ app.use(helmet.referrerPolicy({
 
 // Enforce configured domain
 app.use((req, res, next) => {
-  let uri = req.path
+  const original = req.path
+  let uri = original
 
   // Trailing slash removal logic
   if (uri.length > 1) {
@@ -59,9 +59,9 @@ app.use((req, res, next) => {
 
   if (
     // Normalize uri
-    req.url !== uri
+    original !== uri
     // Enforce SSL
-    || req.protocol !== config.protocol
+    || (config.enforceProtocol && req.protocol !== config.protocol)
     // Enforce configured domain
     || req.hostname !== config.host
   ) {

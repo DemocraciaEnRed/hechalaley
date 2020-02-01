@@ -3,6 +3,7 @@
   "nodeEnv": "development",
   "mongodbUri": "mongodb://localhost:27017/hechalaley",
   "protocol": "http",
+  "enforceProtocol": true,
   "host": "localhost",
   "port": 3000,
   "publicPort": 3000,
