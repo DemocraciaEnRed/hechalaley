@@ -35,7 +35,14 @@ const Button = ({ title, typeOfButton, buttonHref }) => (
       `}
     </style>
     {/* Use typeOfButton to make custom styles */}
-    <Link href={buttonHref} title='Bill list'><button className={typeOfButton || 'primary'}>{title}</button></Link>
+    <Link href={buttonHref}>
+      <button
+        className={typeOfButton || 'primary'}
+        title={title}
+      >
+        {title}
+      </button>
+    </Link>
   </div>
 )
 

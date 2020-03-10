@@ -53,20 +53,20 @@ export default () => (
         `}
       </style>
       <Menu>
-        <Link href='/#home' title='Home'>
-          <MenuLink>Inicio</MenuLink>
+        <Link href='/#home'>
+          <MenuLink title='Home'>Inicio</MenuLink>
         </Link>
-        <Link href='/#bill-list' title='Bill list'>
-          <MenuLink>Proyectos</MenuLink>
+        <Link href='/#bill-list'>
+          <MenuLink title='Bill list'>Proyectos</MenuLink>
         </Link>
-        <Link href='/#how-works' title='How it Works'>
-          <MenuLink>¿Cómo funciona?</MenuLink>
+        <Link href='/#how-works'>
+          <MenuLink title='How it Works'>¿Cómo funciona?</MenuLink>
         </Link>
-        <Link href='/#proposal' title='Our proposal'>
-          <MenuLink>Nuestra propuesta</MenuLink>
+        <Link href='/#proposal'>
+          <MenuLink title='Our proposal'>Nuestra propuesta</MenuLink>
         </Link>
-        <Link href='/#about-us' title='Our proposal'>
-          <MenuLink>Sobre nosotros</MenuLink>
+        <Link href='/#about-us'>
+          <MenuLink title='Our proposal'>Sobre nosotros</MenuLink>
         </Link>
       </Menu>
       <div>
@@ -80,10 +80,19 @@ export default () => (
         <p>
           Examiná el trabajo legislativo de una manera clara y sencilla.
         </p>
-        <img src='/static/onboard_icons.svg' alt='Hecha la Ley - On Board Steps' className='onboard_img' />
+        <img
+          src='/static/onboard_icons.svg'
+          alt='Hecha la Ley - On Board Steps'
+          className='onboard_img'
+        />
         <Button buttonHref='/#bill-list' title='Ver proyectos de ley' />
       </div>
-      <img src='/static/congress_main.png' srcSet='/static/congress_main@2x.png 2x' alt='Hecha la Ley Congreso' className='cover_img' />
+      <img
+        src='/static/congress_main.png'
+        srcSet='/static/congress_main@2x.png 2x'
+        alt='Hecha la Ley Congreso'
+        className='cover_img'
+      />
     </div>
   </Layout>
 )

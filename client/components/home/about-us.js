@@ -46,7 +46,7 @@ export default () => (
           .about-us-subtitle + p {
             margin-bottom: 15px;
           }
-          
+
           .about-us-content {
             display: grid;
             grid-template-columns: 50% 50%;
@@ -76,7 +76,9 @@ export default () => (
         </div>
         <div className='about-us-content-column'>
           <h3 className='about-us-subtitle'>Legal</h3>
-          <Link><a>Términos y condiciones</a></Link>
+          <Link href='/#terminos-y-condiciones'>
+            <a>Términos y condiciones</a>
+          </Link>
         </div>
       </div>
     </div>
