@@ -13,8 +13,6 @@ export default (Page) => {
     const props = await overriden(ctx)
     const config = getConfig(ctx)
 
-    console.log(config)
-
     if (!ctx.req && config.analyticsId) {
       if (inited === false) {
         ReactGA.initialize(config.analyticsId)

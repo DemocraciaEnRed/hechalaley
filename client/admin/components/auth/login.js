@@ -70,7 +70,6 @@ class LoginPage extends Component {
       await doLogin({ email })
       this.setState({ isLoading: false, success: true })
     } catch (err) {
-      console.log(err)
       if (err.status === 403) {
         this.setState({
           isLoading: false,
