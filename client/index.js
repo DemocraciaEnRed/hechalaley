@@ -31,15 +31,15 @@ app.ready = () => client.prepare()
 app.use(requestLogger({ without: '/_next/' }))
 
 app.get('*', (req, res, next) => {
-  if (config.enforceAdmin && req.url.startsWith('/admin')) {
+  if (config.enforceAdmin && req.path.startsWith('/admin')) {
     return res.redirect(config.enforceAdmin)
   }
 
   if (
     config.enforceClient &&
-    !req.url.startsWith('/admin') &&
-    !req.url.startsWith('/_next') &&
-    !req.url.startsWith('/static')
+    !req.path.startsWith('/admin') &&
+    !req.path.startsWith('/_next') &&
+    !req.path.startsWith('/static')
   ) {
     return res.redirect(config.enforceClient)
   }
