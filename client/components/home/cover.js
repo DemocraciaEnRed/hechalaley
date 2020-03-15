@@ -43,12 +43,26 @@ export default () => (
             z-index: 2000;
             width: 700px;
             height: auto;
-            top: 20px;
+            top: 50px;
             right: 0px;
           }
           .onboard_img {
             width: 400px;
             height: auto;
+          }
+          .cover-content {
+            padding-bottom: 60px;
+          }
+
+          @media screen  and (max-width: 480px) {
+            .cover_img {
+              display: none;
+            }
+
+            p {
+              font-size: 18px;
+              padding: 20px 0 30px;
+            }
           }
         `}
       </style>
@@ -69,7 +83,7 @@ export default () => (
           <MenuLink title='Our proposal'>Sobre nosotros</MenuLink>
         </Link>
       </Menu>
-      <div>
+      <div className='cover-content'>
         <Logo />
         {/* TODO: Fix line position
         to fit design

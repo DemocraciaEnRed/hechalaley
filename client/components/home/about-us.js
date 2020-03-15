@@ -18,7 +18,7 @@ export default () => (
             text-decoration: underline;
           }
 
-          .about-us-page{
+          .about-us-page {
             padding: 200px 0;
             max-width: 1000px;
             margin: 0 auto;
@@ -60,6 +60,25 @@ export default () => (
 
           .about-us-info {
             padding: 3px 0;
+          }
+
+          @media screen and (max-width: 480px) {
+            .about-us-page {
+              padding: 20px 0;
+            }
+
+            .about-us-content {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .about-us-title {
+              margin-bottom: 20px;
+            }
+
+            .about-us-content-column:last-of-type {
+              margin-top: 20px;
+            }
           }
         `}
       </style>

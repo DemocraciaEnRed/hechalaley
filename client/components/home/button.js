@@ -32,6 +32,12 @@ const Button = ({ title, typeOfButton, buttonHref }) => (
         .secondary:hover {
           cursor: pointer;
         }
+
+        @media screen  and (max-width: 480px) {
+          button {
+            margin: 30px auto 0;
+          }
+        }
       `}
     </style>
     {/* Use typeOfButton to make custom styles */}

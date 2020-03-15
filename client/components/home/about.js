@@ -66,6 +66,12 @@ export default () => (
             max-height: 75px;
           }
 
+          @media screen  and (max-width: 480px) {
+            .about-content {
+              padding-top: 20px;
+            }
+          }
+
         `}
       </style>
       <div className='about-content'>

@@ -5,6 +5,12 @@ const Menu = ({ children }) => (
         .menu {
           padding-bottom: 200px;
         }
+
+        @media screen  and (max-width: 480px) {
+          .menu {
+            padding-bottom: 60px;
+          }
+        }
       `}
     </style>
     { children }
