@@ -40,7 +40,7 @@
     "lodash.throttle": "4.1.1",
     "marked": "0.5.2",
     "moment": "2.22.2",
-    "mongoose": "5.3.14",
+    "mongoose": "5.7.5",
     "ms": "2.1.1",
     "next": "7.0.2",
     "notifme-sdk": "1.8.0",
