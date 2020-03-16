@@ -37,7 +37,8 @@ export default () => (
           .proposal-content {
             padding-top: 80px;
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 49% 49%;
+            grid-column-gap: 25px;
           }
 
           .proposal-content-items {
@@ -59,22 +60,31 @@ export default () => (
           }
 
           .proposal-img {
-            max-width: 570px;
+            width: 100%;
             margin: 0 auto;
             height: auto;
+          }
+
+          @media screen  and (max-width: 480px) {
+            .proposal-content {
+              padding-top: 20px;
+              display: flex;
+              flex-direction: column-reverse;
+            }
+
+            .proposal-content img {
+              margin-top: 20px;
+            }
           }
 
         `}
       </style>
       <div className='proposal-content'>
-        <p>
-          <img src='/static/proposal-congress.jpg' alt='Hecha la Ley - Propuesta' className='proposal-img' />
-        </p>
+        <img src='/static/proposal-congress.jpg' alt='Hecha la Ley - Propuesta' className='proposal-img' />
         <div className='proposal-content-items'>
           <h2 className='proposal-title'>Nuestra propuesta</h2>
           <p>
-            Hecha la Ley busca <span className='ins-color'>transparentar</span> el trabajo en el Congreso Nacional y
-            <span className='ins-color'>exponer cómo se mueven y cambian los proyectos</span> de ley en el proceso lgislativo.
+            Hecha la Ley busca <span className='ins-color'>transparentar</span> el trabajo en el Congreso Nacional y <span className='ins-color'>exponer cómo se mueven y cambian los proyectos</span> de ley en el proceso lgislativo.
           </p>
           <p>
             Hasta su aprobación definitiva un proyecto de ley atraviesa debates, negociaciones y revisiones.

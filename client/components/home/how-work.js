@@ -69,6 +69,30 @@ export default () => (
             background-color: #fe3e68;
           }
 
+          @media screen  and (max-width: 480px) {
+            .how-work-page{
+              margin: 0;
+            }
+
+            .how-content {
+              padding-top: 20px;
+            }
+
+            .how-content,
+            .how-content-items {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .how-content-items div {
+              margin-bottom: 20px;
+            }
+
+            span {
+              display: none;
+            }
+          }
+
         `}
       </style>
       <div className='how-header'>

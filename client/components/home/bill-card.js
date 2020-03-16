@@ -20,7 +20,6 @@ const BillCard = ({
             z-index: 0;
             position: relative;
             margin: 15px;
-            width: 350px;
             box-shadow:
               0 1px 3px rgba(0, 0, 0, .12),
               0 1px 2px rgba(0, 0, 0, .24);
@@ -100,6 +99,11 @@ const BillCard = ({
             color: #2b3245;
             font-size: 16px;
             padding: 10px 0;
+          }
+          @media screen  and (max-width: 480px) {
+            .bill-card {
+              margin: 15px 0;
+            }
           }
         `}
       </style>

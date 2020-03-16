@@ -21,6 +21,12 @@ const MenuLink = ({ children, onClick, title }) => (
         p:first-child {
           padding-left: 0;
         }
+
+        @media screen and (max-width: 480px) {
+          p {
+            padding: 10px 0;
+          }
+        }
       `}
     </style>
     {children}
