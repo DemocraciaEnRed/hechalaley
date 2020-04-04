@@ -41,9 +41,10 @@ export default () => (
           .cover_img{
             position: absolute;
             z-index: 2000;
-            width: 700px;
+            max-width: 700px;
+            width: 50%;
             height: auto;
-            top: 50px;
+            top: 7%;
             right: 0px;
           }
           .onboard_img {
@@ -53,7 +54,18 @@ export default () => (
           .cover-content {
             padding-bottom: 60px;
           }
-
+          @media screen  and (max-width: 1000px) {
+            .cover_img {
+              width: 45%;
+              top: 10%;
+            }
+          }
+          @media screen  and (max-width: 580px) {
+            .cover_img {
+              width: 43%;
+              top: 11%;
+            }
+          }
           @media screen  and (max-width: 480px) {
             .cover_img {
               display: none;
