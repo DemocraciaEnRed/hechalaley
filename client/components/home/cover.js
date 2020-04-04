@@ -40,7 +40,7 @@ export default () => (
           }
           .cover_img{
             position: absolute;
-            z-index: 2000;
+            z-index: -1;
             max-width: 700px;
             width: 50%;
             height: auto;
@@ -92,7 +92,7 @@ export default () => (
           <MenuLink title='Our proposal'>Nuestra propuesta</MenuLink>
         </Link>
         <Link href='/#about-us'>
-          <MenuLink title='Our proposal'>Sobre nosotros</MenuLink>
+          <MenuLink title='About us'>Sobre nosotros</MenuLink>
         </Link>
       </Menu>
       <div className='cover-content'>
