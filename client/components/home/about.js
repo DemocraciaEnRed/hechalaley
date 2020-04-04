@@ -31,7 +31,7 @@ export default () => (
           
           .about-content {
             text-align: center;
-            padding-top: 80px;
+            padding-top: 50px;
             max-width: 550px;
             margin: 0 auto;
           }
