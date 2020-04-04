@@ -19,7 +19,7 @@ export default () => (
           }
 
           .about-us-page {
-            padding: 200px 0;
+            padding: 50px 0;
             max-width: 1000px;
             margin: 0 auto;
           }

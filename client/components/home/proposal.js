@@ -35,7 +35,7 @@ export default () => (
           }
           
           .proposal-content {
-            padding-top: 80px;
+            padding-top: 50px;
             display: grid;
             grid-template-columns: 49% 49%;
             grid-column-gap: 25px;
