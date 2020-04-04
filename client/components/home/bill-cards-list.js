@@ -59,7 +59,7 @@ const BillCardsList = ({ className, title, children }) => (
       `}
     </style>
     <h2 className='card-list__title'>Proyectos publicados</h2>
-    <p className='card-list__subtitle'>{title}</p>
+    {/* <p className='card-list__subtitle'>{title}</p> */}
     <div className='cards-list__childrens'>
       {children}
     </div>
