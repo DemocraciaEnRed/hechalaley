@@ -97,7 +97,7 @@ const BillCard = ({
             text-align: center;
             background-color: #e0e0e0;
             color: #2b3245;
-            font-size: 16px;
+            font-size: 14px;
             padding: 10px 0;
           }
           @media screen  and (max-width: 480px) {
