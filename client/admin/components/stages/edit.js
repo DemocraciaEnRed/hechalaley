@@ -32,6 +32,7 @@ export default (props) => (
           reference='bills'
           validation={{ required: true }}
           allowEmpty
+          width={'400px'}
         >
           <SearchableSelectInput optionText='title' />
         </ReferenceInput>
