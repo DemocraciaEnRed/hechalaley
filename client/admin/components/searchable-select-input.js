@@ -34,6 +34,7 @@ class SearchableSelectInput extends Component {
       resource,
       source,
       options,
+      width = '256px',
       input: {
         value,
         onFocus
@@ -46,8 +47,10 @@ class SearchableSelectInput extends Component {
         source={source}
         resource={resource}
         disabled={false}
+        style={{
+          width: width
+        }}
       >
-        <div>
           <Select
             value={value}
             options={choices}
@@ -59,7 +62,6 @@ class SearchableSelectInput extends Component {
             autoBlur
             {...options}
           />
-        </div>
       </Labeled>
     )
   }
