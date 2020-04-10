@@ -23,8 +23,14 @@ const Actions = ({ basePath, data, resource }) => (
   </CardActions>
 )
 
+const ListTitle = ({ record }) => (
+  <div>
+    <span>{record ? `${record.title}` : ''}</span>
+  </div>
+)
+
 export default (props) => (
-  <Edit undoable={false} actions={<Actions />} {...props}>
+  <Edit title={<ListTitle />} undoable={false} actions={<Actions />} {...props}>
     <TabbedForm redirect={false}>
       <FormTab label='hechalaley.stageAttributes'>
         <ReferenceInput
