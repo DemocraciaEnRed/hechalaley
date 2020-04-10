@@ -2,12 +2,22 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  ReferenceInput
+  ReferenceInput,
+  translate
 } from 'react-admin'
 import SearchableSelectInput from '../searchable-select-input'
 
+const ListTitle = translate(({ translate, resource, record }) => {
+  const title = translate(`resources.${resource}.name`, { smart_count: 1 })
+  return (
+    <div>
+      <span>{title}: {record ? `${record.fullname}` : ''}</span>
+    </div>
+  )
+})
+
 export default (props) => (
-  <Edit undoable={false} actions={null} {...props}>
+  <Edit title={<ListTitle resource='politicians' />} undoable={false} actions={null} {...props}>
     <SimpleForm redirect='list'>
       <TextInput source='firstName' validation={{ required: true }} />
       <TextInput source='lastName' validation={{ required: true }} />
