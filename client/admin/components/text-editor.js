@@ -33,22 +33,22 @@ class TextEditor extends Component {
 
     return (
       <div>
-        <Tabs value={tab} onChange={this.handleTabChange}>
+       {/*  <Tabs value={tab} onChange={this.handleTabChange}>
           <Tab label='Texto' />
           <Tab label='Markdown' />
-        </Tabs>
-        {tab === 0 && (
+        </Tabs> */}
+        { /* {tab === 0 && (
           <BillTextEditor
             defaultValue={this.state.value}
             onChange={this.handleChange}
           />
-        )}
-        {tab === 1 && (
+        )} */}
+        {/* {tab === 1 && ( */}
           <MarkdowEditor
             value={this.state.value}
             onChange={this.handleMarkdownChange}
           />
-        )}
+        {/* )} */}
       </div>
     )
   }
