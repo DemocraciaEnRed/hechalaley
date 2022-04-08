@@ -39,7 +39,7 @@
     "lodash": "4.17.11",
     "lodash.throttle": "4.1.1",
     "marked": "0.5.2",
-    "moment": "2.22.2",
+    "moment": "2.29.2",
     "mongoose": "5.3.14",
     "ms": "2.1.1",
     "next": "7.0.2",
